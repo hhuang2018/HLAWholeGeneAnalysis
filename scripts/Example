@@ -1,48 +1,51 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Jul 20 11:26:49 2017
-
-@author: Hu Huang (hwangtiger@gmail.com)
-"""
 """Functions:
       1. Parse HML sequences
       2. Match the correct HLA typing GL strings
       3. Sequence alignment to IMGT/HLA reference sequences
       4. Annoatate - Extract Exon/Intron.
 """
-from os import walk, environ
+#from os import walk, environ
+from Bio import SeqIO, AlignIO
 # from subprocess import Popen, PIPE, STDOUT
 # from os.path import join, abspath, dirname, split
 # from glob import glob
 # from qiime.util import get_qiime_scripts_dir
-# import re
+#import re  # regular expression
 
 __author__ = "Hu Huang"
-__copyright__ = "Copyright 2017"
+__copyright__ = "Copyright 2017, Hu Huang"
 __credits__ = ["Add names"]
 __license__ = "GPL"
 __version__ = "dev"
 __maintainer__ = "Hu Huang"
 __email__ = "hwangtiger@gmail.com"
 
-# import os
 
-IMGT_db_fp = "IMGTHLA/"
+IMGT_db_fp = "../IMGTHLA/" 
 
-IMGT_aligned_seqs = open(print(IMGT_db_fp + "/alignments/A_gen.txt"), "r")
+with open(IMGT_db_fp+"/fasta/A_gen.fasta") as input_handle:
+    for record in SeqIO.parse(input_handle, "fasta"):
+        print(record.id)
+ 
+IMGT_aligned_seqs = open(IMGT_db_fp + "/alignments/A_gen.txt", "r")
 print IMGT_aligned_seqs.readlines(5)
 
+##
+aligned_seqs = AlignIO.parse(IMGT_db_fp + "/alignments/A_gen.txt", "clustal")
+for seqs in aligned_seqs:
+    print(len(seqs))
+    print("")
+##    
 
-from Bio import SeqIO
-counter = 0
-for seq_record in SeqIO.parse("../Fasta_from_HML/1.0.1a_NGS1-1_HML_Haploid_Merged.fasta", "fasta"):
-    print(seq_record.id)
-    print(repr(seq_record.seq))
-    print(len(seq_record))
-    counter = counter +1
-print(counter)
-    
+filename = IMGT_db_fp + "/alignments/A_gen.txt"
+
+
+
+
+
+
 my_seq = SeqIO.parse("../Fasta_from_HML/1.0.1a_NGS1-1_HML_Haploid_Merged.fasta", "fasta")
 
 seqs = SeqIO.read("../Fasta_from_HML/1.0.1a_NGS1-1_HML_Haploid_Merged.fasta", "fasta")
