@@ -124,19 +124,19 @@ def parseExonSequences(seq_db, dbType = "CDS"):
                     Exon_db[k].update(v)
     return(Exon_db)
 
-def IMBTdb_2_dict(HLA_gene = "A", input_fp = "../IMGTHLA/"):
+def IMBTdb_2_dict(HLA_locus = "A", input_fp = "../IMGTHLA/"):
     """
     Convert IMGT database into dictionary structure.
     """
     # genomic alignment file
-    filename = input_fp + "/alignments/" + HLA_gene + "_gen.txt" 
+    filename = input_fp + "/alignments/" + HLA_locus + "_gen.txt" 
     if path.exists(filename):
         gDNA_alignment = read_IMGT_alignment(filename, 'gDNA')
 #    else:
 #        gDNA_alignment = {}
     
     # CDS alignemtn file
-    filename = input_fp + "/alignments/" + HLA_gene + "_nuc.txt"
+    filename = input_fp + "/alignments/" + HLA_locus + "_nuc.txt"
     if path.exists(filename):    
         CDS_alignment = read_IMGT_alignment(filename, 'cDNA', 3, 4)
 #    else:
@@ -145,7 +145,7 @@ def IMBTdb_2_dict(HLA_gene = "A", input_fp = "../IMGTHLA/"):
         ExonSequences = parseExonSequences(CDS_alignment)
     
     # protein alignment file
-    filename = input_fp + "/alignments/" + HLA_gene + "_prot.txt"
+    filename = input_fp + "/alignments/" + HLA_locus + "_prot.txt"
     if path.exists(filename): 
         protein_alignment = read_IMGT_alignment(filename, 'Prot', 2, 3)
 #    else:

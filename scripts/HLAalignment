@@ -8,6 +8,9 @@ from os import path
 from collections import defaultdict
 import re
 import pickle # import csv
+
+# import sys
+# sys.path.append('/Users/hhuang2 (Deleted)/Documents/NGSProject/2017NGS/HLA_Sequence_Analysis/Python/')
 from utils import IMGTtools, IMGTdbIO
 
 __author__ = "Hu Huang"
@@ -44,3 +47,12 @@ def find_IMGT_alignment(filename, HLAtyping, header_line = 8):
         aligned_typing_seq = re.sub("\.", "-", aligned_seq)
     
     return(aligned_typing_seq)
+
+def save_load_IMGTdb(HLA_locus = "A", fp='../data/'):
+    """
+    """
+    fname = 'HLA_' + HLA_locus + '_IMGTdb'
+    if path.exists(fp+fname): # if exist, load the data
+        IMGTdbIO.load_IMGTdb(fname, fp)
+    else:    # if not, then save the data
+        IMGTdbIO.IMBTdb_2_dict(HLA_gene = "A", input_fp = "../IMGTHLA/")
