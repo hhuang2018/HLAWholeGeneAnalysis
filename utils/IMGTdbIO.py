@@ -1,14 +1,19 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """Functions:
-      1. Read IMGT/HLA aligned sequences
-
+      1. Read IMGT/HLA aligned sequences file
+      2. Parse Exon/Intron sequences from the IMGT database
+      3. Convert the IMGT database into the Dictionary sturcutre
+      4. Save the IMGT Dictionary into a Pickle file
+      5. Load a IMGT pickle file into a Dictionary structure
+      6. 
 """
 from os import path
 from collections import defaultdict
 import re
-import csv
+import pickle # import csv
 import IMGTtools
+
 
 __author__ = "Hu Huang"
 __copyright__ = "Copyright 2017, Hu Huang"
@@ -18,32 +23,6 @@ __version__ = "0.1-dev"
 __maintainer__ = "Hu Huang"
 __email__ = "hwangtiger@gmail.com"
 
-def find_IMGT_alignment(filename, HLAtyping, header_line = 8):
-    """
-    Find the aligned
-    """
-    # Read alignment file
-    alignment_list = read_IMGT_alignment(filename, header_line)
-    
-    HLAtyping_pattern = re.compile(re.escape(HLAtyping))  ## pattern - find HLA typing
-    
-    #######  read alignement line
-    aligned_seq = "" 
-    for lines in alignment_list:
-        if HLAtyping in HLAtyping_pattern.findall(lines): ## find the exact matching
-            aligned_seq += re.sub(" ", "", re.sub(re.escape(HLAtyping), "", lines.rstrip()))
-            break
-        
-    ## check if the HLA typing has the exact matching alignment
-    if aligned_seq == "": ### if the HLA typing is not found in the list
-        ##### find the
-        aligned_typing_seq = re.sub("\.", "-", aligned_seq)  
-        
-    else:
-        
-        aligned_typing_seq = re.sub("\.", "-", aligned_seq)
-    
-    return(aligned_typing_seq)
 
 def read_IMGT_alignment(filename, seqType = 'gDNA', headOffset = 2, tailOffset = 4):
     """
@@ -66,17 +45,17 @@ def read_IMGT_alignment(filename, seqType = 'gDNA', headOffset = 2, tailOffset =
     total_seq_num = seqLineIndex[1] - seqLineIndex[0] - tailOffset
     #ref_Aligned_seqs = []
     # Reference typing
-    ref_HLAtyping = removeWhiteSpace(alignment_lines[seqLineIndex[0]])[0] # re.sub(" ","", alignment_lines[seqLineIndex[0]].rstrip().split("  ")[0])
+    ref_HLAtyping = IMGTtools.removeWhiteSpace(alignment_lines[seqLineIndex[0]])[0] # re.sub(" ","", alignment_lines[seqLineIndex[0]].rstrip().split("  ")[0])
     counter = 0
     for LineIndex in range(len(seqLineIndex)):
         
         # Reference sequence
-        ref_Aligned_seqs = removeWhiteSpace(alignment_lines[seqLineIndex[LineIndex]])[1]# re.sub(" ", "", alignment_lines[seqLineIndex[LineIndex]].rstrip().split("  ")[2])
+        ref_Aligned_seqs = IMGTtools.removeWhiteSpace(alignment_lines[seqLineIndex[LineIndex]])[1]# re.sub(" ", "", alignment_lines[seqLineIndex[LineIndex]].rstrip().split("  ")[2])
         
         type_index = 0
         while type_index < total_seq_num:
             
-            HLAtyping, Aligned_seq_temp = removeWhiteSpace(alignment_lines[seqLineIndex[LineIndex] + type_index])#[0] # re.sub(" ","", alignment_lines[seqLineIndex[LineIndex] + type_index].rstrip().split("  ")[0])
+            HLAtyping, Aligned_seq_temp = IMGTtools.removeWhiteSpace(alignment_lines[seqLineIndex[LineIndex] + type_index])#[0] # re.sub(" ","", alignment_lines[seqLineIndex[LineIndex] + type_index].rstrip().split("  ")[0])
             #try:
             #    Aligned_seq_temp = removeWhiteSpace(alignment_lines[seqLineIndex[LineIndex] + type_index])[1] # re.sub(" ", "", removeAllpattern(temp_seq, "")[])
             #except IndexError:
@@ -84,7 +63,7 @@ def read_IMGT_alignment(filename, seqType = 'gDNA', headOffset = 2, tailOffset =
                     
             # convert aligned "-" into corresponding nucleotide
             if HLAtyping != ref_HLAtyping and len(Aligned_seq_temp)>0:
-                mat_index = findCharacter(Aligned_seq_temp, '-') # [ind for ind, x in enumerate(list(Aligned_seq_temp)) if x == '-']
+                mat_index = IMGTtools.findCharacter(Aligned_seq_temp, '-') # [ind for ind, x in enumerate(list(Aligned_seq_temp)) if x == '-']
                 Aligned_seqs = list(Aligned_seq_temp)
                 for x in mat_index: 
                     Aligned_seqs[x] = list(ref_Aligned_seqs)[x]
@@ -93,7 +72,7 @@ def read_IMGT_alignment(filename, seqType = 'gDNA', headOffset = 2, tailOffset =
                 Aligned_seqs = Aligned_seq_temp
                 
             # convert "." into gap symbol "-"
-            gap_index = findCharacter(Aligned_seqs, '.') # [ind for ind, x in enumerate(list(Aligned_seq_temp)) if x == '-']
+            gap_index = IMGTtools.findCharacter(Aligned_seqs, '.') # [ind for ind, x in enumerate(list(Aligned_seq_temp)) if x == '-']
             if len(gap_index)>0:
                 Aligned_seqs_temp = list(Aligned_seqs)
                 for x in gap_index: 
@@ -116,41 +95,6 @@ def read_IMGT_alignment(filename, seqType = 'gDNA', headOffset = 2, tailOffset =
         
     return(IMGT_db)
 
-def findCharacter(stringList, patternCharacter):
-    """
-    Find the specific character from the list and return their indices
-    """
-    return([ind for ind, x in enumerate(list(stringList)) if x == patternCharacter])
-
-def removeAllpattern(stringList, patternCharacter):
-    """
-    Remove the specific character from the list and return
-    """
-    return([x for x in stringList if x != patternCharacter])
-
-def removeWhiteSpace(stringList):
-    """
-    Remove the white space from the IMGT record
-    """
-    single_record = stringList.rstrip().split("  ")
-    single_record_list = removeAllpattern(single_record, "")
-    num_elem = len(single_record_list)
-    lineRecord = []
-    lineRecord.append(re.sub(" ","", single_record_list[0])) ## HLA typing
-    if num_elem > 2:
-        temp_record = []
-        for ind in range(1, num_elem):
-            temp_record += re.sub(" ","", single_record_list[ind])
-        lineRecord.append(temp_record) ## sequence record
-    else:
-        try: 
-            lineRecord.append(re.sub(" ", "", single_record_list[1]))
-        except IndexError:
-            lineRecord.append('') # if the sequence doesn't exist in this region
-        
-    return(lineRecord)
-
-
 def parseExonSequences(seq_db, dbType = "CDS"):
     """
     Parse exon sequences from CDS or genomic sequences 
@@ -162,7 +106,7 @@ def parseExonSequences(seq_db, dbType = "CDS"):
     if dbType == "CDS":
         Exon_db = defaultdict(dict)
         for Typings, Seqs in seq_db.iteritems():
-            boundaryIndex = findCharacter(Seqs["cDNA"], "|")
+            boundaryIndex = IMGTtools.findCharacter(Seqs["cDNA"], "|")
             numExons = len(boundaryIndex) + 1
             boundaryIndex.append(0)
             boundaryIndex.append(len(Seqs["cDNA"]))
@@ -180,7 +124,7 @@ def parseExonSequences(seq_db, dbType = "CDS"):
                     Exon_db[k].update(v)
     return(Exon_db)
 
-def IMBTdb_2_dict(HLA_gene = "A", input_fp = "../IMGTHLA/", outfile):
+def IMBTdb_2_dict(HLA_gene = "A", input_fp = "../IMGTHLA/"):
     """
     Convert IMGT database into dictionary structure.
     """
@@ -216,3 +160,19 @@ def IMBTdb_2_dict(HLA_gene = "A", input_fp = "../IMGTHLA/", outfile):
             combined_dict[k].update(v)
             
     return(combined_dict)
+
+def write_IMGTdb(IMGTdb, fname = 'HLA_A_IMGTdb', out_fp = '../data/'):
+    """
+    Save the IMGT database into a pickle file
+    """
+    with open(out_fp + fname + '.pkl', 'wb') as fileHandle:
+        pickle.dump(IMGTdb, fileHandle, pickle.HIGHEST_PROTOCOL)
+
+def load_IMGTdb(fname = 'HLA_A_IMGTdb', out_fp = '../data/'):
+    """
+    Load the the IMGT database pickle file into a Dictionary structure
+    """
+    with open(out_fp + fname + '.pkl', 'rb') as fileHandle:
+        return pickle.load(fileHandle)
+    
+
