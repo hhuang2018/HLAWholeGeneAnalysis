@@ -4,14 +4,12 @@
 """Functions:
       1. 
 """
-from os import path
+from os import path, makedirs
 from collections import defaultdict
 import re
 import pickle # import csv
-
-# import sys
-# sys.path.append('/Users/hhuang2 (Deleted)/Documents/NGSProject/2017NGS/HLA_Sequence_Analysis/Python/')
 from utils import IMGTtools, IMGTdbIO
+from Bio import SeqIO
 
 __author__ = "Hu Huang"
 __copyright__ = "Copyright 2017, Hu Huang"
@@ -21,12 +19,21 @@ __version__ = "0.1-dev"
 __maintainer__ = "Hu Huang"
 __email__ = "hwangtiger@gmail.com"
 
+class HLAsequenceClass:
+    """
+    HLA sequence class that includes NMDP ID; Gene locus; gl-string; phase set; haploid;
+    unaligned sequences.
+    """
+    def __init__(self, file_path):
+        self = load_txt_seq_file(file_path) # Initiate a Dictionary structure for a file
+
+    
 def find_IMGT_alignment(filename, HLAtyping, header_line = 8):
     """
-    Find the aligned
+    Find the aligned sequence from the database file
     """
     # Read alignment file
-    alignment_list = read_IMGT_alignment(filename, header_line)
+    alignment_list = IMGTdbIO.read_IMGT_alignment(filename, header_line)
     
     HLAtyping_pattern = re.compile(re.escape(HLAtyping))  ## pattern - find HLA typing
     
@@ -48,11 +55,105 @@ def find_IMGT_alignment(filename, HLAtyping, header_line = 8):
     
     return(aligned_typing_seq)
 
-def save_load_IMGTdb(HLA_locus = "A", fp='../data/'):
+def find_IMGT_sequence(file_fp = "../IMGTHLA/fasta/", HLAtyping, locus):
+    """
+    Find the unaligned sequence from the database file
+    """
+    # Read fasta file
+    filename = file_fp + locus + "_gen.fasta"
+    seqs = list(SeqIO.parse(filename, "fasta"))
+    
+    HLAtyping = re.sub("HLA-", "", HLAtyping)
+    HLAtyping_pattern = re.compile(re.escape(HLAtyping))
+    index = 0
+    for seq in seqs:
+        if HLAtyping_pattern.search(seq.description):
+            break;
+        else: 
+            index += 1
+    return(seqs[index])        
+
+
+def save_load_IMGTdb(HLA_locus = "A", fp='data/', mode = "r"):
     """
     """
     fname = 'HLA_' + HLA_locus + '_IMGTdb'
-    if path.exists(fp+fname): # if exist, load the data
+    if mode == "r" and path.exists(fp+fname): # if exist, load the data
         IMGTdbIO.load_IMGTdb(fname, fp)
-    else:    # if not, then save the data
+    elif mode == "w":    # if not, then save the data
         IMGTdbIO.IMBTdb_2_dict(HLA_gene = "A", input_fp = "../IMGTHLA/")
+        
+
+def load_txt_seq_file(fp):
+    """
+    Read txt format sequence data from HML, and covert into Dictionary structure
+    Plus alignment
+    """
+ #   if path.exists(fp):
+    txt_lines = open(fp).readlines()
+    header = txt_lines[0].rstrip().split("\t")
+    seq_dict = []
+    for LineIndex in range(1, len(txt_lines)):
+        temp_line_content = txt_lines[LineIndex].rstrip().split("\t")
+        temp_dict = {}
+        for ind, Items in enumerate(header):
+            temp_dict[Items] = temp_line_content[ind]
+        seq_dict.append(temp_dict)
+    
+    # num_seqs = len(seq_dict)
+    new_seq_dict = {}
+    #### build original sequence dictionary
+    for items in seq_dict:  
+        #if len(new_seq_dict) == 0:  # first item in the dictionary
+        #    new_seq_dict[items.get('NMDP_DID/_RID')] = {items.get('Locus'): {'GLstring':[items.get('GL-string')], 
+        #                'Sequence':[items.get('Sequence')]}}
+            #new_seq_dict.append(new_item)
+            #counter += 1
+        if items.get('NMDP_DID/_RID') in list(new_seq_dict.keys()): # if existing ID, then append
+            if items.get('Locus') in list(new_seq_dict[items.get('NMDP_DID/_RID')].keys()): ## If the Locus is already exists, then append
+                new_seq_dict[items.get('NMDP_DID/_RID')][items.get('Locus')]['GLstring'].append(items.get('GL-string'))
+                new_seq_dict[items.get('NMDP_DID/_RID')][items.get('Locus')]['Sequence'].append(items.get('Sequence'))
+            else: # if not then add a new record
+                temp_locus = {items.get('Locus'): {'GLstring':[items.get('GL-string')], 'Sequence':[items.get('Sequence')]}}
+                new_seq_dict[items.get('NMDP_DID/_RID')][items.get('Locus')] = {'GLstring':[items.get('GL-string')], 'Sequence':[items.get('Sequence')]}
+        else: # if it's a new ID, then add a new record
+            '''new_item = {'NMDP_ID': items.get('NMDP_DID/_RID'),
+                        'Locus': {items.get('Locus'): {'GLstring':[items.get('GL-string')], 
+                        'Sequence':[items.get('Sequence')]}}}
+            new_seq_dict.append(new_item)
+            counter += 1'''
+            new_seq_dict[items.get('NMDP_DID/_RID')] = {items.get('Locus'): {'GLstring':[items.get('GL-string')], 
+                        'Sequence':[items.get('Sequence')]}}
+    
+    ### Correct phase set, and merge block
+    corrected_seq_table = {}
+    for individual in new_seq_dict:
+        for locus in list(individual.key()):
+            corrected_typing = correct_phase_typing(individual[locus]['GLstring'], individual[locus]['Sequence'])
+        
+    return(corrected_seq_table) 
+
+def align_sequence(query, reference):
+    ff
+
+def write_fasta(query, file_fp = "temp/"):
+    """ 
+    Temporary write the sequences into a fasta file
+    """
+    if not path.exists("temp/"):
+        makedirs(file_fp)
+    Typings = query
+    
+def correct_phase_typing(HLAtypings, query):
+    """"
+    Check phase set typings; if they are homozygous, then only align to the reference sequence;
+    else use IMGT/HLA database to align and get the correct typing
+    """"
+    HLAtypings = list(set(HLAtypings))
+    typing_list = sum([items.split("+") for items in HLAtypings], []) # reduce(lambda x, y: x + y, [items.split("+") for items in HLAtypings], []) 
+    
+    
+    
+    
+    
+    

@@ -12,7 +12,7 @@ from os import path
 from collections import defaultdict
 import re
 import pickle # import csv
-import IMGTtools
+import utils.IMGTtools
 
 
 __author__ = "Hu Huang"
