@@ -1,6 +1,5 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
-# -*- coding: utf-8 -*-
 """Functions:
       1. 
 """
@@ -9,7 +8,9 @@ from collections import defaultdict
 import re
 import pickle # import csv
 from utils import IMGTtools, IMGTdbIO
-from Bio import SeqIO
+from Bio import SeqIO, pairwise2, AlignIO
+from Bio.Align.Applications import MuscleCommandline
+from StringIO import StringIO
 
 __author__ = "Hu Huang"
 __copyright__ = "Copyright 2017, Hu Huang"
@@ -55,7 +56,7 @@ def find_IMGT_alignment(filename, HLAtyping, header_line = 8):
     
     return(aligned_typing_seq)
 
-def find_IMGT_sequence(file_fp = "../IMGTHLA/fasta/", HLAtyping, locus):
+def find_IMGT_sequence(file_fp, HLAtyping, locus):
     """
     Find the unaligned sequence from the database file
     """
@@ -89,6 +90,7 @@ def load_txt_seq_file(fp):
     Read txt format sequence data from HML, and covert into Dictionary structure
     Plus alignment
     """
+    fp = "data/test_data.txt"    # for test
  #   if path.exists(fp):
     txt_lines = open(fp).readlines()
     header = txt_lines[0].rstrip().split("\t")
@@ -113,28 +115,33 @@ def load_txt_seq_file(fp):
             if items.get('Locus') in list(new_seq_dict[items.get('NMDP_DID/_RID')].keys()): ## If the Locus is already exists, then append
                 new_seq_dict[items.get('NMDP_DID/_RID')][items.get('Locus')]['GLstring'].append(items.get('GL-string'))
                 new_seq_dict[items.get('NMDP_DID/_RID')][items.get('Locus')]['Sequence'].append(items.get('Sequence'))
+                new_seq_dict[items.get('NMDP_DID/_RID')][items.get('Locus')]['block'].append(items.get('Block'))
             else: # if not then add a new record
-                temp_locus = {items.get('Locus'): {'GLstring':[items.get('GL-string')], 'Sequence':[items.get('Sequence')]}}
-                new_seq_dict[items.get('NMDP_DID/_RID')][items.get('Locus')] = {'GLstring':[items.get('GL-string')], 'Sequence':[items.get('Sequence')]}
+                # temp_locus = {items.get('Locus'): {'GLstring':[items.get('GL-string')], 'Sequence':[items.get('Sequence')]}}
+                new_seq_dict[items.get('NMDP_DID/_RID')][items.get('Locus')] = {'GLstring':[items.get('GL-string')], 'block':[items.get('Block')], 'Sequence':[items.get('Sequence')]}
         else: # if it's a new ID, then add a new record
             '''new_item = {'NMDP_ID': items.get('NMDP_DID/_RID'),
                         'Locus': {items.get('Locus'): {'GLstring':[items.get('GL-string')], 
                         'Sequence':[items.get('Sequence')]}}}
             new_seq_dict.append(new_item)
             counter += 1'''
-            new_seq_dict[items.get('NMDP_DID/_RID')] = {items.get('Locus'): {'GLstring':[items.get('GL-string')], 
+            new_seq_dict[items.get('NMDP_DID/_RID')] = {items.get('Locus'): {'GLstring':[items.get('GL-string')], 'block':[items.get('Block')],
                         'Sequence':[items.get('Sequence')]}}
     
     ### Correct phase set, and merge block
     corrected_seq_table = {}
-    for individual in new_seq_dict:
-        for locus in list(individual.key()):
-            corrected_typing = correct_phase_typing(individual[locus]['GLstring'], individual[locus]['Sequence'])
+    for individual_ID, individual_seq in new_seq_dict.iteritems():
+        for locus in list(individual_seq.keys()):
+            #print(locus)
+            corrected_typing = correct_phase_typing(individual_seq[locus]['GLstring'], individual_seq[locus]['Sequence'], locus)
         
     return(corrected_seq_table) 
 
-def align_sequence(query, reference):
-    ff
+def align_sequence(query, reference, method = "Muscle"):
+    """
+    Algin the query to the reference sequences. Used to verify the typing and phase correction,
+    and exon/intron parsing
+    """
 
 def write_fasta(query, file_fp = "temp/"):
     """ 
@@ -144,7 +151,7 @@ def write_fasta(query, file_fp = "temp/"):
         makedirs(file_fp)
     Typings = query
     
-def correct_phase_typing(HLAtypings, query):
+def correct_phase_typing(HLAtypings, query, locus):
     """"
     Check phase set typings; if they are homozygous, then only align to the reference sequence;
     else use IMGT/HLA database to align and get the correct typing
@@ -152,8 +159,16 @@ def correct_phase_typing(HLAtypings, query):
     HLAtypings = list(set(HLAtypings))
     typing_list = sum([items.split("+") for items in HLAtypings], []) # reduce(lambda x, y: x + y, [items.split("+") for items in HLAtypings], []) 
     
+    reference = find_IMGT_sequence("../IMGTHLA/fasta/", typing_list[1], locus)
     
+    alignment1 = pairwise2.align.globalxx(query[1], reference.seq)
+    alignment2 = pairwise2.align.globalxx(query[0], reference.seq)
     
-    
-    
-    
+    print(pairwise2.format_alignment(*alignment1[1]))
+    muscle_program = 'tools/muscle -clw'
+    in_file = 'data/test_locus_A.fasta'
+    out_file = 'tests/aligned.clu'
+    file_format = "-clw"
+    muscle_cline = MuscleCommandline(cmd = muscle_program, input = in_file, out=out_file)
+    stdout, stderr = muscle_cline()
+    align = AlignIO.read(StringIO(stdout), "fasta")
