@@ -179,14 +179,16 @@ def load_IMGTdb(fname = 'HLA_A_IMGTdb', out_fp = '../data/'):
         return pickle.load(fileHandle)
 
 def extractValues(fieldName, keyName):
-    
+    """
+    Extract the 
+    """
     try: 
         filedValue = fieldName[keyName]
     except KeyError:
         filedValue = ""
     return(filedValue)
 
-## To do: buil IMGT sqlite3 database 
+## buil IMGT sqlite3 database 
 def buildIMGTsql(Locus, output_fp = "Database/"):
     """
     Build a Sqllite3 database for each locus: A, B, C, DRB1, DQB1, DPB1
@@ -240,7 +242,7 @@ def buildIMGTsql(Locus, output_fp = "Database/"):
             Exon6 = extractValues(Value, "Exon6")
             Exon7 = extractValues(Value, "Exon7")
             Exon8 = extractValues(Value, "Exon8")
-            Protein = extractValues(Value, "prot")
+            Protein = extractValues(Value, "Prot")
             #ExonIndex = extractValues(Value, "ExonIndex")
             record = (Typing, AlignedCDS, AlignedGenomSeq, Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7, Exon8, Protein)
             
@@ -252,4 +254,37 @@ def buildIMGTsql(Locus, output_fp = "Database/"):
     # We can also close the connection if we are done with it.
     # Just be sure any changes have been committed or they will be lost.
     conn.close()
+    
+def readIMGTsql(HLAtyping, db_fp = "Database/", field = '*', unaligned = True):
+    """
+    Load a Sqllite3 database [Loci: A, B, C, DRB1, DQB1, DPB1]
+    Include - HLA gl-string, 
+              genome sequence, CDS sequence, 
+              aligned genome sequence, aligned CDS sequence, 
+              protein sequence, algined protein sequence,
+              Exons and introns sequences (optional)
+    """ 
+    #HLAtyping = "A*01:01:01:02N"
+    filename = db_fp + "HLA_"+ HLAtyping.split("*")[0]+".db"
+    #field = 'Exon2, Exon3'
+    if path.exists(filename):
+        con = sqlite3.connect(filename)
+        cur = con.cursor()
+        t = (HLAtyping,)
+        cur.execute('SELECT ' + field + ' FROM Sequences WHERE HLATyping=?', t)
+        sequences_temp = cur.fetchone()
+        
+        if sequences_temp == None:
+            print("No record of " + HLAtyping + "\nPlease check the HLA typing.")
+        else:
+            if unaligned:
+                sequences = [re.sub("-", "", seq) for seq in sequences_temp]
+            else:
+                sequences = sequences_temp
+                        
+        cur.close()
+        return(sequences)
+    else:
+        print("No database is available. Please build an SQL database first. \n" +
+              "To build a new SQL database, use the following command:\n>>> buildIMGTsql(\""+ HLAtyping.split("*")[0] +"\")")
     

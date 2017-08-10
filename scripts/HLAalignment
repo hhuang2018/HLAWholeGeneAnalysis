@@ -9,6 +9,8 @@ import re
 import pickle # import csv
 from utils import IMGTtools, IMGTdbIO
 from Bio import SeqIO, pairwise2, AlignIO
+from Bio.Seq import Seq
+from Bio.Alphabet import generic_dna, generic_protein
 from Bio.Align.Applications import MuscleCommandline
 from StringIO import StringIO
 
@@ -134,7 +136,15 @@ def load_txt_seq_file(fp):
         for locus in list(individual_seq.keys()):
             #print(locus)
             corrected_typing = correct_phase_typing(individual_seq[locus]['GLstring'], individual_seq[locus]['Sequence'], locus)
-        
+           
+            if individual_ID in list(corrected_seq_table.keys()): # if existing ID, then append
+                corrected_seq_table[individual_ID][locus] = {'GLstring':corrected_typing, 'Sequence':individual_seq[locus]['Sequence']}
+            else: # if it's a new ID, then add a new record
+                corrected_seq_table[individual_ID] = {locus: {'GLstring':corrected_typing, 'Sequence':individual_seq[locus]['Sequence']}}
+
+    # ToDO: Build sequence database - by BMTcaseID, NMDP_ID; different locus have different table in one file
+    # ToDO: Build and search Class II gene database. (-DRB1, DPB1, DQB1)
+    # ToDO: 
     return(corrected_seq_table) 
 
 def align_sequence(query, reference, method = "Muscle"):
@@ -151,14 +161,76 @@ def write_fasta(query, file_fp = "temp/"):
         makedirs(file_fp)
     Typings = query
     
-def correct_phase_typing(HLAtypings, query, locus):
+    
+def rollupHLAtyping(HLAtyping, rmPrefix = True):
     """"
+    Roll up 4-field gl-string into two-field representative gl-string; remove "HLA-" prefix
+    """
+    if rmPrefix:
+        HLAtyping = re.sub("HLA-", "", HLAtyping)
+        
+    tplist = HLAtyping.split("/")
+    rollupTypings = [tp.split(":")[0]+":"+tp.split(":")[1] for tp in tplist]
+    rollupTypings = list(set(rollupTypings))
+    
+    if len(rollupTypings) == 1:
+        rollupTypings = rollupTypings[0]
+
+    return(rollupTypings)
+        
+    
+def correct_phase_typing(HLAtypings, query, locus):
+    """
     Check phase set typings; if they are homozygous, then only align to the reference sequence;
     else use IMGT/HLA database to align and get the correct typing
-    """"
+    """
     HLAtypings = list(set(HLAtypings))
     typing_list = sum([items.split("+") for items in HLAtypings], []) # reduce(lambda x, y: x + y, [items.split("+") for items in HLAtypings], []) 
     
+    tplist = [re.sub("HLA-", "", tp) for tp in typing_list]
+    tplist = [tp.split("/")[0] for tp in tplist]
+    #query_seqs = [Seq(q, generic_dna) for q in query]
+    
+    correct_HLAtypings = []
+    # Quick and dirty way: only check Exons 2 and 3:
+    if rollupHLAtyping(tplist[0]) != rollupHLAtyping(tplist[1]): 
+    #if the two fields are different, then need to check only ARS region
+    
+        ARSseq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon2, Exon3')
+        if ARSseq[0] in query[0] and ARSseq[1] in query[0]: # it's correct phase typing
+            # do nothing
+            correct_HLAtypings = typing_list
+        elif ARSseq[0] in query[1] and ARSseq[1] in query[1]: # swapped cases
+            correct_HLAtypings = [typing_list[1], typing_list[0]]
+        else: # if neither the case, then it's the wrong typing
+            correct_HLAtypings = []
+            print("The typings do not match the sequences. Please check the Typing!\n")
+            
+    else: # check if the two are the same typings, otherwise check other exons
+    
+        if tplist[0] == tplist[1]: # if the same typings, then do nothing. 
+            ARSseq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon2, Exon3')
+            
+            if ARSseq[0] not in query[0] or ARSseq[1] not in query[0]: 
+                # if the ARS doesn't match, then it's the wrong typing
+                correct_HLAtypings = []
+                print("The typings do not match the sequences. Please check the Typing!\n")
+            else:  # corect typing
+                correct_HLAtypings = typing_list              
+        
+        else: # if they are different in the third or the fourth fields, then check other exons
+            ARSseq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7')
+            if ARSseq[0] in query[0] and ARSseq[1] in query[0] and ARSseq[2] in query[0] and ARSseq[3] in query[0] and ARSseq[4] in query[0] and ARSseq[5] in query[0] and ARSseq[6] in query[0]: # it's correct phase typing
+                # do nothing
+                correct_HLAtypings = typing_list
+            elif ARSseq[0] in query[1] and ARSseq[1] in query[1] and ARSseq[2] in query[1] and ARSseq[3] in query[1] and ARSseq[4] in query[1] and ARSseq[5] in query[1] and ARSseq[6] in query[1]: # swapped cases
+                correct_HLAtypings = [typing_list[1], typing_list[0]]
+            else: # if neither the case, then it's the wrong typing
+                correct_HLAtypings = []
+                print("The typings do not match the sequences. Please check the Typing!\n")
+    return(correct_HLAtypings)
+            
+def dummy():
     reference = find_IMGT_sequence("../IMGTHLA/fasta/", typing_list[1], locus)
     
     alignment1 = pairwise2.align.globalxx(query[1], reference.seq)
