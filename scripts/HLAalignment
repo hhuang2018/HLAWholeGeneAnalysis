@@ -11,7 +11,12 @@ from utils import IMGTtools, IMGTdbIO
 from Bio import SeqIO, pairwise2, AlignIO
 from Bio.Seq import Seq
 from Bio.Alphabet import generic_dna, generic_protein
-from Bio.Align.Applications import MuscleCommandline
+#from Bio.Align.Applications import MuscleCommandline
+from Bio.Alphabet import generic_dna
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
+from Bio.Align import MultipleSeqAlignment
+
 from StringIO import StringIO
 import sqlite3
 import csv
@@ -671,12 +676,12 @@ def correct_phase_typing(ID, HLAtypings, query, phases, blocks, locus):
     else use IMGT/HLA database to align and get the correct typing
     """
     # test
-    ID = individual_ID
-    HLAtypings = individual_seq[locus]['GLstring']
-    query = individual_seq[locus]['Sequence']
-    phases = individual_seq[locus]['phase']
-    blocks = individual_seq[locus]['block']
-    blocks = [str(int(block)) for block in blocks]
+    #ID = individual_ID
+    #HLAtypings = individual_seq[locus]['GLstring']
+    #query = individual_seq[locus]['Sequence']
+    #phases = individual_seq[locus]['phase']
+    #blocks = individual_seq[locus]['block']
+    #blocks = [str(int(block)) for block in blocks]
     ## remove duplicates
     keep_items = [True] * len(query)
     for index1 in range(2):  # Phase ID
@@ -684,7 +689,7 @@ def correct_phase_typing(ID, HLAtypings, query, phases, blocks, locus):
         phase_blocks = [blocks[ind] for ind in index3]
         unique_phase = list(set(phase_blocks))
         for block_ID in unique_phase:
-            if phase_block.count(block_ID) > 1:
+            if phase_blocks.count(block_ID) > 1:
                 dup_ind = [ind for ind, value in enumerate(phase_blocks) if value == block_ID]
                 if len(dup_ind) == 2: # If there is only one duplicate
                     if query[index3[dup_ind[0]]] == query[index3[dup_ind[1]]]:
@@ -718,12 +723,30 @@ def correct_phase_typing(ID, HLAtypings, query, phases, blocks, locus):
     phases = new_phases
     blocks = new_blocks
     
-    HLAtypings = list(set(HLAtypings))
+    HLAtypings = list(set(HLAtypings)) # unique typing list
     typing_list = sum([items.split("+") for items in HLAtypings], []) # reduce(lambda x, y: x + y, [items.split("+") for items in HLAtypings], []) 
-
+    #this is supposed to be two typings for each locus.
+ 
+    new_hlaTypings = typing_list
+    if len(typing_list) == 1:  # Homozygous
+        new_hlaTypings += new_hlaTypings 
+    elif len(new_hlaTypings) > 2:  # more than 2 typings
+        isAmbiguousTypes =[ "/" in item for item in new_hlaTypings]
+        ambiguousIndex = [i for i, x in enumerate(isAmbiguousTypes) if x] # ambiguous type index
+        unambiguousIndex = [i for i, x in enumerate(isAmbiguousTypes) if not x] # unambiguous index
+        if len(ambiguousIndex) > 0:
+            for ind in ambiguousIndex:
+                for ind2 in unambiguousIndex:
+                    if new_hlaTypings[ind2] in new_hlaTypings[ind].split("/"):
+                        new_hlaTypings[ind] = new_hlaTypings[ind2]
+        else: # non-ambiguous 
+           print("$$$$$$$$$$$$$$$$\n " + ID + " <> " + locus + " : Multiple different typings for the same location" + "\n$$$$$$$$$$$$$$$$\n ")
+   
+    typing_list = new_hlaTypings
+    typing_list = [re.sub("HLA-", "", tp) for tp in typing_list]
     ## remove ambiguous typings, only take the first one (more common type)
-    tplist = [re.sub("HLA-", "", tp) for tp in typing_list]
-    tplist = [tp.split("/")[0] for tp in tplist]
+    # tplist = [re.sub("HLA-", "", tp) for tp in typing_list]
+    tplist = [tp.split("/")[0] for tp in typing_list]
     #query_seqs = [Seq(q, generic_dna) for q in query]
     
     correct_HLAtypings = []
@@ -753,13 +776,18 @@ def correct_phase_typing(ID, HLAtypings, query, phases, blocks, locus):
     
             if tplist[0] == tplist[1]: # if the same typings, then do nothing. 
                 ARSseq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon2, Exon3')
-            
+                
                 if ARSseq[0] not in query[0] or ARSseq[1] not in query[0]: 
                     # if the ARS doesn't match, then it's the wrong typing
                     correct_HLAtypings = []
                     print("##********\n" + "ID: "+ ID + " Locus:" + locus + "\n The typings do not match the sequences. Please check the Typing!\n*******##\n")
                 else:  # corect typing
-                    correct_HLAtypings = typing_list              
+                    correct_HLAtypings = typing_list    
+                
+                if len(query) == 1:
+                    query += query
+                    blocks += blocks
+                    phases.append(u'2')
         
             else: # if they are different in the third or the fourth fields, then check other exons
                 ARSseq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7')
@@ -771,22 +799,29 @@ def correct_phase_typing(ID, HLAtypings, query, phases, blocks, locus):
                 else: # if neither the case, then it's the wrong typing
                     correct_HLAtypings = []
                     print("##********\n" + "ID: "+ ID + " Locus:" + locus + "\n The typings do not match the sequences. Please check the Typing!\n*******##\n")
-    elif locus in ["DRB1", "DPB1"]: 
+    elif locus in ["DRB1", "DPB1"]:  # two blocks
         ARSseq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon2, Exon3')
         index_ph1 = [indexI for indexI, value in enumerate(phases) if value == str(1)]
         index_ph2 = [indexII for indexII, value in enumerate(phases) if value == str(2)]
         
         blocks = [itm + 1 for itm in range(len(index_ph1)) + range(len(index_ph2))]
         
-        if len(index_ph1) > 1 and len(index_ph2) > 1:
+        if len(index_ph1) > 1 and len(index_ph2) > 1: # two blocks for each allele
             if ARSseq[0] in query[index_ph1[0]] or ARSseq[0] in query[index_ph1[1]]: # correct case
                 correct_HLAtypings = typing_list
+                if ARSseq[0] not in query[index_ph1[0]]: # block1- exon2, block2-exon3; if not, swap
+                    blocks[index_ph1[0]] = '2'
+                    blocks[index_ph1[1]] = '1'
             elif ARSseq[0] in query[index_ph2[0]] or ARSseq[0] in query[index_ph2[1]]:# swapped case
                 correct_HLAtypings = [typing_list[1], typing_list[0]]
+                if ARSseq[0] not in query[index_ph2[0]]: # block1- exon2, block2-exon3; if not, swap
+                    blocks[index_ph2[0]] = '2'
+                    blocks[index_ph2[1]] = '1'
             else: # if neither the case, then it's the wrong typing
                 correct_HLAtypings = []
                 print("##********\n" + "ID: "+ ID + " Locus:" + locus + "\n The typings do not match the sequences. Please check the Typing!\n*******##\n")
         elif (len(index_ph1) == 1 and len(index_ph2) > 1) or (len(index_ph1) > 1 and len(index_ph2) == 1): 
+            print("##********\n" + "ID: "+ ID + " Locus:" + locus + "\n One phase set has only one sequence block")
             if ARSseq[0] in query[index_ph1[0]]: # correct case
                 correct_HLAtypings = typing_list
             elif ARSseq[0] in query[index_ph2[0]]:# swapped case
@@ -795,6 +830,7 @@ def correct_phase_typing(ID, HLAtypings, query, phases, blocks, locus):
                 correct_HLAtypings = []
                 print("##********\n" + "ID: "+ ID + " Locus:" + locus + "\n The typings do not match the sequences. Please check the Typing!\n*******##\n")
         elif len(index_ph1) == 1 and len(index_ph2) == 1:
+            print("##********\n" + "ID: "+ ID + " Locus:" + locus + "\n Both phase sets have only one sequence block")
             if ARSseq[0] in query[index_ph1[0]]: # correct case
                 correct_HLAtypings = typing_list
             elif ARSseq[0] in query[index_ph2[0]]:# swapped case
@@ -805,72 +841,200 @@ def correct_phase_typing(ID, HLAtypings, query, phases, blocks, locus):
                 
     elif locus in ["DQB1"]:
         
-        serotype = [tp.split(":")[0] for tp in tplist]
-        tplist_unique = list(set(tplist))
-        if "DQB1*02" in serotype: # DQB1*02 has two block; others have one block
+        serotype = [tp.split(":")[0] for tp in typing_list]
+        tplist_unique = list(set(typing_list))
+        
+        ARSseq = IMGTdbIO.readIMGTsql(typing_list[0], field='Exon2, Exon3')
+        
+        index_ph1 = [indexI for indexI, value in enumerate(phases) if value == str(1)]
+        if len(index_ph1) > 1: # several blocks
+        # merge them into one-- most likely have different length of  introns
+        # ToDo: check blocks and merge or correct typing-block.
+            if "DQB1*02" not in serotype[0]: 
+                temp_list = typing_list
+                typing_list[0] = temp_list[1]
+                typing_list[1] = temp_list[0]
             
-        else: # other DQB1 only one block
-            # ARSseq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon2, Exon3, Exon4')
-            index_ph1 = [indexI for indexI, value in enumerate(phases) if value == str(1)]
-            if len(index_ph1) > 1: # several blocks
-                # merge them into one-- most likely have different length of  introns
-                # TODO: check blocks and merge or correct typing-block.
-                correct_block_typing(bIndex = index_ph1,
-                                     bHLAtypings = tplist, 
-                                     bQuery = query, 
-                                     bPhases = phases, 
-                                     bBlocks = blocks, 
-                                     locus)
-            index_ph2 = [indexII for indexII, value in enumerate(phases) if value == str(2)]
-            if len(index_ph2) > 1:
-                # merge them into one-- most likely have different length of  introns
-                correct_block_typing(bIndex = index_ph2,
-                                     bHLAtypings = tplist, 
-                                     bQuery = query, 
-                                     bPhases = phases, 
-                                     bBlocks = blocks, 
-                                     locus)
-            blocks = [itm + 1 for itm in range(len(index_ph1)) + range(len(index_ph2))]
+            corrected_blocks = correct_block_typing(ID, index_ph1, typing_list, query, phases, blocks, locus)
+            
+            typing_list = corrected_blocks["HLATyping"]
+            phases = corrected_blocks["phases"] 
+            blocks = corrected_blocks["blocks"] 
+            query = corrected_blocks["sequence"] 
+            
+        index_ph2 = [indexII for indexII, value in enumerate(phases) if value == str(2)]
+        if len(index_ph2) > 1:
+            # merge them into one-- most likely have different length of  introns
+            if "DQB1*02" not in serotype[1]: 
+                temp_list = typing_list
+                typing_list[0] = temp_list[1]
+                typing_list[1] = temp_list[0]
+            
+            corrected_blocks = correct_block_typing(ID, index_ph2, typing_list, query, phases, blocks, locus)
+            
+            typing_list = corrected_blocks["HLATyping"]
+            phases = corrected_blocks["phases"] 
+            blocks = corrected_blocks["blocks"] 
+            query = corrected_blocks["sequence"]
+            
+        index_ph1 = [indexI for indexI, value in enumerate(phases) if value == str(1)]
+        index_ph2 = [indexII for indexII, value in enumerate(phases) if value == str(2)]
+        
+        blocks = [itm + 1 for itm in range(len(index_ph1)) + range(len(index_ph2))]
 
-            if len(index_ph1) == 1 and len(index_ph2) == 1:
-                if ARSseq[0] in query[index_ph1[0]] and ARSseq[1] in query[index_ph1[0]]: #and ARSseq[2] in query[index_ph1[0]]: # correct case
+        if len(index_ph1) == 1 and len(index_ph2) == 1:
+            if ARSseq[0] in query[index_ph1[0]] and ARSseq[1] in query[index_ph1[0]]: #and ARSseq[2] in query[index_ph1[0]]: # correct case
+                correct_HLAtypings = typing_list
+            elif ARSseq[0] in query[index_ph2[0]] and ARSseq[1] in query[index_ph2[0]]: # and ARSseq[2] in query[index_ph2[0]]:# swapped case
+                correct_HLAtypings = [typing_list[1], typing_list[0]]
+            else: # if neither the case, then it's the wrong typing
+                correct_HLAtypings = []
+                print("##********\n" + "ID: "+ ID + " Locus:" + locus + "\n The typings do not match the sequences. Please check the Typing!\n*******##\n")
+        else:
+            if(len(index_ph1) == 1 and len(index_ph2) > 1) or (len(index_ph1) > 1 and len(index_ph2) == 1): 
+                if ARSseq[0] in query[index_ph1[0]]: # correct case
                     correct_HLAtypings = typing_list
-                elif ARSseq[0] in query[index_ph2[0]] and ARSseq[1] in query[index_ph2[0]]: # and ARSseq[2] in query[index_ph2[0]]:# swapped case
+                elif ARSseq[0] in query[index_ph2[0]]:# swapped case
                     correct_HLAtypings = [typing_list[1], typing_list[0]]
                 else: # if neither the case, then it's the wrong typing
                     correct_HLAtypings = []
                     print("##********\n" + "ID: "+ ID + " Locus:" + locus + "\n The typings do not match the sequences. Please check the Typing!\n*******##\n")
             else:
-                if(len(index_ph1) == 1 and len(index_ph2) > 1) or (len(index_ph1) > 1 and len(index_ph2) == 1): 
-                    if ARSseq[0] in query[index_ph1[0]]: # correct case
-                        correct_HLAtypings = typing_list
-                    elif ARSseq[0] in query[index_ph2[0]]:# swapped case
-                        correct_HLAtypings = [typing_list[1], typing_list[0]]
-                    else: # if neither the case, then it's the wrong typing
-                        correct_HLAtypings = []
-                        print("##********\n" + "ID: "+ ID + " Locus:" + locus + "\n The typings do not match the sequences. Please check the Typing!\n*******##\n")
-                else:
-                    if ARSseq[0] in query[index_ph1[0]] or ARSseq[0] in query[index_ph1[1]]: # correct case
-                        correct_HLAtypings = typing_list
-                    elif ARSseq[0] in query[index_ph2[0]] or ARSseq[0] in query[index_ph2[1]]:# swapped case
-                        correct_HLAtypings = [typing_list[1], typing_list[0]]
-                    else: # if neither the case, then it's the wrong typing
-                        correct_HLAtypings = []
-                        print("##********\n" + "ID: "+ ID + " Locus:" + locus + "\n The typings do not match the sequences. Please check the Typing!\n*******##\n")
+                if ARSseq[0] in query[index_ph1[0]] or ARSseq[0] in query[index_ph1[1]]: # correct case
+                    correct_HLAtypings = typing_list
+                elif ARSseq[0] in query[index_ph2[0]] or ARSseq[0] in query[index_ph2[1]]:# swapped case
+                    correct_HLAtypings = [typing_list[1], typing_list[0]]
+                else: # if neither the case, then it's the wrong typing
+                    correct_HLAtypings = []
+                    print("##********\n" + "ID: "+ ID + " Locus:" + locus + "\n The typings do not match the sequences. Please check the Typing!\n*******##\n")
 
     corrected_phaseSet = {"GLstring": correct_HLAtypings, "Sequence": query, "phase": phases, "block": blocks}
-        correct_block_typing(bHLAtypings, bQuery, bPhases, bBlocks, locus)
+  
     return(corrected_phaseSet)
 
-def correct_block_typing(bIndex,
+def correct_block_typing(ID, 
+                         bIndex,
                          bHLAtypings, 
                          bQuery, 
                          bPhases, 
                          bBlocks, 
                          locus):
+    '''
+    1. merge the same block with differnt intron lengths
+    2. 
+    '''
     
+    ID =ID
+    bIndex = index_ph1 
+    bHLAtypings = typing_list 
+    bQuery = query
+    bPhases = phases
+    bBlocks = blocks
+    locus = locus
     
+    serotype = [tp.split(":")[0] for tp in bHLAtypings]
+    
+    ARS0seq = IMGTdbIO.readIMGTsql(bHLAtypings[0], field='Exon2, Exon3')
+    ARS1seq = IMGTdbIO.readIMGTsql(bHLAtypings[1], field='Exon2, Exon3')
+    ps = int(bPhases[bIndex[0]])  # phase ID
+    
+    corrected_blocks = {}
+    if locus in ['DRB1', 'DPB1'] or "DQB1*02" in serotype: # two blocks
+    
+        b1_index = [b_i for b_i in bIndex if bBlocks[b_i] == '1']
+        if len(b1_index) == 1:
+            if ARS0seq[0] in bQuery[b1_index] or ARS1seq[0] in bQuery[b1_index]: 
+                bBlocks[b1_index] = '1'
+            elif ARS0seq[1] in bQuery[b1_index] or ARS1seq[1] in bQuery[b1_index]:
+                bBlocks[b1_index] = '2'
             
+        else: # duplicates for each block
+            
+            if bQuery[b1_index[0]] in bQuery[b1_index[1]]: # the latter is the longer version
+                if ARS0seq[0] in bQuery[b1_index[1]] or ARS1seq[0] in bQuery[b1_index[1]]: 
+                    bBlocks[b1_index[1]] = '1'
+                elif ARS0seq[1] in bQuery[b1_index[1]] or ARS1seq[1] in bQuery[b1_index[1]]:
+                    bBlocks[b1_index[1]] = '2'
+                bPhases.pop(b1_index[0])
+                bBlocks.pop(b1_index[0])
+                bQuery.pop(b1_index[0])
+                b1_index.pop(0)
+                
+            elif bQuery[b1_index[1]] in bQuery[b1_index[0]]: # the latter is the longer version
+                if ARS0seq[0] in bQuery[b1_index[0]] or ARS1seq[0] in bQuery[b1_index[0]]: 
+                    bBlocks[b1_index[0]] = '1'
+                elif ARS0seq[1] in bQuery[b1_index[0]] or ARS1seq[1] in bQuery[b1_index[0]]:
+                    bBlocks[b1_index[0]] = '2'
+                bPhases.pop(b1_index[1])
+                bBlocks.pop(b1_index[1])
+                bQuery.pop(b1_index[1])
+                b1_index.pop(1)
+        
+        b2_index = [b_i for b_i in bIndex if bBlocks[b_i] == '2']
+        if len(b2_index) == 1:
+            if ARS0seq[0] in bQuery[b2_index] or ARS1seq[0] in bQuery[b2_index]: 
+                bBlocks[b2_index] = '1'
+            elif ARS0seq[1] in bQuery[b2_index] or ARS1seq[1] in bQuery[b2_index]:
+                bBlocks[b2_index] = '2'
+            
+        else: # duplicates for each block
+            
+            if bQuery[b2_index[0]] in bQuery[b2_index[1]]: # the latter is the longer version
+                if ARS0seq[0] in bQuery[b2_index[1]] or ARS1seq[0] in bQuery[b2_index[1]]: 
+                    bBlocks[b2_index[1]] = '1'
+                elif ARS0seq[1] in bQuery[b2_index[1]] or ARS1seq[1] in bQuery[b2_index[1]]:
+                    bBlocks[b2_index[1]] = '2'
+                bPhases.pop(b2_index[0])
+                bBlocks.pop(b2_index[0])
+                bQuery.pop(b2_index[0])
+                b2_index.pop(0)
+                
+            elif bQuery[b2_index[1]] in bQuery[b2_index[0]]: # the latter is the longer version
+                if ARS0seq[0] in bQuery[b2_index[0]] or ARS1seq[0] in bQuery[b2_index[0]]: 
+                    bBlocks[b2_index[0]] = '1'
+                elif ARS0seq[1] in bQuery[b2_index[0]] or ARS1seq[1] in bQuery[b2_index[0]]:
+                    bBlocks[b2_index[0]] = '2'
+                bPhases.pop(b2_index[1])
+                bBlocks.pop(b2_index[1])
+                bQuery.pop(b2_index[1])
+                b2_index.pop(1)
+        
+        index_ps = [indexI for indexI, value in enumerate(bPhases) if value == ps]
+        b1_index = [b_i for b_i in index_ps if bBlocks[b_i] == '1']
+        b2_index = [b_i for b_i in index_ps if bBlocks[b_i] == '2']
+        if b1_index < b2_index:
+            temp_v = bQeury[b1_index]
+            bQeury[b1_index] = bQeury[b2_index]
+            bQeury[b2_index] = temp_v
+            
+            temp_v = bBlocks[b1_index]
+            bBlocks[b1_index] = bBlocks[b2_index]
+            bBlocks[b2_index] = temp_v
+        
+    else: 
+        if bQuery[bIndex[0]] in bQuery[bIndex[1]]: # the latter is longer sequence
+            bBlocks[bIndex[1]] = '1'
+            bPhases.pop(bIndex[0])
+            bBlocks.pop(bIndex[0])
+            bQuery.pop(bIndex[0])
+            
+        elif bQuery[bIndex[1]] in bQuery[bIndex[0]]: # the latter is longer sequence
+            bBlocks[bIndex[0]] = '1'
+            bPhases.pop(bIndex[1])
+            bBlocks.pop(bIndex[1])
+            bQuery.pop(bIndex[1])
+            
+        else: ## if they are not contain each other then more complicated
+            print("$$$$$$$$$$$$$$$$\n" + ID + " <> " + locus + " The sequences need manual check! \n" + "$$$$$$$$$$$$$$$$\n")
+        
+    corrected_blocks["HLATyping"] = bHLAtypings
+    corrected_blocks["phases"] = bPhases
+    corrected_blocks["blocks"] = bBlocks
+    corrected_blocks["sequence"] = bQuery
+        
+    return(corrected_blocks)
+    
+    
 def dummy():
     reference = find_IMGT_sequence("../IMGTHLA/fasta/", typing_list[1], locus)
     
