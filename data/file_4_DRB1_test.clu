@@ -1,0 +1,1882 @@
+MUSCLE (3.8) multiple sequence alignment
+
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GAAAGACCTGAAAGATCACGGTGCCTTCATTTCAACTGTGAGACATGATGTAATTTTCAC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GAAAGACCTGAAAGATCATGGTGCCTTCATTTCAACTGTGAGACATGAAGTAATTTTCCC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AAATCTACAACAGTAAGATATAGTGCAACAGGACCAGA--TTAAGGTCTCCTGGTTTGCA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AAATCTACAACATTAAGATATGGTGCAATAAGGACCAGATTAAAGGTCTCCTGATTTGCG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ACCATGTCCCCTCCATCTCCTTTACTCCTGAA------CACACTCACTCCTGCAAACAGT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GCCATGTTCCCTCCATCTCCTTTACTCCTAAACACACTCACACTCACTCCTGCAAATAGT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TCTCTTGTCAAGTGGGAAATGAATGCTCTTACAAGGCTCAAACTTGTGAACACATCACTG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGTCTTGTCAAGTGGGAAATGAATGCTCTTACAAGGCTCAAACTTGTGAACACATCACTG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ACCAGCACAGAGCTAAAATAATTGGGGCTAAAAATACCGCCCCAATTAAAGTGTTTTACA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ACCAGCACAGAGCT------------GGCTACAATAGCTCCCCAATTAAGGTGTTTTACA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGCAACTGGTTCAAACCTTTCAAGTACTA----AAAACAATCCTGTAAAGAAGGAAATTC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGCAACTGGTTCAAACCTTCCAAGTGCTAAATTAAAACAATCCTTTAAAGAAGGAAATTC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGTTTCAGAAGAGGACCTTCATACAGCATCTCTGACCAGCAACTGATGATGCTATTGAAC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGTTTCAGAAGAGGACCTTCATACAGCATCTCTGACCAGCAACTGATGATGCTATTGAAC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TCAGATGCTGATTCGTTCTCCAACACTAGATTACCCAATCCAGGAGCAAGGAAATCAGTA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TCAGATGCTGATTGGTTCTCCAACACGAGATTACCCAACCCAGGAGCAAGGAAATCAGTA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ACTTACTCCCTATAACTTGGAATGTGGGTGGAGGGGTTCATAGTTCTCCCTGAGTGAGAC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ACTTCCTCCCTATAACTTGGAATGTGGGTGGAGGGGTTCATAGTTCTCCCTGAGTGAGAC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTGCCTGCTGCTCTGGCCCCTGGTCCTGTCCTGTTCTCCAGCATGGTGTGTCTGAGGCTC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TTGCCTGCTTCTCTGGCCCCTGGTCCTGTCCTGTTCTCCAGCATGGTGTGTCTGAAGCTC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CCTGGAGGCTCCTGCATGGCAGTTCTGACAGTGACACTGATGGTGCTGAGCTCCCCACTG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CCTGGAGGCTCCTGCATGACAGCGCTGACAGTGACACTGATGGTGCTGAGCTCCCCACTG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GCTTTGGCTGGGGACACCAGACGTAAGTGCACATTGTGGGTGCTGAGCTACTATGGGGTG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GCTTTGGCTGGGGACACCCGACGTAAGTGCACATTGCGGGTGCTGAGCTACTATGGGGTG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGGAAAATAGGGAGTTTTGTTAACATTGTGCCCAGGCCATGTACCTTAAGAAATTGTGAC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GGGAAAATAGGGAGTTTTGTTAACATTGTGCCCAGGCCATGTCCCTTAAGAAATTGTGAC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GTATTTTTCAGAGATTGCCCATCTTTATCATATGGATCCCAAATAATTTCCCCACCACAA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GTTTTCTTCAGAGATTGCCCATCTTTATCATTGGATCCCAAATTATTT---CCTCCATAA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AAGGAGCTTGGCTACTTGCCCACTCCATGAGACTTGTGTAAGGGGCCTCCATACAGGTCA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AAGGAGCTTGGGTACTTGCCCTCTTCATGAGACTTGTGTAAGGGGCCTTTGCACAAGTCA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTTCTACTCAAATCTCCACCAATAAAACCTTTGCATCACATGTCCTCAGGGTCTTTAGAG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TTTCTTTTCAAATCTCCACCAATAAAACCTTTGCCTCACATGTCCTCAGGGTCTTTAGAG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GATTTAGAAATAAGGATGCTAAAATAAATTCCCCATACAGCACTTGCCTTTATTATGTTG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GATTTAGAAATAAGGATTCTAAAATAAATTCCCCATACAGCACTTCCCTTTATTATGTTG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ACTTATGTCAGAC-AAAGGAGGTTTTTTCTGAAAATTTTGTGGAAGTCAAGGGAATTTAA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ACTTATGTCAGACAAAAGGAGGTTCTTACTGAAAATTTTGTGGGAGTCAAGGGAATTCAA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGGGTCTCTCCTAAACGATCCTGGGTTATGTCACCCACAGGACCTTTGGTGTTGGCCCCT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGGGTCTCTCCTAGACGATCCAGTGTTAGGTTCCCCACAGGACCTTTGGTGTTGG-CCAT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CTTCCTCATATGTGAGGATGGACCCAGTGGCCTCCCCATTATCTACTTTCTTTTCTTTCT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGTCCTCATATGTGAGGATGGACCCAGTGGCCTCCCCATTATCTCCTTTCTTTTCTTGCT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GAACTCCAATGTTTATAAAGCCTGTACCCCTGTAGTGTATGTAGGTTGTCTGACAGAAGT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GAACTCCAATGTTTATAAGGCCTGTATCCCTGTAGCGTATGTAGGTTCTCTGACAGAAGT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TATACTTAGTGCTCTTTCTTTCTTGTGGGGAAAAATCCCTGGAACTGAAGCTGAGATCTT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TATACTTAGTGCTCTTCCTTTCTTGTGGGGAAAAGTCCCTGGAACTGAAGCTGAGATTGT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TAGTACTTGGAGTCACCTTACAGATACAGAGCATTTATGAGGTATTCTTTGGTGCCTAAA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TAGTACTTGGAGTCACCTTACAGATACAGAGCATTTATGAGGTATTCTTTGGTGCCTAAA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GAACTTAAGGCATCCTCTGAAAACCTGGCCCAGGTTAGTGTTTATTATGAATCTCTTTTA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GAACTTAAGGCATCCTCTGAAAAACTAGCCCAGGTTCGTGTTCATTATGAATCTTTTTTA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ACCTTTCTATACTTGTTTCTCCTACATCTCCTAAGTGCTCCAACTAGACATGACAGAAGA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ACCTTTCTGTACTTGTTTCTCTTGCATCTCCTATGTGCTCTAACTAGACATGACAGAAGA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GATTTAACTAACGTAGTATGAGTTATATAAAATTCTATTTTTGTAAGTCAAAAATAATCA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GATTTAACTAATGTATAAATTAT----ATGAAATTCTATTTTTTAAGTCAAAAATAATCA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AATATCAAAAATTTAATAATGTTCAAACTATATACTCTGTGTGGGGTTACCGAGACAATG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ACTATCAGAAATTTAATAATGTTCAAACTATATACTCTGTGTGGGGTTACCGAGATGATG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGGACATTGTTCACATCTCATAGGGCTGAAAGTCAATGGGCAAGTCCTGGGAACTCATTG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGAACATTGTTCACGTCTCATAGGGCTGAAAGTCAATGGGCAAGTCTTGGGAACTCATTG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TCTTACTGGGGTCTTGTCCTAAATTTCATAGGTTCACCCATCATGCCCTCAACTTTCCTT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TCTTACTGGGGTCTTGTCCTAAATTTCCTAGGTTCACCCATCATGCCCTCAGCTTTCCTT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AATTAGCCATGTCTGCTTACCTCTTCCTCCAGTTTCCCTCTTATTTTTCCCCAGCTATGT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AACTAGCCATGTCTGCTTACCTCTTCCTCCAGTTTC-----TATTTTTCCCCAGCTATGT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGTTATCATTTCCAGAAATCTCTAAAGCTTGCACAGATCCTTAGCACTATGAGATCCATT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGTCATCATTTCCAGAAATCTCTAAAGCTTGCACAGAACCTTAGCACTATGAGATTCATT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GAAAGAGATAGTTTTTTTCTTTTTGAGATAGGGCCTGGCTCTGTCACCCAGGCTGTAGCT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GAAAGAGACTTTTTTTCTCTTTTTGAGGTAGGGCCTGGCTCTGTCACCCAGTCTATAGCT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CAGTGGTGCGATCGAGGCTCACTGCAACCTCTGCCTCCCACGCTCAAGTGATCCTCCCTC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CAGTGGTGTGATCGAGGCTCACTGCAACCTCTGCCACCCATGCTCAAGTGATCCTCCCTC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CTCAGGCTCCAGAGTAGCTGGGAATACAGGCAGGCAACCACGCCCAGCTAATTTTTGTAA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CTCAGGCTCCAGAGTAGCTGGGAATACAGGCAGGCAACCACGCCCAGCTAATTTTTGTAA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTTTGGTAGAAATGAGATTTTGCCATGTTGCCCAGGCTGGTCTTAAACTGCTGGACTCAA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TTTTGGTAGACATGAGATTTTGCCATGTTGCCCAGGCTGGTCTTAAACTGCTGGCTTCAA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GCAATCCTCCTGCCTTGGCCTCCCAACATGCTAGGATTATAGATGTGAGCCACTGTGCCC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GCAATCCTCCTGCCTTGGCCTCCCAACATGCTAGGATTATAGATGTGAGCCACTGTGCCC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGGCAAAAAGAGATGACTCTCAATAAAAAAAAGTCCTTTTTCTTAAATCACTGTTTCTTT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGGC-AAAAGAGATGACTCTTAATAAAAAAATTTCCTTTTTCTTAAATCACTGTTTCTTT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ATCTGTGAATTCTTCTTCCAACTAGAAGGAGGAG---AAAGAAGTTTGCCTGTATTTCTC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ATCTGTGAATTCTTCTTCCAACTAGAAGGAGGAGAAAAAAGAAGTTTGCCTGTATTTATC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ACCAGGAGGAGAAGGGGTCTAGTGTGACATCAGAATGAAAGAGTGCTGGAGTTTGAGCCC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ACTGGGAGGAGAAGGGGTCTAGTGTGACATTAAAATGAAAGAGTGCTGGAGCTTGAGCCC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CTTCTTGCTTTCCAAGATCCCCACAGTTATCACTTCCCATACCCTGGTTTATTCATGTAA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CTTCTTGCTTTCCAGGATCCCTACAGTGATCAGTTCCCATACCCTGGTTTATTCATGTAA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ACCACACTTATTTTTCTTAGCAGCTACTGTGTACTCGGCTCCATTCTAGGTTCAGATCAT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ACCACACTTATTTTTCTCAGCAGCTACTCTTTACTGGGCTCCATTCTAGGTTCAAATCAT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TCTATTTGATTAAGACAGAGAGGGTCCCGACTCTCATGGAAGTTACACAACAATAGAGGA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TCTATTTGATTAAGTTAGAGAGCGTCCCTACTCTCATGGAAGTTACACAAGAGTAGAGGA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GACAGACACTAACCCAATAAGCATTTAACAAAGAATAAAATATTAGAGAGTCATAGTGCA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GACAGACACTAACCCAATAAGCATTTAACAAAGAAGATAATGTTAGAGAGTCATAGTGCA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CTGAAGAAAAGACATCAGGTTTGTGAAGAAGAGAGACATGGATTCACCTACTTTAGTTCA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CTGAAGAAAAGACATCAGGTTTGTGAAAAAGAGAGACATGGATTCACCTACTTTAGTTCA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TATGTTTAGGGAGCTCTACCTGAGAAAGTGACATTCAGCTGAGACAACAAAATAAGTAGA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TATG-TTAGGGAGCTCCACCTGAGAAAGTGACATTCAGCTGAGACAACAAAATAAGTAGA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CAGTCATGAAGATCTAATGGACGAAAGCTCCAGAGAGACCAAATGGGGGGAAAGCCCTGG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CAGTCGTGAAGATCTAAGGGATGAAAGTTCCAGGGAGACCGAATCGGGGGAAAGCCCTGA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGTGGGAAATTATGTGGAGAGAGAGAAAGACGGCTAGAGGGGCTGATGTATAGAAAGTAA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGTGTTAAATTATGTGGAGGGAGAGAAAGAAAGCTAGAGGGGCTGATGTATAGAAAGCAA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGAAATGGAGAGGCAGAAGATGA-GGTAGGACACAGAGAGAAAGTCAGGAGCCTCATCAT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GGAAATGGAGAGGCAGAAGATGAGGGTAGGACACAGAGAGGAATTCAGGAGCCTCATCAT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TATAGGCTCTGATGTCCACGGTAAAAAATTTGAATTTTATTTTATTTATTTATTTATTTA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TATAGGCTCTGATGTCCACAGTAAAAAA--------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTTATTTATTTATTTTATTTATTTATTTATTTTTTTAAGATGGAGTCTCGCTTTGTTGCC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CAGGCTGGAGTGCAGTGGCGTGATCTCAGCTCACTGCAAGCTCCACCTCCTGGGTTCATG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CCATTCTCCTGCCTCAGCCTCCCTAGTAGCTGGGACTACAGGCACCTGCCACCACGCCTG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GCTAATTTTTAGTATTTTTAGTAGTGAGGGCATTTTGTCATGTTAACCAGGGTGGTCTCC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ATCTCCTGACCTCGTGATCCACCTGCCTCAGCCTCCCAAAGTGCTGAGACTACAGGTGTG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGCCACCACGCCTGGCCTATTTTTTTTTTTTTGAGACGGAGTTTCGTTCTTGTTGCCCAG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GCTGGAGTGCAATGGTGCAATCTCGGCTCACTGCAACCTTCGCCTCCCTGGTTCAAGTGA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTCTCCTGCCTCAGCTTCCCAAGTATCTGAGATTACAGGCACCCACCACCATACCTGGCT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AATTTTTATTTTTTTGTATTTTTAGTAGACATGGGGTATCACCATGTTGACCATGCTGGT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CTCGAACTCCTGACCTCAGATAATCTGTCTGCCTTGGCCTCCCAAAGTGCTGGGATTACA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGCATGAGCCACCGCGGCCGGACTGAATTTTATTTAAATAGATACGAGAAGCTACTGTAT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGTTACAAGGAGAGTCAATTTATATTCAATTTATTTTTATTTTATTTTATTTTTTTGGTG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ----------AAATTAAATTTTTATTATTTATTTATTTGTTTATTTTATTTTATTTTGTG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ATGGGGTCTTGCTCTGTTGCCCAGGCTAGATTGTAGTGGCACAATCTCGGCTCACTGCAA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ATGGAGTCTCTCTGTGTTGCCCAGGGTAGATTGCTGTGGCACAATCTCGGCTCACTGCAA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CCTCTGCCTTCTGGGTTCAGGCGATTCTCCTGACTCAGCCTCCAGAGTAGCTGGGACCAC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CCTCCGCCTCCTGGGTTCAAGCGATTCTCCTGCCTCAGCCTCCCGATTAGCTGGGGCCAC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGGTACATGCCACCACACCTGGCTAAGTTTTTGTATTTTTTAGTAGAGACAGGATTTCAC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGGCGCATGCCACCACACCTGGCTAATTTTTTGTA-TTTTTAGTAGGGATAGGGTTTCAC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CATGTTAGCCAGGATGGTCTCGATCTCCTGATCTCGTGATCCACCCACCTTGGCCTCCCA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CGTGTTAGCCAGGATGGTCTCGATCTCCTGACCTCGTGATCCGCCCGCCTTGGCCTCCCA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AAGTGCAGGGATTACAGGCCTGAGCCACTGCGCCCGGCCTATATTCAATTTTTAAAACTA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AAGTGCTGGGATTACAGGCGTGAGCCACTGCGCCCGGCCTATATTCAATGTTTAAAACTA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ATTCTAGCTACTCTGTGGGGATTGGAATGTTGGGGTTCACAAGTGGTCAGGAAGACTATT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ATTCTAGCTACTCTGTGGGGATTGGATTGTTGGGGTTCACTAGTGGTTAGGAAGACTATT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TAGGAGCACAGCAGGGAATTCTCCAGCGAAAACAGGCTTGTGGCTTCATGGAGTGCATTA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TAGGAGCACAGCAGGGAATTCTTCAGGGAAAACAGGTTTGTGGCTTCATGGAGTGCATTA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GTGATAAAGACGGTGAAAAAGATAAAGTGGACAGACTTGGCATGTATTTTTCCTTAGCTT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GTGATAAAGATGGTGAAAAAGATAAAGTGGACAGACTTGGCATGTATTTTTGCTTAGCTT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GTTAATGAATTACTGTAAAGGGGGTAGAACAATCAAGCTTATTCCTAAGGATTTTGTTTT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GTTAATGAATTACTGTAAAGGGGGTAGAACAATCAAGCTTATTCCTAAGGATTTTCTTTT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GACAAATAAGTGGGTGGTAGTGTTGTTTATTGAGATAGGAAAAACTATGGGAGGAAATTA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GACAAATAAATGGGTGGTAGTGTTGTTTATTGAGATAGGAAAAACTATGGGAGGAAATGA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTTGAAGTGGGTGGTTGGAAATAAAAGTTTTGTTTAAATTTGAGATGATTTATTGACATT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TTTGAAGTGGGTGGTTTGAAATAAAAGTTTTGTTTAAATATGAGATGATTGATTGACATT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TATGTGGAGCAATCAGAAGGTCAATGGCATTTAAGAGACTCATGGTGAGGCTAGGGCTTC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TATGTGGAGAAATCCGAAGGTCAATGGCATTTAAGAGACTCATGGTGAGGCCAGGGCTTC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AAGTATTTATGTTGGCGGCATCAATACGTGTAGTGTGTTAAATTCCAGGGAGTGGAAGAG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ACGTATTTATGTTGGCAGCAGCAATACGTGTAGTGTGTTAAATTCCAGGGCGTGGAAGAG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GATACATAGGGAGATGGATTGTGTGGAGAAAAAAGAACAGGGCACAGGCCAGCAAAGGGG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GATACATAGGGAGATGGATTGTGTGAAGAAAAAAGAACAGGGCACAGGCCAGCAAAGGGG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GCTGAGAAAGAGCCCAGGGATGTTGGAGAAAAATCAAGAGAACATGATGCATGTAAGTCA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GCTGAGAAAGAGCCCAAGGATGCTGGAGAAAAACCAAGAGAACATCATGTGTGTAAGTCC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGGAAAATAGATTTTTTTCAAGGAGAAGGGAGAGGCCAATTGTGGTGAGTACCACTAAGC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGGAAAATAGATTATTTTCAAGGAGAAGGGAGAGGCCAATTGTGGTGAGTACCACTAAGA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGAGGGGGAAGTGAGAACGTGACAGAGAAGCAAGTGCTGGGTTTGGTGGAGTTGATATTT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GGAGGGGCAAGTGAGAATATGATAGAGAAGCAAGTGCTGGGTTTGGTGGAGTCGATATTT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GCAGTCAGTGGAGTATCCAGGGAGGAAACTGGATTGGACAATTTGAAGAGCGAGTAGAAG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GCAGTCAATGGAGCATCCAGGTAGGAAACTGGATTGGACCATTTGAAGAGTGAGTAAAAG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGAGGATGAGGTTAAGGTTGACTGTTTTGAGTAGAGAGGTTCAGGGAAGGACTGCACTCT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGAGGACGAGGTTAAGGTTGACTGTTTTGAGTAGAGAGCTTCAGGGAAGGATTGTTCTCT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGGTTCAGGGAGCCAGCTGGATCAAAAGGAAAAGGCTAAAGAGGCTGAAGAGAAGCAGGA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GGGTTCAGGGAGCCAGCTGAACCTAAAGGAAAAGGCTAAAGAAGCTGAAGAGAAGGAGGA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGACCTGTGAACCAGAGATGCTCAGTCATTATTAGCGAGGAAATACTAGAAAGCCCCTGT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GGACCTGTGAACCAGAGATGCTCAGTCATTATTAGCGAGGAAATA-TGGAGAGCCCCTGT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GTGCAGTGATGACTACTCATGCAGAAGGTCACACAGCCAATATTTAACACAGCCAGTATT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GTGCAGTGGTGACTACTCATGCAAAATGTCACACAGCCAATATTTAACACAGCCAGTATT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TCACACAGCTAATATTTATTAGTGACATAGAATATACCAGTTATTACTCTAGGTCATGAG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TCACACAGCCAATATTTATTAGTGACATAGCATATACCAGTTATTACTCTAGGTCATGAG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AATGGAGTGATAAATAAAATGAATCCGGTCGCCATCAGTATATGCCATGTAACATTTTGC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AATGGAGTGATAAATAAAATGAATCCAGTCGCCATCACTATATGCCATGTAACATTTTGC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGTGACTGTGTACCAGGCCTGTGAATTTCAGTATGCAATTTCAATAATGATCCTGCTGTA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AATGACTGTGTATCAGGCCTATGAATTTCAGTATTCAATTTCAATAATGATCCTGTTGTA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TCTGTGGTGTTTAAAAACATATACATCTCTGGAATCTAAAATTGAGAGGTTATAAGTAAA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TCTGTGGTATTTAAAAACATATACATCTCTGGAATCTAAAATTGAGAGGTTATAAGTAAC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ACCCAGTATTACAAATTGAGTGCTGGAAATCAGATTGCAGTTTAAATCTGAGCATATAGA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ACCCAGTATTACAAATTTAGTGCTGGAAATCAGATTGCAGTTTAAATCTGAGCATATAGA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AAGTCCCTTTCTTCTATGTCAGCAGATGCCTTTTGTGTGAGGTTTAGCTGGACTGCATTA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AAGTCCGTTTCTTCTATGTCAGCAGATGCTTTTTGTGTGAGGTTTAGGTATACTGCATTA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTAGACATAAACCAGTGTTTCTGCCCTATGTTTTCAGAATGACAATTCTTTATGAAACTC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TTTGACATAAACCAGTGTTTCTGCCCTATGTCTTCAGAATGACAATTCTTTATGAAACTA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ATAGAAGAACAGAAGACAACTGCAAAATCATGATGAAGATAGTAATTGCTTTAGAATTAA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ATAGAAGAACAGAAGACAATTGCAAAATCATGATGAAGATACTAATTGCTTTAGAATTAA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGAATACAAAAAATAATGTGAGCTGTAGTTATAGGGATCATAAAAGTTTAAATGGGAATG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GGAATACAAAAAATAATATGAGCTGCAGTTATA-GGATCAGAAAAGTTAAAATGGGAATG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TATTTGAG-------TATGTGATCAGTGCTAAGAAGAGTCATCATTTAATTTTACACTTA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TATTCGAGTGTTTATTATGTGATCAGTGCTAAGAAGTGTCATCATTTAATTTTACACTTA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ACAGTAATCTCGTGAGGATTACGCTATTATTAAATGCATTTGATAGATTACAAAAAGGCT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ACGGTAATCCTGTGAGGATTACGCTATTATTAAATGCATTTGATAGATTACAAAAAGGCT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TATGGTTGGTAAAAATTGACCCAAGTAGAAGAGATCATGTTTTTATTCAGGTTTTCTGAT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TATGGTTGGTAAAAATTGACCCAAGTAGAAGAGATCGTGTTTTTATTCAGGTTTTCTGAT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TCTAGAGTTTGAGAGTTTGTCCATCATTAGTGAGTAGTGACTATATTGTGTCTGAATTAT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TATAGAGTTTGAGAGTTTGACCATCATTAGTGAGTAGTGACTATATTGTGTCTGAATTAT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGACAGAATTTCTGATATTCATATGTACCAGGTTGTTTCTTAGAGTGGGGATAGAGATGC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGACACAATTTCTGATATTCATATGTACCAGGCTGTTTCTTAGAGTGGGGACAGAAATGC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AAGGGCTGCTAGTTCCGATGTATTGGGGAAACTTTCATTCATTTTGCATTTATCATTTTA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AAGGGCTGCTAGTTCTGATGTATAGGAGAAACTTTCATTCATTTTGCATTTATCATTTTA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AAGTTCTGTATGTCTATAATGGTCATGTGTTGAAGAACACAAGGAAGTATTAAATCACTC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AACGTTGTATATGTCTATCTGGGCATGTGTTCAAGAACACAAGGAAGTATTAAATCACTC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CTTCTTCTAAGGTTTGACTAGCAAGTTGGGCTAGAGTTACCAAATAAAATACATGTTCCT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CTTCTTCTGAGGTTTGACTAGCAAGTTGGGCTAGAGTTA-CAAATAAAATACAGGTTCCT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGTGAAATCTGAATTTCAGATACAAAACCATAATTTATTGAAAATCCAAATTTAACTGGG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGTGAAATCTGAATTTCAGATACACAACCATAATTTATTGGAAATCCAAATTTAACTGGG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CATCCTCTGGTTTTATTTGCCACATCTGTCAACCCTAAGTGCGACACATGGACATGGATT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AATC--------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ACAGTGCTAACCATGCAAGCCACGGTGACAGCAACTTCACACATGTTTATTTTTAACTTT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CTCTGTAAGAAAGTGCTTAGATAATTTAGGGATAAAAAGATAGACATTGCTTGATCCAGG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GTGCACACCTCTCTGCCACCATTTCTAAAGGGCAAAGGGAGATTTCTGCAGGTCTTGCTC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ACAGTCTGGGGAGCTGCTCATTTTTGTAAAGTGTCTGTATGAGAATGTCATTTTCTTGGT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTCCTCCTTTCCGAGGGGACTTGACTACAAAACCAAGAGTTCTGCCTCTGGCCAAGGCTG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GTAATTTGATGCCTGCTAGTATTGTTGGGAGTGGGAGACTGAAAGAAATGAGTTAGTTGG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGCATTTAACGGGAATAAAATAGCTGTGGTTGTGACTCATTACTACAGATAATTAGTGGA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CCAGTGGCAGAGAAATTAAGAAAAAAGATGATGTGAATGATAAATGATATGATTAGTGAC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGCTTGGTAAGGCAAGGAAATCATTAAATCTTGGTTCTCATCAAGTTCATTTTCTGGAAA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GATAGCACTGTATTGGGAGCAGAATTCTACAAAACCTTCTTTTTACATAGGACCAAGATT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTCAACAAATATTTTTCAATGCAATTCTCAGCTGCTCCATAACTAATAGTAGCTTGTTCA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ACACAGATTTTTTCAGATGATTCACACCTGTGGTACTTACCCAGGGATGGTTCACCACCC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CTCCCTTCCCTCTCATCATCGTTGGGGAACGGTGACAATGTTTGGAACAATTTTTGGTTG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TCACAAACAGGGGTTTCTTCTGATATTCAATGAGTAGAAGCCAGGGACACTGCTAGAGAA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CCCACAATGTTCAGAACAGCCTCTGCCATCAACAAGGAATTATCTGGTCCAAAATGTCAA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TAGTGCTGAGGCTAAGAGCACTGGTTCACACTGTGCTCTTTCTGAAAATTCTAGACTCAC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ATCTGTTATACACTCACCACACAGTTTAGTCTTTTATTTTTGCTTGTTTCATTATAAACA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ATTAGACAGTTGTATAAATTCAACCACTTTCTTGTTGAATCCATTTAGTCAATGCAAGCT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CAATATTTTCATATTTATTTTTTGCCTTATGCAATATTTTTCAACATTTTCATGAGTTGT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CGGTCATCACTATCTCTATTAACTTTCAACAACTTGCCCTTGTAAGTCACAAATAGTGCT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GCTGCTGAAATTATTTCTCACTAACATGCCTCAGATTTCTGTAGTGATTCTACATTTGAT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ATTATTCACAATGTAAAATGCTTCTATTTATTCATTTCGCTTTTACCCAAGGATTATTTT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TAAGTTATTTTTGTCATTTTCACACTTCAAACATAAAGACAAAAACATCAAAAATATAGT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GTTTTACATATGTGCATATTTTCACACATATATGTATGTATATTTATATGTATTGAAACT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ACAGAAGCACATGTCACCAATAAGAGCTCTGAGACACCTTCGACCACTTACCCTTATCAG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ATGAGTTGTGGAAACAAGTTTTTTTAACTGAATTTCTGAGCTTTGTGGATTTAGAAATGC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AAAGGAAGGTTTGTGGACATTCACAGGGATCATGATTTTATTCTCCTTAAAACTCTTCTG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TACTTTCCAATTGTCCTTAGTATAAATCCAAAATCCTAACACCACCCAAGAGGCTTTTCA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ATACCTGGCTCCTGTGATTTCTCCTGTCTAATCTTTTACCCTCCTTCCCCTCAGCCTCTC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGCTTTAGTGAACTTTCTCCTAGTTTTTTGAAGAAGTTCATCAATTCAAGCTTTTGTACA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGGGATTTCCTAAACCTGAAATGTGCCTCCCGTTTTGTCCAAACAGACACGGGCTCCACT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CTGCCCCCTGGCTCACACCTGCTTAACCTGTCAAGTCACATCTGAACCGTCACTATTAAG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ------------------------------------------------------------
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGGGTCCTTCTCTGGCACCCTAATGTAATTGAGATCATCCTATTATTCTCTGTTCTAGAA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      -------------------------------------TTCTATTATTCTCTGCTCTAGAA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CTCCACACTTCCGACATTTCTCATTCCTGTCTAAGCTCTTGTGTGTTTGGTGTTGGGCCA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CGCCACACTTCTGATATTTCTCATTGCTGTCTAAGCTCTTGTGTGTTTGGTTTTTGGCCA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TCACTTTCACTGCTCTTTAAGCTCCCCCAGCGGAGTGGAGAGGTCTGTTTTCCCTCGTTT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TCGCTTTCACTGCTCTTTAAGCTCCCCCAGCGGAGTGGAGAGGTCTGTTTTCCCTCGTTT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGATTCCTAGAGGCAGCGCAGACCAGGCACAAGGTCAGCACTAAGGAAGGGTTCACAGGA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GGATTCCTAGAGGCAGCGCAGGCCTGGCACAAGGTCATCACTAAGGAAGTGTTCACAGGG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGAACGCGGTGGGTGCTGTTTAAGGAACCGGTAAA-CGTGTGGGATGAGAGAAGGAGCAG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGAACGCGGTGGGTGCTGTTGAAGGTACCGGTAAAGCGTGTGGGATGAGAGAAGGAGCAG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGTGTCTTTGGGGTGGAGGCTCCCAGGAGGAGGCGGCGCGGGCTGCGGTGCGGGGCGGAT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGAGTGCCT----TTGGGGCTCCCAGGAGGAGGCGGCGCGGGCTCCGGTGCTGGGCGGAT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               --------------------------------------------TAGGGAGGGGGGTCCC
+HLA:HLA00755|DRB1*11:03:01|13650      CCTCCTCCAGCTCCTGCTTGGAGGTCTCCAGAACAGGCTGGAGGTAGGGAGGGGGGTCCC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ---------------------------------------------CAGGGAGGGGGTCCC
+HLA:HLA00876|DRB1*16:01:01|11272      CCTCCTCCAGCTCCTGCTTGGAGGTCTCCAGAACAGGCTGGAGGCAGGGA-GGGGGTCCC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               AAAAGCCTGGGGATCAGACGTGGTTTTCCCGCCTGGTCCCCCAGGCCCCCTTTCGCCTCA
+HLA:HLA00755|DRB1*11:03:01|13650      AAAAGCCTGGGGATCAGACGTGGTTTTCCCGCCTGGTCCCCCAGGCCCCCTTTCGCCTCA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                AAAAGCCTGGGGATGAGAAGGGGTTTTCCCGCATGGTCCCCCAGGCCCCCGTTCGCCTCA
+HLA:HLA00876|DRB1*16:01:01|11272      AAAAGCCTGGGGATGAGAAGGGGTTTTCCCGCATGGTCCCCCAGGCCCCCGTTCGCCTCA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               GGAAGACAGAGGAGGAGCCCCTGGGCTGCAGGTGGTGGGCGTTGCGGCGGGGGCCGGTTA
+HLA:HLA00755|DRB1*11:03:01|13650      GGAAGACAGAGGAGGAGCCCCTGGGCTGCAGGTGGTGGGCGTTGCGGCGGGGGCCGGTTA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                GGAAGACGGAGGATGAGCTCCTGGGCTGCAGGTGGTGGGCGTTGCGGGTGGGGCCGGTTA
+HLA:HLA00876|DRB1*16:01:01|11272      GGAAGACGGAGGATGAGCTCCTGGGCTGCAGGTGGTGGGCGTTGCGGGTGGGGCCGGTTA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               AGGTTCCCAGTGCCCGCACCCGGCCCAGGGAGCCCCGGATGGCGGCGTCACTGTCAGTGT
+HLA:HLA00755|DRB1*11:03:01|13650      AGGTTCCCAGTGCCCGCACCCGGCCCAGGGAGCCCCGGATGGCGGCGTCACTGTCAGTGT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                AGGTT-CCAGCGCCCGCACCCCGCTCAGGGAGCCCCGGATGGTGGCGTCGCTGTCCGTGT
+HLA:HLA00876|DRB1*16:01:01|11272      AGGTT-CCAGCGCCCGCACCCCGCTCAGGGAGCCCCGGATGGTGGCGTCGCTGTCCGTGT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               CTTCTCAGGAGGCCGCCTGTGTGACTGGATCGTTCGTGTCCCCACAGCACGTTTCTTGGA
+HLA:HLA00755|DRB1*11:03:01|13650      CTTCTCAGGAGGCCGCCTGTGTGACTGGATCGTTCGTGTCCCCACAGCACGTTTCTTGGA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                CTTCTCAGGAGGCCGCCC-TGTGACCGGATGGTTCGTGTCCCCACAGCACGTTTCCTGTG
+HLA:HLA00876|DRB1*16:01:01|11272      CTTCTCAGGAGGCCGCCC-TGTGACCGGATGGTTCGTGTCCCCACAGCACGTTTCCTGTG
+                                                                                                  
+
+test2425794|PS1|Block2                -----------------GCCATCT------------------------------------
+test2425794|PS1|Block1	               GTACTCTACGTCTGAGTGTCATTTCTTCAATGGGACGGAGCGGGTGCGGTTCCTGGACAG
+HLA:HLA00755|DRB1*11:03:01|13650      GTACTCTACGTCTGAGTGTCATTTCTTCAATGGGACGGAGCGGGTGCGGTTCCTGGACAG
+test2425794|PS2|Block2                -----------------GCCATCT------------------------------------
+test2425794|PS2|Block1                GCAGCCTAAGAGGGAGTGTCATTTCTTCAATGGGACGGAGCGGGTGCGGTTCCTGGACAG
+HLA:HLA00876|DRB1*16:01:01|11272      GCAGCCTAAGAGGGAGTGTCATTTCTTCAATGGGACGGAGCGGGTGCGGTTCCTGGACAG
+                                                       * *** *                                    
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ATACTTCTATAACCAAGAGGAGTACGTGCGCTTCGACAGCGACGTGGGGGAGTTCCGGGC
+HLA:HLA00755|DRB1*11:03:01|13650      ATACTTCTATAACCAAGAGGAGTACGTGCGCTTCGACAGCGACGTGGGGGAGTTCCGGGC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ATACTTCTATAACCAGGAGGAGTCCGTGCGCTTCGACAGCGACGTGGGGGAGTACCGGGC
+HLA:HLA00876|DRB1*16:01:01|11272      ATACTTCTATAACCAGGAGGAGTCCGTGCGCTTCGACAGCGACGTGGGGGAGTACCGGGC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               GGTGACGGAGCTGGGGCGGCCTGATGAGGAGTACTGGAACAGCCAGAAGGACTTCCTGGA
+HLA:HLA00755|DRB1*11:03:01|13650      GGTGACGGAGCTGGGGCGGCCTGATGAGGAGTACTGGAACAGCCAGAAGGACTTCCTGGA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                GGTGACGGAGCTGGGGCGGCCTGACGCTGAGTACTGGAACAGCCAGAAGGACTTCCTGGA
+HLA:HLA00876|DRB1*16:01:01|11272      GGTGACGGAGCTGGGGCGGCCTGACGCTGAGTACTGGAACAGCCAGAAGGACTTCCTGGA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               AGACGAGCGGGCCGCGGTGGACACCTACTGCAGACACAACTACGGGGTTGTGGAGAGCTT
+HLA:HLA00755|DRB1*11:03:01|13650      AGACGAGCGGGCCGCGGTGGACACCTACTGCAGACACAACTACGGGGTTGTGGAGAGCTT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                AGACAGGCGCGCCGCGGTGGACACCTACTGCAGACACAACTACGGGGTTGGTGAGAGCTT
+HLA:HLA00876|DRB1*16:01:01|11272      AGACAGGCGCGCCGCGGTGGACACCTACTGCAGACACAACTACGGGGTTGGTGAGAGCTT
+                                                                                                  
+
+test2425794|PS1|Block2                -----------------GTGAGCAT-----------------------------------
+test2425794|PS1|Block1	               CACAGTGCAGCGGCGAGGTGAGCGC-----------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CACAGTGCAGCGGCGAGGTGAGCGCGGCGCGGGGCGGGGCCTGAGTCCCTGTGAGCTGGG
+test2425794|PS2|Block2                -----------------GTGAGCAT-----------------------------------
+test2425794|PS2|Block1                CACAGTGCAGCGGCGAGGTGAGCAT-----------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CACAGTGCAGCGGCGAGGTGAGCATGGTGGGGGGCGGGGCCTGGGTCCTTGTGAGCTGGG
+                                                       ******                                     
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AATCTGAGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGAGAGAGAG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AATCTGAGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGTGT-----------------
+                                                                                                  
+
+test2425794|PS1|Block2                ----------------------------------------------------TTAGAATC
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGAGAGAGAGAGACAGAGAGACAGAGAGAGAGAGAGCGCCATCTGTGAGCATTTAGAATC
+test2425794|PS2|Block2                ----------------------------------------------------TTAGAATC
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ---GAGAGAGAGAGAGAGAGGAAGAGAGAGAGAGAGCGCCATCTGTGAGCATTTAGAATC
+                                                                                                  
+
+test2425794|PS1|Block2                CTCTCTATCCTGAGCAAGGAGTTCTGAGGGCACAGGTGTGTGTGTAGAGTGTGGATTTGT
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CTCTCTATCCTGAGCAAGGAGTTCTGAGGGCACAGGTGTGTGTGTAGAGTGTGGATTTGT
+test2425794|PS2|Block2                CTCTCAGTCCGGAGCAAGCAGTTCTGAGAGCACAGGTGTGTGTGTAAAGTGTGGATTTGT
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CTCTCAGTCCGGAGCAAGCAGTTCTGAGAGCACAGGTGTGTGTGTAAAGTGTGGATTTGT
+                                                                                                  
+
+test2425794|PS1|Block2                CTGTGTCTGTGAGGCTGTTGTGGGAGGGGAGGCAGGAGGGGGCTGCTTCTTATTCTTGGA
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CTGTGTCTGTGAGGCTGTTGTGGGAGGGGAGGCAGGAGGGGGCTGCTTCTTATTCTTGGA
+test2425794|PS2|Block2                CTGTGTCTGTGTGTCTGTTGTGGGAGGGGAGGCAGGAGGGGGCTGTTTCTTATCCTTGGA
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CTGTGTCTGTGTGTCTGTTGTGGGAGGGGAGGCAGGAGGGGGCTGTTTCTTATCCTTGGA
+                                                                                                  
+
+test2425794|PS1|Block2                GGACTCTGTGGGGAGGTGACAAGGGAGGTGGGTGCGGGCGGCTGGAGAGAGAGGTGACCT
+test2425794|PS1|Block1	               --------------------------GGCGCGGGGCGGGGCCTG----------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGACTCTGTGGGGAGGTGACAAGGGAGGTGGGTGCGGGCGGCTGGAGAGAGAGGTGACCT
+test2425794|PS2|Block2                GACCTCTGTGGGGAGGTGACAAGGGAGGTGGGTGCTGGGGGCTGGAGAGAGAGGAGACCT
+test2425794|PS2|Block1                --------------------------GGTGGGGGGCGGGGCCTG----------------
+HLA:HLA00876|DRB1*16:01:01|11272      GACCTCTGTGGGGAGGTGACAAGGGAGGTGGGTGCTGGGGGCTGGAGAGAGAGGAGACCT
+                                                                ** * * *  ** * ***                
+
+test2425794|PS1|Block2                TGATTGTCTCGGGTCCTTAGAGATGCAGGGAAGGGAAATGTAAGGGGTGTGTGGTTGGGG
+test2425794|PS1|Block1	               -----------AGTCCC-------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGATTGTCTCGGGTCCTTAGAGATGCAGGGAAGGGAAATGTAAGGGGTGTGTGGTTGGGG
+test2425794|PS2|Block2                TGATTATCTC-GGTCCTTAGAGATGCAGGGAAGGGAAATGTAAGGGGTGTGTGGTTGGGG
+test2425794|PS2|Block1                -----------GGTCCT-------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGATTATCTC-GGTCCTTAGAGATGCAGGGAAGGGAAATGTAAGGGGTGTGTGGTTGGGG
+                                                  ****                                            
+
+test2425794|PS1|Block2                TGAAGGTTTAGGGGAGGAGAGCTGAGGGGTAAGGAAGGTTTGGGATAATGTGAGGAGGCC
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGAAGGTTTAGGGGAGGAGAGCTGAGGGGTAAGGAAGGTTTGGGATAATGTGAGGAGGCC
+test2425794|PS2|Block2                TGAAGGTTTAGGGGAGGACTGCTGAGGGGTAAGGCAGGTTTGGGATAATGTGAGGAGGCC
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGAAGGTTTAGGGGAGGACTGCTGAGGGGTAAGGCAGGTTTGGGATAATGTGAGGAGGCC
+                                                                                                  
+
+test2425794|PS1|Block2                AGTTCCAGACTGTCCCTGGCACACACCCTTCATGTAATCTCTGAAATAAAAGTGTGTGCT
+test2425794|PS1|Block1	               ----------------------------------------------------TGTGAGCT
+HLA:HLA00755|DRB1*11:03:01|13650      AGTTCCAGACTGTCCCTGGCACACACCCTTCATGTAATCTCTGAAATAAAAGTGTGTGCT
+test2425794|PS2|Block2                AGTTCCAGACTCTCCCTGGCATACACCCTTCGTGTAATCTCTGAATTAAAAGTGTGTGCT
+test2425794|PS2|Block1                ----------------------------------------------------TGTGAGCT
+HLA:HLA00876|DRB1*16:01:01|11272      AGTTCCAGACTCTCCCTGGCATACACCCTTCGTGTAATCTCTGAATTAAAAGTGTGTGCT
+                                                                                          **** ***
+
+test2425794|PS1|Block2                GTTTGTTTGTAAAAGCATTAGATTAATTTCTAGGGGAATTGAGGAGACCTCTGAGGCATC
+test2425794|PS1|Block1	               G-----------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GTTTGTTTGTAAAAGCATTAGATTAATTTCTAGGGGAATTGAGGAGACCTCTGAGGCATC
+test2425794|PS2|Block2                GTTTGTTTGTAAAAGCAATAGATTAATTTCTAGAGGAACTGAGTAGACCTCTGAGGCACC
+test2425794|PS2|Block1                G-----------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GTTTGTTTGTAAAAGCAATAGATTAATTTCTAGAGGAACTGAGTAGACCTCTGAGGCACC
+                                      *                                                           
+
+test2425794|PS1|Block2                TCTGAAGCTTCTTTAGGTCTAAATTTCTTGCTAGTTTTTTGTTTTTT--ATTGTGTATAT
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TCTGAAGCTTCTTTAGGTCTAAATTTCTTGCTAGTTTTTTGTTTTTT--ATTGTGTATAT
+test2425794|PS2|Block2                TCTGAAGCTTCATTAGATCTAAATTTCTTCCTAGTTTTTTGTTTTTTTCAGTGTGTATAT
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TCTGAAGCTTCATTAGATCTAAATTTCTTCCTAGTTTTTTGTTTTTTTCAGTGTGTATAT
+                                                                                                  
+
+test2425794|PS1|Block2                TTTTACATAGTAGAAATGACTGTGAAACTAACTTTTTGAATTAAAGTTTTAACACAGTTA
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTTTACATAGTAGAAATGACTGTGAAACTAACTTTTTGAATTAAAGTTTTAACACAGTTA
+test2425794|PS2|Block2                TTTTACATAGTAGAAATGACTGTGAAACTAACTTTTTGAATTAAAGTTTTGACACGGTTA
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TTTTACATAGTAGAAATGACTGTGAAACTAACTTTTTGAATTAAAGTTTTGACACGGTTA
+                                                                                                  
+
+test2425794|PS1|Block2                CTATTTTATTATAATGCTAATAGTTTTCTAGTAGTTACATATTATTCTTTTATATATAAT
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CTATTTTATTATAATGCTAATAGTTTTCTAGTAGTTACATATTATTCTTTTATATATAAT
+test2425794|PS2|Block2                CTATTTTATTATAATGCTGGTAGTTTTCTAGTAGTTACATATTATTCTTTTATATATAAT
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CTATTTTATTATAATGCTGGTAGTTTTCTAGTAGTTACATATTATTCTTTTATATATAAT
+                                                                                                  
+
+test2425794|PS1|Block2                AGTTGTGACACAACTTACCTCACTTTCCCCTTTGTTGACCTTTATTATGACATTCACCAA
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGTTGTGACACAACTTACCTCACTTTCCCCTTTGTTGACCTTTATTATGACATTCACCAA
+test2425794|PS2|Block2                ATTTGTGACACAACTCACCTCACTTTCCCGTTTGTTGACCTTTATTATGACATTCACCAG
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ATTTGTGACACAACTCACCTCACTTTCCCGTTTGTTGACCTTTATTATGACATTCACCAG
+                                                                                                  
+
+test2425794|PS1|Block2                AATTTGAAAATGTATGTTTCTGGTTAATTTTTAATTTATATTTTTTTCATTTATAATTCT
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AATTTGAAAATGTATGTTTCTGGTTAATTTTTAATTTATATTTTTTTCATTTATAATTCT
+test2425794|PS2|Block2                AAGTTGAAATTGTGTGTTTCTGGTTAATTTTTAATTTATATTTTTT--ATTTGTAATTCC
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AAGTTGAAATTGTGTGTTTCTGGTTAATTTTTAATTTATATTTTTT--ATTTGTAATTCC
+                                                                                                  
+
+test2425794|PS1|Block2                TTTGAATTATTTTGACCTATTTATTGGCCAGTTTTAATAACTGCTGTAAGAATTCCCTAT
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTTGAATTATTTTGACCTATTTATTGGCCAGTTTTAATAACTGCTGTAAGAATTCCCTAT
+test2425794|PS2|Block2                TTTGAATTATTTTGCCCTATTTATTGGCCGATTATAATTATTGCTCTAAGAATTCCCTAT
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TTTGAATTATTTTGCCCTATTTATTGGCCGATTATAATTATTGCTCTAAGAATTCCCTAT
+                                                                                                  
+
+test2425794|PS1|Block2                TGTATTTGGTAGGGAATGGACAATGATCTACTGCCTAATATCTCGAGGGCTTAGTATTTT
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGTATTTGGTAGGGAATGGACAATGATCTACTGCCTAATATCTCGAGGGCTTAGTATTTT
+test2425794|PS2|Block2                TGTATTTGGTAGGTAATGGACAATGATCTACGGTCTAATATCTTGAGGGCTTAGTATTTT
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGTATTTGGTAGGTAATGGACAATGATCTACGGTCTAATATCTTGAGGGCTTAGTATTTT
+                                                                                                  
+
+test2425794|PS1|Block2                TCTCAGTGACTTTGTGGGTTCTTTGTACTGTGAGATTATTAACACTTTATTGATATTTGA
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TCTCAGTGACTTTGTGGGTTCTTTGTACTGTGAGATTATTAACACTTTATTGATATTTGA
+test2425794|PS2|Block2                TCTCAGTGACTTTCTGCGTTCTTTGTACTATAAGATTATTAACACTTTATTGATATTTGA
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TCTCAGTGACTTTCTGCGTTCTTTGTACTATAAGATTATTAACACTTTATTGATATTTGA
+                                                                                                  
+
+test2425794|PS1|Block2                TTCAGCATTTGCTCCAGTTTGTGGTTTGTATGTTGATTTTGAAAATTCTTTTCCATGTTA
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTCAGCATTTGCTCCAGTTTGTGGTTTGTATGTTGATTTTGAAAATTCTTTTCCATGTTA
+test2425794|PS2|Block2                TCCAGCATTTGCTCCAGTTTGTGGTTTGTATGTGGATTTTGAAAATTCTTTTCCATGTTA
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TCCAGCATTTGCTCCAGTTTGTGGTTTGTATGTGGATTTTGAAAATTCTTTTCCATGTTA
+                                                                                                  
+
+test2425794|PS1|Block2                AGAATTTGAACATTTTTATATAATAAAATATGTTGCAAAATTTTTATTAATGATTTACAA
+test2425794|PS1|Block1	               GGAATCTGA---------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGAATTTGAACATTTTTATATAATAAAATATGTTGCAAAATTTTTATTAATGATTTACAA
+test2425794|PS2|Block2                AGAATTTGAACATTTTTATTTAATAAAATATATTGCAACATTTTTATTAATGATCTACAA
+test2425794|PS2|Block1                GGAATCTGA---------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGAATTTGAACATTTTTATTTAATAAAATATATTGCAACATTTTTATTAATGATCTACAA
+                                       **** ***                                                   
+
+test2425794|PS1|Block2                TCCATCTTAAATCTGCCATTTTGTGGTATTGTTGTCTCCAGGTTTCTCCTTACTTCTAAA
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TCCATCTTAAATCTGCCATTTTGTGGTATTGTTGTCTCCAGGTTTCTCCTTACTTCTAAA
+test2425794|PS2|Block2                TCCATCTGAAATCTGCCATTTTGTGGCATTGTTGTCTCCAGGTTTCTCCTTACTTCTAAA
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TCCATCTGAAATCTGCCATTTTGTGGCATTGTTGTCTCCAGGTTTCTCCTTACTTCTAAA
+                                                                                                  
+
+test2425794|PS1|Block2                AAA--AATTGCATTTATTGAGAGTCTGCTAGTGTTAGGGATTTTCCTGGGCATAAGCACC
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AAA--AATTGCATTTATTGAGAGTCTGCTAGTGTTAGGGATTTTCCTGGGCATAAGCACC
+test2425794|PS2|Block2                AAAATAGTTGTATTTATTGAGAGTATGCTAGTGTCGGGGATTTTCCTGGGCATAAGCACC
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AAAATAGTTGTATTTATTGAGAGTATGCTAGTGTCGGGGATTTTCCTGGGCATAAGCACC
+                                                                                                  
+
+test2425794|PS1|Block2                CCAAGTGACGAGTCCCAGACACTGCCTTAATCCAAATGTGATTCTGGAAAGAAAAATCAT
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CCAAGTGACGAGTCCCAGACACTGCCTTAATCCAAATGTGATTCTGGAAAGAAAAATCAT
+test2425794|PS2|Block2                CCAAGTAACGAGTCCCAGACACTGCCTTAATCCAAATGTGATTCTGGAAAGAAAAATCAT
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CCAAGTAACGAGTCCCAGACACTGCCTTAATCCAAATGTGATTCTGGAAAGAAAAATCAT
+                                                                                                  
+
+test2425794|PS1|Block2                TTTACAATGATAGGCCTAATAATAATTAAGCTTGTGTTGCATGGGAGATGCATTGATCAG
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTTACAATGATAGGCCTAATAATAATTAAGCTTGTGTTGCATGGGAGATGCATTGATCAG
+test2425794|PS2|Block2                TTTACAATGATAGGCCTAATAATAATTATGCTTGTGTTGCACGGGAGATGCATTGATCAG
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TTTACAATGATAGGCCTAATAATAATTATGCTTGTGTTGCACGGGAGATGCATTGATCAG
+                                                                                                  
+
+test2425794|PS1|Block2                CTAAATGTAAATATAAGAACTTTCAAAACTAAAATGACGTTCCTTAATCCTTCTCTCTGC
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CTAAATGTAAATATAAGAACTTTCAAAACTAAAATGACGTTCCTTAATCCTTCTCTCTGC
+test2425794|PS2|Block2                CTAAATGTAAATATAAGAACTTTCAAAACTTAAATGACGTTCCCTAATCCTTCTCTCTGC
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CTAAATGTAAATATAAGAACTTTCAAAACTTAAATGACGTTCCCTAATCCTTCTCTCTGC
+                                                                                                  
+
+test2425794|PS1|Block2                TTTATGACTCATGCTTTTCTGGGAAAGTAAAAATTTGGAGAATCATTTCTGTCTGTCCCA
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTTATGACTCATGCTTTTCTGGGAAAGTAAAAATTTGGAGAATCATTTCTGTCTGTCCCA
+test2425794|PS2|Block2                TTCAGGACTCATGCTTTTCTAGGAAAGTAAAAATTTGGAGAATCATTTCTGTCTGTCCCA
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TTCAGGACTCATGCTTTTCTAGGAAAGTAAAAATTTGGAGAATCATTTCTGTCTGTCCCA
+                                                                                                  
+
+test2425794|PS1|Block2                CCTTCCCAGGGGCAGAACCATTTCTGTGGTGTTCTAAGGTGTGAGTGCATGGCGGTAGTA
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CCTTCCCAGGGGCAGAACCATTTCTGTGGTGTTCTAAGGTGTGAGTGCATGGCGGTAGTA
+test2425794|PS2|Block2                CCTTCCCAGGGGCAGAACAATTTCTGTTGTGTTCTAAGGTGTGAGTGCATGGGAGTAGTA
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CCTTCCCAGGGGCAGAACAATTTCTGTTGTGTTCTAAGGTGTGAGTGCATGGGAGTAGTA
+                                                                                                  
+
+test2425794|PS1|Block2                TTCCTAAAAATTCATATTCGGTTTCGTCATGTACCCAACTCTGTCCCGTTATCTATCAAC
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTCCTAAAAATTCATATTCGGTTTCGTCATGTACCCAACTCTGTCCCGTTATCTATCAAC
+test2425794|PS2|Block2                TTCCT-AAAATTCATACTTGGTTTCCTCATGTACCCAACTCTGTCCCTTTATCTATGCAT
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TTCCT-AAAATTCATACTTGGTTTCCTCATGTACCCAACTCTGTCCCTTTATCTATGCAT
+                                                                                                  
+
+test2425794|PS1|Block2                ATTGTTTTAAATCATATATTTCTGTCAAGGTGTACAAGGATGATAAATAGGTGCCAAGTG
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ATTGTTTTAAATCATATATTTCTGTCAAGGTGTACAAGGATGATAAATAGGTGCCAAGTG
+test2425794|PS2|Block2                ATTGCTTTAAATCATATTTTTCTGTCAAGGTGTACAAGGATGATAAATAGGTGCCAAGTG
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ATTGCTTTAAATCATATTTTTCTGTCAAGGTGTACAAGGATGATAAATAGGTGCCAAGTG
+                                                                                                  
+
+test2425794|PS1|Block2                GAGCACCCAAGTGTGATGAGCCCCCTCACAGTGGAATGGAGTGTGAAGCTTTATGACCTC
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GAGCACCCAAGTGTGATGAGCCCCCTCACAGTGGAATGGAGTGTGAAGCTTTATGACCTC
+test2425794|PS2|Block2                GAGCACTCAAGTGTGATGAGTGCCCTCACAGTGGAATGGAGTGAGAAGCTTTCTGACCTC
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GAGCACTCAAGTGTGATGAGTGCCCTCACAGTGGAATGGAGTGAGAAGCTTTCTGACCTC
+                                                                                                  
+
+test2425794|PS1|Block2                ATAAATTGAAGGTTATCTTCAGTCATTGTTTTATATATTTTACATGCATTAATCCTCATA
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ATAAATTGAAGGTTATCTTCAGTCATTGTTTTATATATTTTACATGCATTAATCCTCATA
+test2425794|PS2|Block2                ATAAACTGAAGGCTATCTTCAGTCATTGTTTTATATATTTTACGTGCATTAATCCTCATA
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ATAAACTGAAGGCTATCTTCAGTCATTGTTTTATATATTTTACGTGCATTAATCCTCATA
+                                                                                                  
+
+test2425794|PS1|Block2                TAATCCCAAGAGGTAAATTAGTATAATTATCCTTCATTATAGGTGACAAAGTTGAGACAC
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TAATCCCAAGAGGTAAATTAGTATAATTATCCTTCATTATAGGTGACAAAGTTGAGACAC
+test2425794|PS2|Block2                TAACCCCAAGAGGTAAATTAGTATAATTATCCTTCATTGTAGGTGACAAAGTTGAGACAC
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TAACCCCAAGAGGTAAATTAGTATAATTATCCTTCATTGTAGGTGACAAAGTTGAGACAC
+                                                                                                  
+
+test2425794|PS1|Block2                AGAAGAATC---GAACTCTT-----------------AAGGCAGACCTTGGATTTGAACC
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGAAGAATC---GAACTCTT-----------------AAGGCAGACCTTGGATTTGAACC
+test2425794|PS2|Block2                AGAAGAATCAAAAAACTCTTCCAGGATCAACCAGTAAAAGGCAGACCTTGGATTCGAACC
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGAAGAATCAAAAAACTCTTCCAGGATCAACCAGTAAAAGGCAGACCTTGGATTCGAACC
+                                                                                                  
+
+test2425794|PS1|Block2                AGGCAACCTGGCTCAGATATCAGTTTTAATTACTACACTCTGTACTTTCAAAGATTTGTA
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGGCAACCTGGCTCAGATATCAGTTTTAATTACTACACTCTGTACTTTCAAAGATTTGTA
+test2425794|PS2|Block2                AGGCAACCTGGCTCAAATATCAGTTTTAATTACTACACTCTGTACTTTCCAAGATTTGTA
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGGCAACCTGGCTCAAATATCAGTTTTAATTACTACACTCTGTACTTTCCAAGATTTGTA
+                                                                                                  
+
+test2425794|PS1|Block2                AACACTTTGACAATGCATGACAATTTCAAGCTATGAAGAAACAAACACAATTTTTCACAA
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AACACTTTGACAATGCATGACAATTTCAAGCTATGAAGAAACAAACACAATTTTTCACAA
+test2425794|PS2|Block2                AACAGTTTGACAATGCATGCCGATTTAAAACTATGAAGAAACAAACACAATTTTTCACAA
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AACAGTTTGACAATGCATGCCGATTTAAAACTATGAAGAAACAAACACAATTTTTCACAA
+                                                                                                  
+
+test2425794|PS1|Block2                TATCTCTCAAATCTAATAGGTCCTCACTATCAAGATTAAGTTCCAGGCTGATGACACTGT
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TATCTCTCAAATCTAATAGGTCCTCACTATCAAGATTAAGTTCCAGGCTGATGACACTGT
+test2425794|PS2|Block2                CACCTCTCAAATCTAATGGGTCCTCACTGTCAAGATTAAATTCCAGGCTGATGACACTGT
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CACCTCTCAAATCTAATGGGTCCTCACTGTCAAGATTAAATTCCAGGCTGATGACACTGT
+                                                                                                  
+
+test2425794|PS1|Block2                AAGGCCACATGGCCAGCTGTGCTGGAGGCCTGGTCAAGGTCAGAGCCTGGGTTTGCAGAG
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AAGGCCACATGGCCAGCTGTGCTGGAGGCCTGGTCAAGGTCAGAGCCTGGGTTTGCAGAG
+test2425794|PS2|Block2                AAGGTCACATGGCCAGCTGTGCTATAGGCCTGGTCAAGGCCAGAGCCTGGGTTTGCAGAG
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AAGGTCACATGGCCAGCTGTGCTATAGGCCTGGTCAAGGCCAGAGCCTGGGTTTGCAGAG
+                                                                                                  
+
+test2425794|PS1|Block2                AAGCAGACAAACAGCCAAACAAGGAGACTTACTCTGTCTTCATGACTCATTCCCTCTACC
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AAGCAGACAAACAGCCAAACAAGGAGACTTACTCTGTCTTCATGACTCATTCCCTCTACC
+test2425794|PS2|Block2                AAGCAGACACACAGCCAAACCAGGAGACTTACTCTGTCTTCCTGACTCATTCCCTCTACG
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AAGCAGACACACAGCCAAACCAGGAGACTTACTCTGTCTTCCTGACTCATTCCCTCTACG
+                                                                                                  
+
+test2425794|PS1|Block2                T--TTTTTCTCCTAGTCCATCCTAAGGTGACTGTGTATCCTTCAAAGACCCAGCCCCTGC
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      T--TTTTTCTCCTAGTCCATCCTAAGGTGACTGTGTATCCTTCAAAGACCCAGCCCCTGC
+test2425794|PS2|Block2                TTGTTTTTCTCCTAGTCCAACCTAAGGTGACTGTATATCCTTCAAAGACCCAGCCCCTGC
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TTGTTTTTCTCCTAGTCCAACCTAAGGTGACTGTATATCCTTCAAAGACCCAGCCCCTGC
+                                                                                                  
+
+test2425794|PS1|Block2                AGCACCACAACCTCCTGGTCTGTTCTGTGAGTGGTTTCTATCCAGGCAGCATTGAAGTCA
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGCACCACAACCTCCTGGTCTGTTCTGTGAGTGGTTTCTATCCAGGCAGCATTGAAGTCA
+test2425794|PS2|Block2                AGCACCACAACCTCCTGGTCTGCTCTGTGAGTGGTTTCTATCCAGGCAGCATTGAAGTCA
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGCACCACAACCTCCTGGTCTGCTCTGTGAGTGGTTTCTATCCAGGCAGCATTGAAGTCA
+                                                                                                  
+
+test2425794|PS1|Block2                GGTGGTTCCGGAATGGCCAGGAAGAGAAGACTGGGGTGGTGTCCACAGGCCTGATCCACA
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGTGGTTCCGGAATGGCCAGGAAGAGAAGACTGGGGTGGTGTCCACAGGCCTGATCCACA
+test2425794|PS2|Block2                GGTGGTTCCTGAACGGCCAGGAAGAGAAGGCTGGGATGGTGTCCACAGGCCTGATCCAGA
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GGTGGTTCCTGAACGGCCAGGAAGAGAAGGCTGGGATGGTGTCCACAGGCCTGATCCAGA
+                                                                                                  
+
+test2425794|PS1|Block2                ATGGAGACTGGACCTTCCAGACCCTGGTGATGCTGGAAACAGTTCCTCGGAGTGGAGAGG
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ATGGAGACTGGACCTTCCAGACCCTGGTGATGCTGGAAACAGTTCCTCGGAGTGGAGAGG
+test2425794|PS2|Block2                ATGGAGACTGGACCTTCCAGACCCTGGTGATGCTGGAAACAGTTCCTCGAAGTGGAGAGG
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ATGGAGACTGGACCTTCCAGACCCTGGTGATGCTGGAAACAGTTCCTCGAAGTGGAGAGG
+                                                                                                  
+
+test2425794|PS1|Block2                TTTACACCTGCCAAGTGGAGCACCCAAGCGTGACAAGCCCTCTCACAGTGGAATGGAGTG
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTTACACCTGCCAAGTGGAGCACCCAAGCGTGACAAGCCCTCTCACAGTGGAATGGAGTG
+test2425794|PS2|Block2                TTTACACCTGCCAAGTGGAGCACCCAAGCGTGACAAGCCCTCTCACAGTGGAATGGAGTG
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TTTACACCTGCCAAGTGGAGCACCCAAGCGTGACAAGCCCTCTCACAGTGGAATGGAGTG
+                                                                                                  
+
+test2425794|PS1|Block2                AGCAGCTTT---------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGCAGCTTTCTGACTTCATAAATTTCTCACCCACCAAGAAGGGGACTGTGCTCATCCCTG
+test2425794|PS2|Block2                AGCAGCTTT---------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGCAGCTTTCTGACTTCCTAAATTTCTCACCCACTAAGAAGGGGACCGTGCTAATCCCTG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGTGTCAGGTTTCTCCTCTCCGACATCCTATTTTCATTTGCTCCATGTTCTCATCTCCAT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGTGTCAGGTTCCTCCTCTCCCACATCCTATTTTAATTTGCTCCATGTTCTCATCTCCAT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CAGCACAGGTCACTGGGGGTAGCCCTGTAGGTGTTTCTAGAAACACCTGTACCTCCTGGA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CAGCACAGGTCACTGGGGGTAGCCCTGTAGGTGTTTCTAGAAACACCTGTACCTCCTGGA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GAAGCAGTCTCGCCTGCCAGGCAGGAGAGGCTGTCCCTCTTTTGAACCTCCCCATGATGT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GAAGCAGTCTCGCCTGCCAGGCGGGAGAGACTGTCCCTCTTTTGAACCTCCCCATGATTT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CACAGGTCAGGGTCACCCACCCTCCCCGGGCTCCAGGCACTGCCTCTGGGTCTGAGACTG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGCAGGTCAGGGTCACCCACTCT-CCCAGGCTCCAGGCCCTGCCTCTGGGTCTGAGACTG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGTTTCTGGTGCTGTTGATCTGAGTTATTTGTTGTGATCTGGGAAGAGGAGAAGTGTAGG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGTTTCTGGTGCTGTTGCTCTGAGTTATTTTTTGTGATCTGGGAAGAGGAGAAGTGTAGG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGCCTTCCTGACATGAGGGGAGTCCAATCTCAGCTCTGCCTTTTATTAGCTCTGTCACTC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GGCCTACCTGACATGAGGGGAGTCCAATCTCAGCCCTGCTTTTTATTAGCTTTGTCACTC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TAGACAAACTACTTAGCCTCATTGAGTCTCAGGCTTTCTGTGGATCAGATGTTGAACTCT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TAGACAAACTACTTATCCTCATTGAGTCTCAGGCTTTCTGTGGATCAGATGTTGAACTTG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGCCTTACATCAAGGCTGTAATATTTGAATGAGTTTGATGTCTGAACCTTGTAACTGTTC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGCCTTACATCAAGGCTGTAATATTTGAATGAGTTTGATGTCTGAACATCGTAACTGTTC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGTGTGATTTGAAATCCTTTTTTTCTCCAGAAATGGCTAGTTATTTTAGTTCTTGTGGGG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGTGTAATTTGAAATCCTTTTTTTCTCCTGAAATGGCTAGTTATTTTAGTTCTTGTGAGG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CAGACTTCTTCCCCATTTTCAAAGCTCTGAATCTTAGAGTCTCAATTAAAGAGGTTCAAT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CAGCTTTCTGCCCCATTTTCAAAGCTCTGAATCTTAGAGTCTCAAGTAAAAAGGTTCAAT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTGGAATAAA---CACTAAACCTGGCTTCCTCTCTCAGGAGCACGGTCTGAATCTGCACA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TTGGAATAAACATCACTAAACCTGGCTTCCTCTCTCAGGAGCACGGTCTGAATCTGCACA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GAGCAAGATGCTGAGTGGAGTCGGGGGCTTTGTGCTGGGCCTGCTCTTCCTTGGGGCCGG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GAGCAAGATGCTGAGTGGAGTCGGGGGCTTTGTGCTGGGCCTGCTCTTCCTTGGGGCCGG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GCTGTTCATCTACTTCAGGAATCAGAAAGGTGAGGAGCCTTTGGTAGCTGGCTCTCTCCA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GCTGTTCATCTACTTCAGGAATCAGAAAGGTGAGGAGCCTTTGGGAGCTGGCTCTCTCCA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TAGGCTTTTCTGGAGGAGGAACTATGGCTTTGCTGAGGTTAGTTCTCAGTATATGAGTGG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TAAGCTTTTCTGGAGGAGGAACTATGGCTTTGCTGAGGTTAGTTCTCAGTATATGAGTGG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CCCTGAATAAAGCCTTTCTTTCCCCAAACGGCTCTAATGTCCTGCTAATCCAGAAATCAT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CCCTGAATAAAGCCTTTCTTTCCCCAAACGGCTCTAATGTCCTGCTAATCCAGAAATCAT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CAGTGCATGGTTACTATGTGAAAGCATAATAGCTTGTGGCCTGCAGAGACAAGAGGAAGG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CAGTGCATGGTTACTATGTGAAAGCATAATAGCTTGTGGCCTGCAGAGACGAGAGGAAGG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TTAACAAGTAGGGGTCCTTTGGTTTGAGATCTTGGAGCAGATTAAGGAAGAGCCACTAAG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TTAACAAGTAGGGGTCCTCTGGTTTGAGATCCTGGAGCAAATTAAGGAAGAGCCACTAAG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ACTAATGGAATTACACTGGATCCTGTGACAGACACTTCACCCTTCATGGGTCACATGGTC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GCTAATGGAATTACACTGGATCCTGTGACAGACACTTCAGGCTTCATGGGTCACATGGTC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGTTTCTGCTCCTCTCTGCCCTGGCTGGTGTGGGTTGTAGTGACAGAGAACTCTCCGGTG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGTTTCTGCTCCTTTCTGCCCTGGTTGGTGTGGGTTGTGGTGTTAGAGAAATCTCAGGTG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGAGATCTGGGGCTGGGACATTGTGTTGGAAGACAGATTTGCTTCCATAAATTTTAAGTG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GGAGATCTGGGGCTGGGACATTGTGTTGGAGGACAGATTTGCTTCAATAACTTTTAAGTG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TATATATTTTCCTCTTTTTCCCAGGACACTCTGGACTTCAGCCAAGAGGTAATACCTTTT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TATATCTTTTCCTCTTTTTCCCAGGACACTCTGGACTTCAGCCAACAGGTAATACCTTTT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AATCCTCTTTTAGAAACAGATACGGTTTCCCTAGTGAGAGGTGAAGCCAGCTGGACTTCT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AATCCTCTTTTAGAAACAGACACAGTTTCCCTAGTGAGAGGTGAAGCCAGCTGGACTTCT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGGTCGGGTAGGGACTTGCAGAACTTT---------------------------------
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GGGTGGGGTGGGGACTTGGAGAACTTTTCTTACAAGAGGTTTCTTTTTTTTTTTTTTTTT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ------------------------------------------------------------
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGAGACGGAGTCTCGCTCTGTCGCCCAGGCTGGAGTGCAGTGGCGGGATCTCGGCTCACT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ------------------------------------------------------------
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GCAAGCTCCGCCTCCCGGGTTCACGCCATTCTCCTGCCTCAGCCTCCCAAGTAGCTGGGA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ------------------------------------------------------------
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CTACAGGCGCCCGCCACTACGCCCGGCTAATTTTTTGTATTTTTAGTAGAGACGGGGTTT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ------------------------------------------------------------
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CACCGTTTTAGCCAGGATGGTCTCGATCTCCTGACCTCGTGATCCGCCCGCCTCGGCCTC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      -----------------------------------CCTGTCTTAGGAGAGGTTTCTAAAT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CCAAAGTGCTGGGATTACAGGTGTGAGCCACCGCGCCCGGCCTACAAGAGGTTTCTAAAT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GCACCAATCAGTGCTCTGTAAAAACACACCAATTGGCACTCTGTGGCTAGATAGATGTTT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GCACCAATCAGTGCTTTGTAAAAACACACCAATAGGTTCTCTGTGGCTAGCTGGATGTTT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GTAAAATGGACTAATCAGCACTCTGTAAAATGGAGCAATCCA------------------
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GTAAAATGGACCAATTCGCACTCTGTAAAATAGACCAATCAGCACTCTTTAAAATGGACC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      -----------------------------CACTCTGTAAAATGGACCAATCAATGCTCTT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AATCAGCACTTTTAAAATGGGCCAATCACCACTCTTTAAAATGGACCAATCAGCACTCTT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TAAAATGGACCAATCAGCAGGACATGGGCGGGGACAAATAAGGGAATACAAGCTGGCCAC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TAAAATGGACCAATCTGCAGGACATGGGCAGGGACAAATACAGGAATAAAAGCTGGCCAC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CCCAGCCAGCAGCAGCAACCCGCTCAGGTCGCCTTCCATGCTGTGGAAGCTTTGTTCTTT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CCCAACCAGCAGTGGCAACCCACTCAGGTCCTCTTCCCTGCTGTGGAAGTTTTGTTCTTT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGCTCTTCACAATAAATCTTGCTGTTGCTCACTCTTCGGGTCTGTGCCACCTTTAAGAGC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGATCTTCACAATAAATCTTGCTGCTGCCCACTCTTTGGGTCCCTGCCGCCTTTAAGAGC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      TGTAACACTCACTGTGAAGATTCGCGGCTTCATTCTTGAAGTCAGCGAAACCACGAACCC
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      TGTAACACTCACTGTGAAGGTCTGCAG----------GAAGTCAGCGAGACCACAAACCC
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      ACCGGAAGGAACAAACTCTGGACACACTAGAATTGATGGTAGAGGTGATAAGGCATGAGA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      ACCGGAAGGAACAAACTCAGGACACACCAGAA-TGATGGTAGAGGTGATAAGGCATGAGA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CAGAAATAATAGGAAAGACTTTGGATCCAAATTTCTGATCAGGCAATTTACACCAAAACT
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CAGAAATAATAGGAAAGACTTTGGATCCAAATTTCTGATCAGGCAATTTACACCAAAATT
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      CCTCCTCTCCACTTAGAAAAGGCCTGTGCTCTGTGGGACTATTGGCTC-TGGGAGACTCA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      CCTCCTCTCCACTTAGAAAAGGCCTGTGCTCTGCGGGACTATTGGCTCAGGGGAGACTCA
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      GGAACTTGTTTTTCTTCTTCCTGCAGTGCTCTCATCTGAGTCCCTGAAAGAGAGGAAAAG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      GGAACTTCTTTTTCTTCTTCCTGCAGTGCTCTCATCTGAGCCCTTGAAAGAGGGGAAAAG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AAACTGTTAGTAGAGTCAGGTTGAAAACAACACTCTCCTCTGTCTTTTGCAGGATTCCTG
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AAACTGTTAGTAGAGCCAGGTTGAAAACAACACTCTCCTCTGTCTTTTGCAGGATTCCTG
+                                                                                                  
+
+test2425794|PS1|Block2                ------------------------------------------------------------
+test2425794|PS1|Block1	               ------------------------------------------------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AGCTGAAGTGCAGATGA-CACATTCAAAGAAGAACTTTCTGCCCCAGCTTTGCAGGATGA
+test2425794|PS2|Block2                ------------------------------------------------------------
+test2425794|PS2|Block1                ------------------------------------------------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AGCTGAAATGCAGATGACCACATTCAAGGAAGAACTTTCTGCCCCGGCTTTGCAGGATGA
+                                                                                                  
+
+test2425794|PS1|Block2                ---------------------
+test2425794|PS1|Block1	               ---------------------
+HLA:HLA00755|DRB1*11:03:01|13650      AAAGCTTTCCCTCCTGGCTGT
+test2425794|PS2|Block2                ---------------------
+test2425794|PS2|Block1                ---------------------
+HLA:HLA00876|DRB1*16:01:01|11272      AAAGCTTTCCTGCTTGGCAGT
+                                                           

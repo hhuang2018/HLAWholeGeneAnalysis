@@ -130,25 +130,28 @@ def IMBTdb_2_dict(HLA_locus = "A", input_fp = "../IMGTHLA/"):
     """
     Convert IMGT aligned genomic and CDS sequence files into dictionary structure.
     """
-    # genomic alignment file
-    filename = input_fp + "/alignments/" + HLA_locus + "_gen.txt" 
+    if HLA_locus in ["A", "B", "C"]: # class I
+        locus = HLA_locus
+    elif HLA_locus in ["DRB1", "DQB1", "DPB1"]: # class II
+        locus = re.sub("1", "", HLA_locus)
+    # genomic alignment file    
+    filename = input_fp + "/alignments/" + locus + "_gen.txt" 
     if path.exists(filename):
         gDNA_alignment = read_IMGT_alignment(filename, 'gDNA')
-#    else:
-#        gDNA_alignment = {}
-    
+  
     # CDS alignemtn file
-    filename = input_fp + "/alignments/" + HLA_locus + "_nuc.txt"
+    filename = input_fp + "/alignments/" + locus + "_nuc.txt"
     if path.exists(filename):    
         CDS_alignment = read_IMGT_alignment(filename, 'cDNA', 3, 4)
     else:
         print("File %s does not exist.", filename)
         CDS_alignment = {}
+    
     if len(CDS_alignment)>0:
         ExonSequences = parseExonSequences(CDS_alignment)
-    
+
     # protein alignment file
-    filename = input_fp + "/alignments/" + HLA_locus + "_prot.txt"
+    filename = input_fp + "/alignments/" + locus + "_prot.txt"
     if path.exists(filename): 
         protein_alignment = read_IMGT_alignment(filename, 'Prot', 2, 3)
 #    else:
@@ -156,12 +159,12 @@ def IMBTdb_2_dict(HLA_locus = "A", input_fp = "../IMGTHLA/"):
     
  # merge into one single Dictionary structure
     combined_alignments = [gDNA_alignment, CDS_alignment, ExonSequences, protein_alignment]
-    
+
     combined_dict = defaultdict(dict)
     for item in combined_alignments:
         for k, v in item.iteritems():
             combined_dict[k].update(v)
-            
+    
     return(combined_dict)
 
 def write_IMGTdb(IMGTdb, fname = 'HLA_A_IMGTdb', out_fp = '../data/'):
@@ -271,20 +274,30 @@ def readIMGTsql(HLAtyping, db_fp = "Database/", field = '*', unaligned = True):
         con = sqlite3.connect(filename)
         cur = con.cursor()
         t = (HLAtyping,)
-        cur.execute('SELECT ' + field + ' FROM Sequences WHERE HLATyping=?', t)
+        cur.execute('SELECT ' + field + ' FROM Sequences WHERE HLATyping = ?', t)
         sequences_temp = cur.fetchone()
         
         if sequences_temp == None:
-            print("No record of " + HLAtyping + "\nPlease check the HLA typing.")
+            
+            t = (HLAtyping+":01%",)
+            cur.execute('SELECT ' + field + ' FROM Sequences WHERE HLATyping LIKE ?', t)
+            sequences_temp = cur.fetchone()
+            if sequences_temp == None:
+                print("No record of " + HLAtyping + "\nPlease check the HLA typing.")
+            else:
+                if unaligned:
+                    sequences = [re.sub("-", "", seq) for seq in sequences_temp]
+                else:
+                    sequences = sequences_temp
+           
         else:
             if unaligned:
                 sequences = [re.sub("-", "", seq) for seq in sequences_temp]
             else:
                 sequences = sequences_temp
-                        
+            
         cur.close()
         return(sequences)
     else:
         print("No database is available. Please build an SQL database first. \n" +
               "To build a new SQL database, use the following command:\n>>> buildIMGTsql(\""+ HLAtyping.split("*")[0] +"\")")
-    
