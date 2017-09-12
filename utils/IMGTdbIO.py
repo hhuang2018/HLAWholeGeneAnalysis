@@ -126,10 +126,62 @@ def parseExonSequences(seq_db, dbType = "CDS"):
    
     return(Exon_db)
 
-def IMBTdb_2_dict(HLA_locus = "A", input_fp = "../IMGTHLA/"):
+def parseExonSequences_py3(seq_db, dbType = "CDS"):
+    """
+    Parse exon sequences from CDS or genomic sequences 
+    seq_db: Dictionary structure -- aligned
+    dbType: "CDS" or "genomic" 
+    """
+    Exon_db = {}
+    
+    if dbType == "CDS":
+        Exon_db = defaultdict(dict)
+        for Typings, Seqs in seq_db.items():
+            
+            temp_Seqs = re.sub("-", "", Seqs["cDNA"])
+            temp_segments = temp_Seqs.split("|")
+            
+            numExons = len(temp_segments)
+            temp_db = []
+            for index in range(numExons):
+                temp_db.append({Typings:{'Exon'+str(index+1):"".join(temp_segments[index])}})
+           
+            for item in temp_db:
+                for k, v in item.items():
+                    Exon_db[k].update(v)
+   
+    return(Exon_db)
+
+def readIMGT_alleleList(version, input_fp):
+    '''
+    Read Allele list and return as a dictionary
+    HLA gl-string: HLA ID 
+    '''
+    alleleList_lines = open(input_fp+"Allelelist."+version+".txt").readlines() ### open(filename, 'r')
+    
+    alleleList = {}
+    for LineIndex in range(len(alleleList_lines)):
+        alleleList[alleleList_lines[LineIndex].rstrip().split(" ")[1]] = alleleList_lines[LineIndex].rstrip().split(" ")[0]
+        
+    return(alleleList)
+        
+def extractValues(fieldName, keyName):
+    """
+    Extract the value from a dictionary given a key name
+    """
+    try: 
+        filedValue = fieldName[keyName]
+    except KeyError:
+        filedValue = ""
+    return(filedValue)
+    
+def IMGTdb_2_dict(HLA_locus = "A", version = "3250", input_fp = "../IMGTHLA/"):
     """
     Convert IMGT aligned genomic and CDS sequence files into dictionary structure.
     """
+    
+    alleleList = readIMGT_alleleList(version, input_fp)
+    
     if HLA_locus in ["A", "B", "C"]: # class I
         locus = HLA_locus
     elif HLA_locus in ["DRB1", "DQB1", "DPB1"]: # class II
@@ -148,8 +200,11 @@ def IMBTdb_2_dict(HLA_locus = "A", input_fp = "../IMGTHLA/"):
         CDS_alignment = {}
     
     if len(CDS_alignment)>0:
-        ExonSequences = parseExonSequences(CDS_alignment)
-
+        try:  ## Python 2.7
+            ExonSequences = parseExonSequences(CDS_alignment)
+        except AttributeError:## Python 3.6
+            ExonSequences = parseExonSequences_py3(CDS_alignment)
+            
     # protein alignment file
     filename = input_fp + "/alignments/" + locus + "_prot.txt"
     if path.exists(filename): 
@@ -161,62 +216,50 @@ def IMBTdb_2_dict(HLA_locus = "A", input_fp = "../IMGTHLA/"):
     combined_alignments = [gDNA_alignment, CDS_alignment, ExonSequences, protein_alignment]
 
     combined_dict = defaultdict(dict)
-    for item in combined_alignments:
-        for k, v in item.iteritems():
-            combined_dict[k].update(v)
-    
-    return(combined_dict)
-
-def write_IMGTdb(IMGTdb, fname = 'HLA_A_IMGTdb', out_fp = '../data/'):
-    """
-    Save the IMGT database into a pickle file
-    """
-    with open(out_fp + fname + '.pkl', 'wb') as fileHandle:
-        pickle.dump(IMGTdb, fileHandle, pickle.HIGHEST_PROTOCOL)
-
-def load_IMGTdb(fname = 'HLA_A_IMGTdb', out_fp = '../data/'):
-    """
-    Load the the IMGT database pickle file into a Dictionary structure
-    """
-    with open(out_fp + fname + '.pkl', 'rb') as fileHandle:
-        return pickle.load(fileHandle)
-
-def extractValues(fieldName, keyName):
-    """
-    Extract the 
-    """
-    try: 
-        filedValue = fieldName[keyName]
-    except KeyError:
-        filedValue = ""
-    return(filedValue)
+    try: # python 2.7
+        for item in combined_alignments:
+            for k, v in item.iteritems():
+                combined_dict[k].update(v)
+    except AttributeError: ## Python 3.6
+        for item in combined_alignments:
+            for k, v in item.items():
+                combined_dict[k].update(v)
+        
+    return(combined_dict, alleleList)
 
 ## buil IMGT sqlite3 database 
-def buildIMGTsql(Locus, output_fp = "Database/"):
+def buildIMGTsql(Locus, version = "3250", output_fp = "Database/"):
     """
     Build a Sqllite3 database for each locus: A, B, C, DRB1, DQB1, DPB1
-    Include - HLA gl-string, 
+    Include - HLA-ID
+              HLA gl-string, 
               genome sequence, CDS sequence, 
               aligned genome sequence, aligned CDS sequence, 
               protein sequence, algined protein sequence,
               Exons and introns sequences (optional)
     """
     # output_fp = "Database/"
-    file_name = "HLA_" + Locus + ".db"
+    file_name = "IMGT-" + version + "_HLA-" + Locus + ".db"
+
+    seq_db, alleleList = IMGTdb_2_dict(Locus, version)
     
-    seq_db = IMBTdb_2_dict(Locus)
-#    if path.exists(output_fp+file_name):
-        # if the the database already exists, then check if it needs to be updated
-#        conn = sqlite3.connect(output_fp+file_name)
-        
-#    else: # build a new database
-    conn = sqlite3.connect(output_fp+file_name)
-    c = conn.cursor()
+#   alleleList = readIMGT_alleleList(version, input_fp)
+    if path.exists(output_fp+file_name):
+       # if the the database already exists, then check if it needs to be updated
+       conn = sqlite3.connect(output_fp+file_name)
+       c = conn.cursor()
+    else: # build a new database
+       conn = sqlite3.connect(output_fp+file_name)
+       c = conn.cursor()
+       c.execute('''CREATE TABLE Sequences
+                 (AlleleID text, HLATyping text, AlignedCDS text, AlignedGenomSeq text, UnalignedGenomSeq text, SeqAnnotation text, Exon1 text, Exon2 text, Exon3 text,
+                 Exon4 text, Exon5 text, Exon6 text, Exon7 text, Exon8 text, Protein text)''')
+
  
     # Create table
-    c.execute('''CREATE TABLE Sequences
-              (HLATyping text, AlignedCDS text, AlignedGenomSeq text, Exon1 text, Exon2 text, Exon3 text,
-               Exon4 text, Exon5 text, Exon6 text, Exon7 text, Exon8 text, Protein text)''')
+    #c.execute('''CREATE TABLE Sequences
+    #          (HLATyping text, AlignedCDS text, AlignedGenomSeq text, Exon1 text, Exon2 text, Exon3 text,
+    #           Exon4 text, Exon5 text, Exon6 text, Exon7 text, Exon8 text, Protein text)''')
 
     # Insert a row of data
     # If the HLA typing record exists, then update or add its corresponding sequence
@@ -233,10 +276,20 @@ def buildIMGTsql(Locus, output_fp = "Database/"):
     #          ]:
     #    c.execute('insert into stocks values (?,?,?,?,?)', t)
     
+    counter = 0
     for Typing, Value in seq_db.items():
-        if(Typing != 1):
+        
+        try:
+            if Typing.index(Locus) >= 0:
+                proceed_flag = True
+        except ValueError:
+            proceed_flag = False
+            
+        if proceed_flag and Typing[0] == Locus[0]:
+            ID = alleleList[Typing]
             AlignedCDS = extractValues(Value, "cDNA")
             AlignedGenomSeq = extractValues(Value, "gDNA")
+            
             Exon1 = extractValues(Value, "Exon1")
             Exon2 = extractValues(Value, "Exon2")
             Exon3 = extractValues(Value, "Exon3")
@@ -245,20 +298,41 @@ def buildIMGTsql(Locus, output_fp = "Database/"):
             Exon6 = extractValues(Value, "Exon6")
             Exon7 = extractValues(Value, "Exon7")
             Exon8 = extractValues(Value, "Exon8")
+             
+            if AlignedGenomSeq !='':
+                UnalignedGenomSeq = re.sub("-", "", AlignedGenomSeq)
+                
+                annotatedSeq = UnalignedGenomSeq.split("|")
+                temp_SeqAnnotation = []
+                for ind in range(len(annotatedSeq)):
+                    if ind%2 == 0: ## intron - negative numbers
+                        temp_SeqAnnotation.append((str(int(-ind/2))+' ')*len(annotatedSeq[ind]))
+                        #print(len(annotatedSeq[ind]))
+                    else: # Exon - positive numbers
+                        temp_SeqAnnotation.append((str(int((ind+1)/2))+' ')*len(annotatedSeq[ind]))
+                        #print(len(annotatedSeq[ind]))
+                        if extractValues(Value, "Exon"+str(int((ind+1)/2))) != annotatedSeq[ind]: # double check the exons sequences
+                            print(Typing + " Exon "+ str(int((ind+1)/2))+ " sequence doesn't match to the Genomic sequence. \n Please Double check!!")
+                SeqAnnotation = "".join(temp_SeqAnnotation)
+            else:
+                UnalignedGenomSeq = ''
+                SeqAnnotation = ''
             Protein = extractValues(Value, "Prot")
             #ExonIndex = extractValues(Value, "ExonIndex")
-            record = (Typing, AlignedCDS, AlignedGenomSeq, Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7, Exon8, Protein)
+            record = (ID, Typing, AlignedCDS, AlignedGenomSeq, UnalignedGenomSeq, SeqAnnotation, Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7, Exon8, Protein)
             
-            c.execute('INSERT INTO Sequences VALUES (?,?,?,?,?,?,?,?,?,?,?,?)', record)
-            
+            c.execute('INSERT INTO Sequences VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', record)
+            counter += 1
             # Save (commit) the changes
     conn.commit()
+    
+    print("\nTotal allele count at locus HLA-"+ Locus + " is " + str(counter))
             
     # We can also close the connection if we are done with it.
     # Just be sure any changes have been committed or they will be lost.
     conn.close()
     
-def readIMGTsql(HLAtyping, db_fp = "Database/", field = '*', unaligned = True):
+def readIMGTsql(HLAtyping, db_fp = "Database/", field = '*', version = "3250",unaligned = True):
     """
     Load a Sqllite3 database [Loci: A, B, C, DRB1, DQB1, DPB1]
     Include - HLA gl-string, 
@@ -268,7 +342,7 @@ def readIMGTsql(HLAtyping, db_fp = "Database/", field = '*', unaligned = True):
               Exons and introns sequences (optional)
     """ 
     #HLAtyping = "A*01:01:01:02N"
-    filename = db_fp + "HLA_"+ HLAtyping.split("*")[0]+".db"
+    filename = db_fp + "IMGT-" + version + "_HLA-" + HLAtyping.split("*")[0]+".db"
     #field = 'Exon2, Exon3'
     if path.exists(filename):
         con = sqlite3.connect(filename)
@@ -283,7 +357,17 @@ def readIMGTsql(HLAtyping, db_fp = "Database/", field = '*', unaligned = True):
             cur.execute('SELECT ' + field + ' FROM Sequences WHERE HLATyping LIKE ?', t)
             sequences_temp = cur.fetchone()
             if sequences_temp == None:
-                print("No record of " + HLAtyping + "\nPlease check the HLA typing.")
+                t = (HLAtyping+":02%",)
+                cur.execute('SELECT ' + field + ' FROM Sequences WHERE HLATyping LIKE ?', t)
+                sequences_temp = cur.fetchone()
+                if sequences_temp == None:
+                    print("No record of " + HLAtyping + "\nPlease check the HLA typing.")
+                    sequences = ['', '', '', '', '', '', '', '']
+                else:
+                    if unaligned:
+                        sequences = [re.sub("-", "", seq) for seq in sequences_temp]
+                    else:
+                        sequences = sequences_temp
             else:
                 if unaligned:
                     sequences = [re.sub("-", "", seq) for seq in sequences_temp]
@@ -301,3 +385,18 @@ def readIMGTsql(HLAtyping, db_fp = "Database/", field = '*', unaligned = True):
     else:
         print("No database is available. Please build an SQL database first. \n" +
               "To build a new SQL database, use the following command:\n>>> buildIMGTsql(\""+ HLAtyping.split("*")[0] +"\")")
+
+################## pickle output 
+def save_dict2pickle(dict_obj, fname, out_fp):
+    """
+    Save the IMGT database into a pickle file
+    """
+    with open(out_fp + fname + '.pkl', 'wb') as fileHandle:
+        pickle.dump(dict_obj, fileHandle, pickle.HIGHEST_PROTOCOL)
+
+def load_pickle2dict(fname, out_fp):
+    """
+    Load the the IMGT database pickle file into a Dictionary structure
+    """
+    with open(out_fp + fname + '.pkl', 'rb') as fileHandle:
+        return pickle.load(fileHandle)
