@@ -11,15 +11,23 @@ import glob
 import re
 import sqlite3 as sql
 
+__author__ = "Hu Huang"
+__copyright__ = "Copyright 2017, Hu Huang"
+__credits__ = ["Add names"]
+__license__ = "GPL"
+__version__ = "0.1-dev"
+__maintainer__ = "Hu Huang"
+__email__ = "hwangtiger@gmail.com"
+
 all_files = glob.glob("../../rawData/xls/*.xls")
 
 BMTcaseInfo_fp = "../../rawData/SG39_caseID.csv"
-logfile_fp = "../Output/logfiles/"
+logfile_fp = "../Output/logfiles_09122017_3Blocks/"
 
 for fp_file in all_files:
     logfile_name = logfile_fp + re.sub(".xls", "_log.txt", fp_file.split("/")[-1])
     seq_obj = pp.load_seq_file(fp_file, BMTcaseInfo_fp, logfile_name)
-    pp.saveAsSQLdb(seq_obj, "../Output/originalDB/")
+    pp.saveAsSQLdb(seq_obj, "../Output/originalDB_09122017_3Blocks/")
     
 ## extract only cases with BMT IDs
     

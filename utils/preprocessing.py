@@ -313,6 +313,19 @@ def saveAsSQLdb(seq_obj, output):
                         record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2,)
                         cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?)', record)
                         conn.commit()
+                    else:
+                        Block1 = ''
+                        Block2 = ''
+                        for ind in range(2):
+                            PS = str(PhaseID)
+                            HLATyping = str(individual_seq[locus][PhaseID]['GLstring'])
+                            if individual_seq[locus][PhaseID]['blockIDs'][ind] == 1:
+                                Block1 = Block1 + '*****' + str(individual_seq[locus][PhaseID]['Sequence'][ind])
+                            else:
+                                Block2 = Block2 + '*****' +str(individual_seq[locus][PhaseID]['Sequence'][ind])
+                        record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2,)
+                        cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?)', record)
+                        conn.commit()
             conn.close()
  
 def saveExonIntronInfo():

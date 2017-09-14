@@ -14,6 +14,8 @@ Created on Fri Sep  1 15:30:32 2017
 from utils import IMGTdbIO
 import re
 import csv
+import difflib
+
 
 __author__ = "Hu Huang"
 __copyright__ = "Copyright 2017, Hu Huang"
@@ -251,6 +253,7 @@ def check_twoBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, I
             else:
                 QueryTyping["PS1"]['Sequence'].append(seq_item)
                 QueryTyping["PS1"]['blockIDs'].append(2)
+                
         elif ARS1seq[0] in seq_item: # second type; block 1; exon2
             if "PS2" not in QueryTyping.keys():
                 QueryTyping["PS2"] = {"GLstring": unique_HLATyping_list[1], "Sequence": [seq_item], "blockIDs": [1]}
@@ -486,4 +489,4 @@ def check_seq_typing(HLAtypings, Query, ID):
            QueryTyping = check_DQB102_Block_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, ID)
        
     return(QueryTyping)
-    
+       

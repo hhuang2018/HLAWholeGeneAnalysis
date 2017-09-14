@@ -332,7 +332,7 @@ def buildIMGTsql(Locus, version = "3250", output_fp = "Database/"):
     # Just be sure any changes have been committed or they will be lost.
     conn.close()
     
-def readIMGTsql(HLAtyping, db_fp = "Database/", field = '*', version = "3250",unaligned = True):
+def readIMGTsql(HLAtyping, db_fp = "Database/", field = '*', version = "3250",unaligned = False):
     """
     Load a Sqllite3 database [Loci: A, B, C, DRB1, DQB1, DPB1]
     Include - HLA gl-string, 
@@ -387,16 +387,16 @@ def readIMGTsql(HLAtyping, db_fp = "Database/", field = '*', version = "3250",un
               "To build a new SQL database, use the following command:\n>>> buildIMGTsql(\""+ HLAtyping.split("*")[0] +"\")")
 
 ################## pickle output 
-def save_dict2pickle(dict_obj, fname, out_fp):
+def save_dict2pickle(dict_obj, fname):
     """
     Save the IMGT database into a pickle file
     """
-    with open(out_fp + fname + '.pkl', 'wb') as fileHandle:
+    with open(fname + '.pkl', 'wb') as fileHandle:
         pickle.dump(dict_obj, fileHandle, pickle.HIGHEST_PROTOCOL)
 
-def load_pickle2dict(fname, out_fp):
+def load_pickle2dict(fname):
     """
     Load the the IMGT database pickle file into a Dictionary structure
     """
-    with open(out_fp + fname + '.pkl', 'rb') as fileHandle:
+    with open(fname, 'rb') as fileHandle:
         return pickle.load(fileHandle)
