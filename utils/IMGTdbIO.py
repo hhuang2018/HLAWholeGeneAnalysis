@@ -14,7 +14,9 @@ import re
 import pickle # import csv
 import utils.IMGTtools as imgt
 import sqlite3
-
+from Bio.Seq import Seq
+from Bio.Alphabet import generic_dna
+from Bio.Data import CodonTable
 
 __author__ = "Hu Huang"
 __copyright__ = "Copyright 2017, Hu Huang"
@@ -385,7 +387,8 @@ def readIMGTsql(HLAtyping, db_fp = "Database/", field = '*', version = "3250",un
     else:
         print("No database is available. Please build an SQL database first. \n" +
               "To build a new SQL database, use the following command:\n>>> buildIMGTsql(\""+ HLAtyping.split("*")[0] +"\")")
-
+ 
+    
 ################## pickle output 
 def save_dict2pickle(dict_obj, fname):
     """
@@ -400,3 +403,83 @@ def load_pickle2dict(fname):
     """
     with open(fname, 'rb') as fileHandle:
         return pickle.load(fileHandle)
+
+###################
+def Full2TwoField(TypingList):
+    '''
+    Convert multi-field gl-string into 2-field typing
+    '''
+    
+    twoFieldList = [':'.join((tp.split(':')[0], tp.split(':')[1])) for tp in TypingList]
+    twoFieldList = list(set(twoFieldList)) # remove duplicates
+    
+    return twoFieldList
+
+def annotationFormat(MMPos, Annotation, Alignment):
+    '''
+    Annotation: {'pos': 'annotation'}
+    Alignment:{'AlignmSymbol': , 'RefSeq':, 'Donor-PS': , 'Recipient-PS': }
+    Annotation + Donor Read + Recipient Read
+    '''
+    for key, item in Alignment.items():
+        if 'Donor' in key:
+            Donor = item[int(MMPos)]
+        if 'Recipient' in key:
+            Recipient = item[int(MMPos)]
+    
+    reformatted_annotation = Annotation + ':D'+Donor+';R'+Recipient
+    return(reformatted_annotation)
+    
+##################
+def checkSubList(List1, List2):
+    '''
+    Used to check if a case has all loci that listed in List2
+    '''
+    Result = True
+    for item in List2:
+        if item in List1:
+            Result = Result and True
+        else: 
+            Result = Result and False
+    return(Result)
+    
+##################
+def checkSynonymMutation(Allele, Exons):
+    '''
+    Check if the nucleotide change is synonymous or not; IGMT/HLA alleles
+    '''
+    typingList = Allele.split('_')
+    HLAtyping = []
+    for tp in typingList:
+        if tp.find('/') != -1:
+            ambTPlist = tp.split('/')
+            HLAtyping.extend(ambTPlist)
+        else:
+            possTPlist = re.sub('[\[\'\]]', '',tp) # remove possible characters
+            possTPlist = possTPlist.split(",")
+            for item in possTPlist:
+                #HLAtyping.extend(possTPlist)
+                HLAtyping.append(item.replace(" ", ""))
+
+    ExonSeq = {}
+    TransSeq = {}
+    
+    for tp in HLAtyping:
+        Refseq = readIMGTsql(tp, field = Exons)
+        DNAseq = ''
+        for seq in Refseq:
+            DNAseq += seq
+        ExonSeq[tp] = Seq(DNAseq, generic_dna) 
+        try: 
+            TransSeq[tp] = ExonSeq[tp].translate()
+            Synonymous = True # Default: same protein sequence
+        except CodonTable.TranslationError:
+            Synonymous = False
+            return(Synonymous)
+
+    for i in range(len(HLAtyping)):
+        for j in range(len(HLAtyping)):
+            if i != j:
+                 if TransSeq[HLAtyping[i]] != TransSeq[HLAtyping[j]]:
+                     Synonymous = Synonymous and False
+    return (Synonymous)

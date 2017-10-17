@@ -14,7 +14,7 @@ Created on Fri Sep  1 15:30:32 2017
 from utils import IMGTdbIO
 import re
 import csv
-import difflib
+#import difflib
 
 
 __author__ = "Hu Huang"
