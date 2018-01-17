@@ -88,14 +88,14 @@ def readBMTinfo(fp, header = True):
     # find un matched IDs           
     index_D = [i for i, x in enumerate(caseIDs["NMDP_DID"]) if x == " "]  # missing 2 donors
     [caseIDs["BMTcase"][i] for i in index_D]
-    index_R = [i for i, x in enumerate(caseIDs["NMDP_RID"]) if x == " "]  # missing 0 donors
+    index_R = [i for i, x in enumerate(caseIDs["NMDP_RID"]) if x == " "]  # missing 0 recipients
     [caseIDs["BMTcase"][i] for i in index_R]
     
     index_NAudit = [i for i, x in enumerate(caseIDs["D_Audit"]) if x != "Y"]      # 151 donors
     index_NAudit.append([i for i, x in enumerate(caseIDs["R_Audit"]) if x != "Y"]) # 152 individuals
     
     index_NActive = [i for i, x in enumerate(caseIDs["D_Active"]) if x != "Y"] # 88 donors
-    index_NActive.append([i for i, x in enumerate(caseIDs["R_Active"]) if x != "Y"]) # 89 indiduals
+    index_NActive.append([i for i, x in enumerate(caseIDs["R_Active"]) if x != "Y"]) # 89 indiduals 
     
     return(caseIDs)
     
@@ -257,7 +257,7 @@ def load_seq_file(fp, BMTcaseInfo_fp, log_file, file_format = "xls"):
     # TODO: 
     return(corrected_seq_table) 
 
-def saveAsSQLdb(seq_obj, output):
+def saveAsSQLdb(seq_obj, output, prefix= "SG39", fp = None):
     """
     Save record in a SQL database; each locus have one db file; 
     seq_obj: corrected sequence table
@@ -266,6 +266,7 @@ def saveAsSQLdb(seq_obj, output):
     # output = "../Output/"
     # BMTcaseInfo_fp = "../../rawData/SG39_caseID.csv"
     # keys: BMTcase, NMDP_DID, NMDP_RID, D_Audit, D_Active, D_comment, R_Audit, R_Active, R_comment
+    #       file_path
     for individual_ID, individual_seq in seq_obj.items():
         loci = list(individual_seq.keys())
         loci.remove("BMTcase")
@@ -274,21 +275,31 @@ def saveAsSQLdb(seq_obj, output):
         loci.remove("Active")
         loci.remove("Comment")
         for locus in loci:
-            filename = output + "SG39_HLA_" + locus + "_originalTB.db"
+            filename = output + prefix +"_HLA_" + locus + "_originalTB.db"
             
             # original sequence table
             conn = sqlite3.connect(filename) # automatically creates a file if doesn't exist
             cursor = conn.cursor()
-            cursor.execute('''CREATE TABLE IF NOT EXISTS OriginalSeqs
-                           (BMT_caseID text, NMDP_ID text, DRtype text, 
-                           Audit text, Active text, Comment text,
-                           HLATyping text, PS text, Block1 text, Block2 text)''')
+            if(fp is None):
+                cursor.execute('''CREATE TABLE IF NOT EXISTS OriginalSeqs
+                               (BMT_caseID text, NMDP_ID text, DRtype text, 
+                               Audit text, Active text, Comment text,
+                               HLATyping text, PS text, Block1 text, Block2 text)''')
+            else:
+                cursor.execute('''CREATE TABLE IF NOT EXISTS OriginalSeqs
+                               (BMT_caseID text, NMDP_ID text, DRtype text, 
+                               Audit text, Active text, Comment text,
+                               HLATyping text, PS text, Block1 text, Block2 text,
+                               File_Path text)''')
+                
             BMT_caseID = str(individual_seq["BMTcase"])
             NMDP_ID = str(individual_ID)
             DRtype = str(individual_seq["DRtype"]) # isDonor(NMDP_ID)
             Audit = str(individual_seq["Audit"])
             Active = str(individual_seq["Active"])
             Comment = str(individual_seq["Comment"])
+            if(fp is not None):
+                File_Path = fp
             
             cursor.execute('SELECT count(*) FROM OriginalSeqs WHERE NMDP_ID=?', (NMDP_ID, ))
             record_temp = cursor.fetchone() 
@@ -299,9 +310,12 @@ def saveAsSQLdb(seq_obj, output):
                         Block1 = str(individual_seq[locus][PhaseID]['Sequence'][0])
                         PS = str(PhaseID)
                         Block2 = ""
-                        record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2,)
-                        cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?)', record)
-                        conn.commit()
+                        
+                        #record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2,)
+                        #cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?)', record)
+                        #conn.commit()
+                        
+                        
                     elif len(individual_seq[locus][PhaseID]['blockIDs']) == 2:
                         for ind in range(2):
                             PS = str(PhaseID)
@@ -310,9 +324,9 @@ def saveAsSQLdb(seq_obj, output):
                                 Block1 = str(individual_seq[locus][PhaseID]['Sequence'][ind])
                             else:
                                 Block2 = str(individual_seq[locus][PhaseID]['Sequence'][ind])
-                        record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2,)
-                        cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?)', record)
-                        conn.commit()
+                        #record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2,)
+                        #cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?)', record)
+                        #conn.commit()
                     else:
                         Block1 = ''
                         Block2 = ''
@@ -323,11 +337,166 @@ def saveAsSQLdb(seq_obj, output):
                                 Block1 = Block1 + '*****' + str(individual_seq[locus][PhaseID]['Sequence'][ind])
                             else:
                                 Block2 = Block2 + '*****' +str(individual_seq[locus][PhaseID]['Sequence'][ind])
+                        #record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2,)
+                        #cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?)', record)
+                        #conn.commit()
+                        
+                    if(fp is None):
                         record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2,)
                         cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?)', record)
                         conn.commit()
+                    else:
+                        record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2, File_Path, )
+                        cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?,?)', record)
+                        conn.commit()
+                        
             conn.close()
  
+    
+    
+def load_seq_file_newFormat(fp, BMTcaseInfo_fp, log_file, file_format = "xls"):
+    """
+    Read txt format sequence data from HML, and covert into Dictionary structure
+    Plus alignment
+    """
+    
+ #   if path.exists(fp):
+    if file_format == "txt":  ## Tab-delimited text files
+        #fp = "data/test_data.txt"    # for test
+        txt_lines = open(fp).readlines()
+        header = txt_lines[0].rstrip().split("\t")
+        seq_dict = []
+        for LineIndex in range(1, len(txt_lines)):
+            temp_line_content = txt_lines[LineIndex].rstrip().split("\t")
+            temp_dict = {}
+            for ind, Items in enumerate(header):
+                temp_dict[Items] = temp_line_content[ind]
+            seq_dict.append(temp_dict)
+                
+    elif  file_format == "csv": ## CSV format files -- need to check this segment
+        with open(fp, 'r') as f:
+            header = next(f) # first line header
+            header = header.rstrip().split(",")
+            seq_dict = []
+            reader = csv.reader(f)
+            for line in reader:
+                temp_line_content = txt_lines[LineIndex].rstrip().split("\t")
+                temp_dict = {}
+                for ind, Items in enumerate(header):
+                    temp_dict[Items] = temp_line_content[ind]
+                seq_dict.append(temp_dict)
+                    
+    elif file_format == "xls": ## Excel (xls) format files
+       # fp = "../../rawData/xls/File_6.xls"    # for test
+        # file 4:  17,016 lines; file 5:   6,770 lines; file 6: 41,516 lines
+        # flle 7:  34,026 lines; file 8:  48,914 lines; file 9: 27,020 lines
+        # file 10: 29,864 lines; file 11: 36,898 lines
+        
+        wb = open_workbook(fp)
+        seq_dict = []
+        for s in wb.sheets():
+            #print 'Sheet:',s.name
+            for row in range(s.nrows):
+                if row == 0: # header
+                    header = [s.cell(row,col).value for col in range(s.ncols)]
+                else:
+                    temp_dict = {}
+                    for col in range(s.ncols):
+                        temp_dict[header[col]] = s.cell(row,col).value
+                    seq_dict.append(temp_dict)      
+    print("The file has " + str(len(seq_dict)) + "Lines of records.\n")
+    
+    #BMTcaseInfo_fp = "../../rawData/SG39_caseID.csv"
+    CaseIDs = readBMTinfo(BMTcaseInfo_fp)  ## 3608 cases total
+    
+    # num_seqs = len(seq_dict)
+    new_seq_dict = {}
+    #### build original sequence dictionary
+    for items in seq_dict:  
+        #if len(new_seq_dict) == 0:  # first item in the dictionary
+        #    new_seq_dict[items.get('NMDP_DID/_RID')] = {items.get('Locus'): {'GLstring':[items.get('GL-string')], 
+        #                'Sequence':[items.get('Sequence')]}}
+            #new_seq_dict.append(new_item)
+            #counter += 1
+        ## BMT case ID
+        items['NMDP_DID/_RID'] = str(int(items['NMDP_DID/_RID']))
+        items['Block'] = str(int(items['Block']))
+        items['Phase'] = str(int(items['Phase']))
+        
+        if items.get('NMDP_DID/_RID') in CaseIDs["NMDP_DID"]: # donor
+            BMTcase = CaseIDs["BMTcase"][CaseIDs["NMDP_DID"].index(items.get('NMDP_DID/_RID'))]
+            DRtype = "D"
+            Audit = CaseIDs["D_Audit"][CaseIDs["NMDP_DID"].index(items.get('NMDP_DID/_RID'))]
+            Active = CaseIDs["D_Active"][CaseIDs["NMDP_DID"].index(items.get('NMDP_DID/_RID'))]
+            Comment = CaseIDs["D_Comment"][CaseIDs["NMDP_DID"].index(items.get('NMDP_DID/_RID'))]
+        elif items.get('NMDP_DID/_RID') in CaseIDs["NMDP_RID"]: # recipient
+            BMTcase = CaseIDs["BMTcase"][CaseIDs["NMDP_RID"].index(items.get('NMDP_DID/_RID'))]
+            DRtype = "R"
+            Audit = CaseIDs["R_Audit"][CaseIDs["NMDP_RID"].index(items.get('NMDP_DID/_RID'))]
+            Active = CaseIDs["R_Active"][CaseIDs["NMDP_RID"].index(items.get('NMDP_DID/_RID'))]
+            Comment = CaseIDs["R_Comment"][CaseIDs["NMDP_RID"].index(items.get('NMDP_DID/_RID'))]
+        else:
+            BMTcase = " "
+            DRtype = " "
+            Audit = " "
+            Active = " "
+            Comment = " "
+        ##
+        if items.get('NMDP_DID/_RID') in list(new_seq_dict.keys()): # if existing ID, then append
+            if items.get('Locus') in list(new_seq_dict[items.get('NMDP_DID/_RID')].keys()): ## If the Locus is already exists, then append
+                new_seq_dict[items.get('NMDP_DID/_RID')][items.get('Locus')]['GLstring'].append(items.get('GL-string'))
+                new_seq_dict[items.get('NMDP_DID/_RID')][items.get('Locus')]['Sequence'].append(items.get('Sequence'))
+                new_seq_dict[items.get('NMDP_DID/_RID')][items.get('Locus')]['block'].append(items.get('Block'))
+                new_seq_dict[items.get('NMDP_DID/_RID')][items.get('Locus')]['phase'].append(items.get('Phase'))
+            else: # if not a new loucs, then add a new record
+                # temp_locus = {items.get('Locus'): {'GLstring':[items.get('GL-string')], 'Sequence':[items.get('Sequence')]}}
+                new_seq_dict[items.get('NMDP_DID/_RID')][items.get('Locus')] = {'GLstring':[items.get('GL-string')], 'phase':[items.get('Phase')], 'block':[items.get('Block')], 'Sequence':[items.get('Sequence')]}
+        else: # if it's a new ID, then add a new record
+            '''new_item = {'NMDP_ID': items.get('NMDP_DID/_RID'),
+                        'Locus': {items.get('Locus'): {'GLstring':[items.get('GL-string')], 
+                        'Sequence':[items.get('Sequence')]}}}
+            new_seq_dict.append(new_item)
+            counter += 1'''
+            new_seq_dict[items.get('NMDP_DID/_RID')] = {"BMTcase": BMTcase, "DRtype": DRtype, "Audit": Audit, "Active": Active, "Comment": Comment,
+                                                         items.get('Locus'): {'GLstring':[items.get('GL-string')], 
+                                  'phase':[items.get('Phase')], 'block':[items.get('Block')],
+                                  'Sequence':[items.get('Sequence')]}}
+    
+    ### Correct phase set, and merge block
+    corrected_seq_table = new_seq_dict
+    #corrected_seq_table = {}
+    
+    sys.stdout = open(log_file,'wt')
+    
+    for individual_ID, individual_seq in new_seq_dict.items():
+        loci = list(individual_seq.keys())
+        loci.remove("BMTcase")
+        loci.remove("DRtype")
+        loci.remove("Audit")
+        loci.remove("Active")
+        loci.remove("Comment")
+        for locus in loci:
+
+            #print(locus)
+            if individual_seq[locus]['GLstring'][0] != "":
+                corrected_typing = phase_block_check.check_seq_typing(individual_seq[locus]['GLstring'], individual_seq[locus]['Sequence'], individual_ID)
+ 
+                if individual_ID in list(corrected_seq_table.keys()): # if existing ID, then append
+                    corrected_seq_table[individual_ID][locus] = corrected_typing# "GLstring"], 'Sequence', 'phase', 'block'
+                else: # if it's a new ID, then add a new record
+                    corrected_seq_table[individual_ID] = {locus: corrected_typing}
+            else: # missing GLstrings
+                print("<><><><><><><><>\n"+"NMDP_ID: " + individual_ID + " at locus " +locus + " is missing proper GL-strings.\n<><><><><><><><>\n")
+        corrected_seq_table[individual_ID]["BMTcase"] = individual_seq["BMTcase"]
+        corrected_seq_table[individual_ID]["DRtype"] = individual_seq["DRtype"]
+        corrected_seq_table[individual_ID]["Audit"] = individual_seq["Audit"]
+        corrected_seq_table[individual_ID]["Active"] = individual_seq["Active"]
+        corrected_seq_table[individual_ID]["Comment"] = individual_seq["Comment"]
+    print("Corrected Table has " + str(len(corrected_seq_table)) + " ID records.\n")
+    
+    return(corrected_seq_table) 
+    
+    
 def saveExonIntronInfo():
     
     # Extract Exon/Intron 

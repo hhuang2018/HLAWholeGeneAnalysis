@@ -182,7 +182,7 @@ def compare_DQB1_Targeted_Region(Sequences, params):
                 Alignment['Exon'+str(exon_id+2)] = alignment
                 Annotation['Exon'+str(exon_id+2)] = PosAnnotation
         
-        else: # non-DQB1*03
+        else: # non-DQB1*02
             
             DBfields = 'UnalignedGenomSeq, SeqAnnotation'
             ReferenceSeq = {}
@@ -253,12 +253,13 @@ def compare_DQB1_Targeted_Region(Sequences, params):
                         RegionSymb = RefAnnotation[ind - RefSeq_alignment[:ind].count('-')]
                         if RegionSymb == '0':
                             RegionName = '5\'-UTR'
-                        elif int(RegionSymb) == min(AnnNum):
-                            RegionName = '3\'-UTR'
-                        elif int(RegionSymb) > 0:
-                            RegionName = 'Exon'+ RegionSymb
-                        elif int(RegionSymb) < 0:
-                            RegionName = 'Intron'+ str(abs(int(RegionSymb)))
+                        elif RegionSymb!= '':
+                            if int(RegionSymb) == min(AnnNum):
+                                RegionName = '3\'-UTR'
+                            elif int(RegionSymb) > 0:
+                                RegionName = 'Exon'+ RegionSymb
+                            elif int(RegionSymb) < 0:
+                                RegionName = 'Intron'+ str(abs(int(RegionSymb)))
                             
                         Annotation[str(ind)] = RegionName + '.' + str(Intron_endID-ind+1)
                         AlignSymbol[ind] = 'X'
@@ -318,7 +319,11 @@ def compare_DQB1_Targeted_Region(Sequences, params):
                             if 'Ref'  in key or 'AlignSymbol'== key:
                                 nonRefKeys.remove(key)
                         
-                        
+                        for key, item in alignment.items():
+                            if 'Ref' in key:
+                                startPos = re.search('[A|T|C|G]', item)
+                        if startPos != None:
+                            Intron_startID = startPos.start()
                         # AlignedSymbol = list(alignment['AlignSymbol'])
                         Intron_endID = alignment['AlignSymbol'].rfind('.') #re.search('\\.+', alignment['AlignSymbol']).start()-1
                         
@@ -328,7 +333,7 @@ def compare_DQB1_Targeted_Region(Sequences, params):
                                 AlignSymbol[ind] = 'X'
                         
                         alignment['AlignSymbol'] = ''.join(AlignSymbol)
-                        Intron_startID = alignment['AlignSymbol'].rfind('.')#re.search('\\.+', alignment['AlignSymbol']).end()
+                        #Intron_startID = alignment['AlignSymbol'].rfind('.')#re.search('\\.+', alignment['AlignSymbol']).end()
                     
                     else: # the last exon front and back introns
                         # AlignedSymbol = list(alignment['AlignSymbol'])
@@ -340,7 +345,13 @@ def compare_DQB1_Targeted_Region(Sequences, params):
                                 AlignSymbol[ind] = 'X'
                         
                         #alignment['AlignSymbol'] = ''.join(AlignSymbol)
-                        Intron_startID = alignment['AlignSymbol'].rfind('.') # re.search('\\.+', alignment['AlignSymbol']).end()
+                        for key, item in alignment.items():
+                            if 'Ref' in key:
+                                startPos = re.search('[A|T|C|G]', item)
+                        if startPos != None:
+                            Intron_startID = startPos.start()
+                        else:
+                            Intron_startID = alignment['AlignSymbol'].rfind('.') # re.search('\\.+', alignment['AlignSymbol']).end()
                         
                         for ind in range(len(alignment['AlignSymbol'])-1, Intron_startID-1, -1):
                             if alignment[nonRefKeys[0]][ind] != alignment[nonRefKeys[1]][ind]:
@@ -767,13 +778,13 @@ def compare_seqs(Sequence, params):#algn_file, saveFile = False, HLAtyping = Non
                         if int(regionSymbol) in Unchecked_regions and str(posInd) not in annotation.keys():
                             
                             if alignment[seq1_ID][posInd] != alignment[seq2_ID][posInd]: # missmatch
-                                if regionSymbol == '0':
+                                if int(regionSymbol) == 0:
                                     RegionName = '5\'-UTR'
-                                elif regionSymbol == min(All_regions):
+                                elif int(regionSymbol) == min(All_regions):
                                     RegionName = '3\'-UTR'
-                                elif regionSymbol > 0:
+                                elif int(regionSymbol) > 0:
                                     RegionName = 'Exon'+ regionSymbol
-                                elif regionSymbol < 0:
+                                elif int(regionSymbol) < 0:
                                     RegionName = 'Intron'+ regionSymbol
                                 annotation[str(posInd)] = RegionName + '.' + str(posInd - QueryAnnotation['annotation']['PosAnnotation'].index(regionSymbol) + 1)
                                 #AlignSymbol[ind] = 'X'
@@ -1049,30 +1060,31 @@ def posAnnotation(alignment, pos, RefKey, RefAnnotation, Ref_frontMisCount):
         missing_ann_frequency = Counter(all_missing_ann)
         temp_missing_info = ''
         for MSpos, freq in missing_ann_frequency.items():
-            if int(MSpos) > 0: # Exon
-                if missing_ann_frequency[MSpos] == Ann_Pos_frequency[MSpos]: # missing full region
-                    temp_missing_info = temp_missing_info + 'Missing full Exon' + MSpos + '; '
-                else: # partial reigon
-                    temp_missing_info = temp_missing_info + 'Missing Partial Exon' + MSpos + '; '
-            elif int(MSpos) == 0: # 5'-UTR
-                if missing_ann_frequency[MSpos] == Ann_Pos_frequency[MSpos]: # missing full region
-                    temp_missing_info = temp_missing_info + 'Missing full 5\'-UTR' + '; '
-                else: # partial reigon
-                    temp_missing_info = temp_missing_info + 'Missing Partial 5\'-UTR' + '; '
-                    
-            elif int(MSpos) == min(AnnNum): # 3'-UTR
-                if missing_ann_frequency[MSpos] == Ann_Pos_frequency[MSpos]: # missing full region
-                    temp_missing_info = temp_missing_info + 'Missing full 3\'-UTR' + '; '
-                elif RefAnnotation.index(str(min(AnnNum))) in all_missing_pos:
-                    temp_missing_info = temp_missing_info + 'Missing full 3\'-UTR' + '; ' 
-                else: # partial reigon
-                    temp_missing_info = temp_missing_info + 'Missing Partial 3\'-UTR' + '; '
-            else: # intron
-                absMSpos = re.sub('-', '', MSpos)
-                if missing_ann_frequency[MSpos] == Ann_Pos_frequency[MSpos]: # missing full region
-                    temp_missing_info = temp_missing_info + 'Missing full Intron' + absMSpos + '; '
-                else: # partial reigon
-                    temp_missing_info = temp_missing_info + 'Missing Partial Intron'+ absMSpos + '; '
+            if MSpos != '':
+                if int(MSpos) > 0: # Exon
+                    if missing_ann_frequency[MSpos] == Ann_Pos_frequency[MSpos]: # missing full region
+                        temp_missing_info = temp_missing_info + 'Missing full Exon' + MSpos + '; '
+                    else: # partial reigon
+                        temp_missing_info = temp_missing_info + 'Missing Partial Exon' + MSpos + '; '
+                elif int(MSpos) == 0: # 5'-UTR
+                    if missing_ann_frequency[MSpos] == Ann_Pos_frequency[MSpos]: # missing full region
+                        temp_missing_info = temp_missing_info + 'Missing full 5\'-UTR' + '; '
+                    else: # partial reigon
+                        temp_missing_info = temp_missing_info + 'Missing Partial 5\'-UTR' + '; '
+                        
+                elif int(MSpos) == min(AnnNum): # 3'-UTR
+                    if missing_ann_frequency[MSpos] == Ann_Pos_frequency[MSpos]: # missing full region
+                        temp_missing_info = temp_missing_info + 'Missing full 3\'-UTR' + '; '
+                    elif RefAnnotation.index(str(min(AnnNum))) in all_missing_pos:
+                        temp_missing_info = temp_missing_info + 'Missing full 3\'-UTR' + '; ' 
+                    else: # partial reigon
+                        temp_missing_info = temp_missing_info + 'Missing Partial 3\'-UTR' + '; '
+                else: # intron
+                    absMSpos = re.sub('-', '', MSpos)
+                    if missing_ann_frequency[MSpos] == Ann_Pos_frequency[MSpos]: # missing full region
+                        temp_missing_info = temp_missing_info + 'Missing full Intron' + absMSpos + '; '
+                    else: # partial reigon
+                        temp_missing_info = temp_missing_info + 'Missing Partial Intron'+ absMSpos + '; '
        
         annotation['SeqFull'] = temp_missing_info
         
@@ -1087,7 +1099,7 @@ def AlignExons(ExonSequences, align_file = None, saveFile = False, method = 'mus
 
     ExonAnnotation = AlignExons(ExonSeqs, CharSpaceNum_perLine, algn_file, saveFile)
     '''
-    
+    annotation = {}
     ExonAlignment = {}
     for ExonID, seqObj in ExonSequences.items():
         records = ()
@@ -1097,11 +1109,11 @@ def AlignExons(ExonSequences, align_file = None, saveFile = False, method = 'mus
             records +=  (SeqRecord(Seq(itemSeq), id = itemID, description = 'Sequence order: '+str(counter)), )
         
         alignment, pos, CharSpaceNum_perLine = align_seqs(records, method = 'muscle')
-        alignment['SeqFull'] = 'Exon Region only comparison'
-        alignment['Note'] = 'No genomic Reference sequence available. Checking ARS...'
+        annotation['SeqFull'] = 'Exon Region only comparison'
+        annotation['Note'] = 'No genomic Reference sequence available. Checking ARS...'
         
         if saveFile:
-            save_aln(alignment, CharSpaceNum_perLine, align_file)
+            save_aln(alignment, CharSpaceNum_perLine, align_file, annotation)
         
         ExonAlignment[ExonID]['alignment'] = alignment
         ExonAlignment[ExonID]['pos'] = pos

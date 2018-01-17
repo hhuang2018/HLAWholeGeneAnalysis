@@ -410,7 +410,28 @@ def Full2TwoField(TypingList):
     Convert multi-field gl-string into 2-field typing
     '''
     
-    twoFieldList = [':'.join((tp.split(':')[0], tp.split(':')[1])) for tp in TypingList]
+    HLAtyping = []
+    for tp in TypingList:
+        if tp.find(',')!= -1:
+            tp1 = tp.replace('[\'', '')
+            tp1 = tp1.replace('\']', '')
+            tp1 = tp1.replace('\'', '')
+            ambTPlist = tp1.split(', ')
+            for tp11 in ambTPlist: 
+                if tp11.find('/')!=-1:
+                    tp2 = tp11.split('/')
+                    HLAtyping.extend(tp2)
+                else:
+                    HLAtyping.append(tp11)
+            #HLAtyping.extend(ambTPlist)
+        elif tp.find('/') != -1:
+            ambTPlist = tp.split('/')
+            HLAtyping.extend(ambTPlist)
+            
+        else:
+            HLAtyping.append(tp)
+                                
+    twoFieldList = [':'.join((tp.split(':')[0], tp.split(':')[1])) for tp in HLAtyping]
     twoFieldList = list(set(twoFieldList)) # remove duplicates
     
     return twoFieldList
@@ -474,6 +495,7 @@ def checkSynonymMutation(Allele, Exons):
             TransSeq[tp] = ExonSeq[tp].translate()
             Synonymous = True # Default: same protein sequence
         except CodonTable.TranslationError:
+            TransSeq[tp] = '*********'
             Synonymous = False
             return(Synonymous)
 

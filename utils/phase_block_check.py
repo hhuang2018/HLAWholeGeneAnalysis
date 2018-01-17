@@ -136,6 +136,8 @@ def check_oneBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, I
     '''
     For one block one phase sequence
     '''
+    if type(ID) == float: 
+        ID = str(int(ID))
     Locus =  tplist[0].split("*")[0] 
     
     ARS0seq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon2, Exon3')
@@ -232,7 +234,8 @@ def check_twoBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, I
     '''
     Two blocks one phase sequences
     '''
-    
+    if type(ID) == float:
+        ID = str(int(ID))
     Locus =  tplist[0].split("*")[0] 
     ARS0seq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon2, Exon3')
     ARS1seq = IMGTdbIO.readIMGTsql(tplist[1], field='Exon2, Exon3')
@@ -278,7 +281,8 @@ def check_DQB102_Block_seq(seq_count, tplist, unique_Query, unique_HLATyping_lis
     '''
     Two blocks one phase sequences
     '''
-    
+    if type(ID) == float:
+        ID = str(int(ID))
     Locus =  tplist[0].split("*")[0] 
     ARS0seq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon2, Exon3')
     ARS1seq = IMGTdbIO.readIMGTsql(tplist[1], field='Exon2, Exon3')
@@ -373,7 +377,8 @@ def check_seq_typing(HLAtypings, Query, ID):
                       "PS2": {"GLstring": HLAtyping2, "Sequence": Sequence2, "blockIDs": [1, 2]}}
         blockIDs - corresponding to the sequence order.
     '''
-    
+    if type(ID) == float:
+        ID = str(int(ID))
     Locus =  HLAtypings[0].split("*")[0]
     Locus =  re.sub("HLA-", "", Locus)
     

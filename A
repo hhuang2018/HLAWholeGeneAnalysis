@@ -1,0 +1,603 @@
+RefSeq|A*02:01:14Q|Exon2      GCTCTCACTCCATGAGGTATTTCTTCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGTCCGGAGTATTGGGACGGGGAGACACGGAAAGTGAAGGCCCACTCACAGACTCACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+Recipient-PS1|Exon2           GCTCTCACTCCATGAGGTATTTCTTCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGTCCGGAGTATTGGGACGGGGAGACACGGAAAGTGAAGGCCCACTCACAGACTCACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+Donor-PS1|Exon2               GCTCCCACTCCATGAGGTATTTCACCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCCGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCGGAACACACGGAATGTGAAGGCCCACTCACAGATTGACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+SeqFull                       Exon Region only comparison
+Note                          No genomic Reference sequence available. Checking ARS...
+Align                         ....X..................XX.............................................X...............................................................................................X...............X..X.X........X...................X.X...................................................
+============
+Position 4:
+>>RefSeq|A*02:01:14Q|Exon2:      T
+>>Recipient-PS1|Exon2:           T
+>>Donor-PS1|Exon2:               C
+>>SeqFull:                        
+>>Note:                          e
+============
+============
+Position 23:
+>>RefSeq|A*02:01:14Q|Exon2:      T
+>>Recipient-PS1|Exon2:           T
+>>Donor-PS1|Exon2:               A
+>>SeqFull:                       i
+>>Note:                          q
+============
+============
+Position 24:
+>>RefSeq|A*02:01:14Q|Exon2:      T
+>>Recipient-PS1|Exon2:           T
+>>Donor-PS1|Exon2:               C
+>>SeqFull:                       s
+>>Note:                          u
+============
+============
+Position 70:
+>>RefSeq|A*02:01:14Q|Exon2:      A
+>>Recipient-PS1|Exon2:           A
+>>Donor-PS1|Exon2:               C
+RefSeq|A*02:01:14Q|Exon2      GCTCTCACTCCATGAGGTATTTCTTCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGTCCGGAGTATTGGGACGGGGAGACACGGAAAGTGAAGGCCCACTCACAGACTCACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+Recipient-PS1|Exon2           GCTCTCACTCCATGAGGTATTTCTTCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGTCCGGAGTATTGGGACGGGGAGACACGGAAAGTGAAGGCCCACTCACAGACTCACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+Donor-PS1|Exon2               GCTCCCACTCCATGAGGTATTTCACCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCCGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCGGAACACACGGAATGTGAAGGCCCACTCACAGATTGACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+SeqFull                       Exon Region only comparison
+Note                          No genomic Reference sequence available. Checking ARS...
+Align                         ....X..................XX.............................................X...............................................................................................X...............X..X.X........X...................X.X...................................................
+============
+Position 4:
+>>RefSeq|A*02:01:14Q|Exon2:      T
+>>Recipient-PS1|Exon2:           T
+>>Donor-PS1|Exon2:               C
+>>SeqFull:                        
+>>Note:                          e
+============
+============
+Position 23:
+>>RefSeq|A*02:01:14Q|Exon2:      T
+>>Recipient-PS1|Exon2:           T
+>>Donor-PS1|Exon2:               A
+>>SeqFull:                       i
+>>Note:                          q
+============
+============
+Position 24:
+>>RefSeq|A*02:01:14Q|Exon2:      T
+>>Recipient-PS1|Exon2:           T
+>>Donor-PS1|Exon2:               C
+>>SeqFull:                       s
+>>Note:                          u
+============
+============
+Position 70:
+>>RefSeq|A*02:01:14Q|Exon2:      A
+>>Recipient-PS1|Exon2:           A
+>>Donor-PS1|Exon2:               C
+RefSeq|A*02:01:14Q|Exon2      GCTCTCACTCCATGAGGTATTTCTTCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGTCCGGAGTATTGGGACGGGGAGACACGGAAAGTGAAGGCCCACTCACAGACTCACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+Recipient-PS1|Exon2           GCTCTCACTCCATGAGGTATTTCTTCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGTCCGGAGTATTGGGACGGGGAGACACGGAAAGTGAAGGCCCACTCACAGACTCACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+Donor-PS1|Exon2               GCTCCCACTCCATGAGGTATTTCACCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCCGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCGGAACACACGGAATGTGAAGGCCCACTCACAGATTGACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+SeqFull                       Exon Region only comparison
+Note                          No genomic Reference sequence available. Checking ARS...
+Align                         ....X..................XX.............................................X...............................................................................................X...............X..X.X........X...................X.X...................................................
+============
+Position 4:
+>>RefSeq|A*02:01:14Q|Exon2:      T
+>>Recipient-PS1|Exon2:           T
+>>Donor-PS1|Exon2:               C
+>>SeqFull:                        
+>>Note:                          e
+============
+============
+Position 23:
+>>RefSeq|A*02:01:14Q|Exon2:      T
+>>Recipient-PS1|Exon2:           T
+>>Donor-PS1|Exon2:               A
+>>SeqFull:                       i
+>>Note:                          q
+============
+============
+Position 24:
+>>RefSeq|A*02:01:14Q|Exon2:      T
+>>Recipient-PS1|Exon2:           T
+>>Donor-PS1|Exon2:               C
+>>SeqFull:                       s
+>>Note:                          u
+============
+============
+Position 70:
+>>RefSeq|A*02:01:14Q|Exon2:      A
+>>Recipient-PS1|Exon2:           A
+>>Donor-PS1|Exon2:               C
+RefSeq|A*02:01:14Q|Exon2      GCTCTCACTCCATGAGGTATTTCTTCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGTCCGGAGTATTGGGACGGGGAGACACGGAAAGTGAAGGCCCACTCACAGACTCACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+Recipient-PS1|Exon2           GCTCTCACTCCATGAGGTATTTCTTCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGTCCGGAGTATTGGGACGGGGAGACACGGAAAGTGAAGGCCCACTCACAGACTCACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+Donor-PS1|Exon2               GCTCCCACTCCATGAGGTATTTCACCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCCGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCGGAACACACGGAATGTGAAGGCCCACTCACAGATTGACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+SeqFull                       Exon Region only comparison
+Note                          No genomic Reference sequence available. Checking ARS...
+Align                         ....X..................XX.............................................X...............................................................................................X...............X..X.X........X...................X.X...................................................
+============
+Position 4:
+>>RefSeq|A*02:01:14Q|Exon2:      T
+>>Recipient-PS1|Exon2:           T
+>>Donor-PS1|Exon2:               C
+>>SeqFull:                        
+>>Note:                          e
+============
+============
+Position 23:
+>>RefSeq|A*02:01:14Q|Exon2:      T
+>>Recipient-PS1|Exon2:           T
+>>Donor-PS1|Exon2:               A
+>>SeqFull:                       i
+>>Note:                          q
+============
+============
+Position 24:
+>>RefSeq|A*02:01:14Q|Exon2:      T
+>>Recipient-PS1|Exon2:           T
+>>Donor-PS1|Exon2:               C
+>>SeqFull:                       s
+>>Note:                          u
+============
+============
+Position 70:
+>>RefSeq|A*02:01:14Q|Exon2:      A
+>>Recipient-PS1|Exon2:           A
+>>Donor-PS1|Exon2:               C
+RefSeq|A*02:01:14Q|Exon2      GCTCTCACTCCATGAGGTATTTCTTCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGTCCGGAGTATTGGGACGGGGAGACACGGAAAGTGAAGGCCCACTCACAGACTCACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+Recipient-PS1|Exon2           GCTCTCACTCCATGAGGTATTTCTTCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGTCCGGAGTATTGGGACGGGGAGACACGGAAAGTGAAGGCCCACTCACAGACTCACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+Donor-PS1|Exon2               GCTCCCACTCCATGAGGTATTTCACCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCCGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCGGAACACACGGAATGTGAAGGCCCACTCACAGATTGACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+Align                         ....X..................XX.............................................X...............................................................................................X...............X..X.X........X...................X.X...................................................
+Sequence Completeness: Exon Region only comparison
+Note: No genomic Reference sequence available. Checking ARS...
+============
+Position 4:
+RefSeq|A*02:01:14Q|Exon2:      T
+Recipient-PS1|Exon2:           T
+Donor-PS1|Exon2:               C
+============
+============
+Position 23:
+RefSeq|A*02:01:14Q|Exon2:      T
+Recipient-PS1|Exon2:           T
+Donor-PS1|Exon2:               A
+============
+============
+Position 24:
+RefSeq|A*02:01:14Q|Exon2:      T
+Recipient-PS1|Exon2:           T
+Donor-PS1|Exon2:               C
+============
+============
+Position 70:
+RefSeq|A*02:01:14Q|Exon2:      A
+Recipient-PS1|Exon2:           A
+Donor-PS1|Exon2:               C
+============
+============
+Position 166:
+RefSeq|A*02:01:14Q|Exon2:      T
+Recipient-PS1|Exon2:           T
+Donor-PS1|Exon2:               G
+============
+============
+Position 182:
+RefSeq|A*02:01:14Q|Exon2:      G
+Recipient-PS1|Exon2:           G
+Donor-PS1|Exon2:               C
+============
+============
+Position 185:
+RefSeq|A*02:01:14Q|Exon2:      G
+Recipient-PS1|Exon2:           G
+Donor-PS1|Exon2:               A
+============
+============
+Position 187:
+RefSeq|A*02:01:14Q|Exon2:      G
+Recipient-PS1|Exon2:           G
+Donor-PS1|Exon2:               C
+============
+============
+Position 196:
+RefSeq|A*02:01:14Q|Exon2:      A
+Recipient-PS1|Exon2:           A
+Donor-PS1|Exon2:               T
+============
+============
+Position 216:
+RefSeq|A*02:01:14Q|Exon2:      C
+Recipient-PS1|Exon2:           C
+Donor-PS1|Exon2:               T
+============
+============
+Position 218:
+RefSeq|A*02:01:14Q|Exon2:      C
+Recipient-PS1|Exon2:           C
+Donor-PS1|Exon2:               G
+============
+RefSeq|A*02:01:14Q|Exon3      GTTCTCACACCGTCCAGAGGATGTATGGCTGCGACGTGGGGTCGGACTGGCGCTTCCTCCGCGGGTACCACCAGTACGCCTACGACGGCAAGGATTACATCGCCCTGAAAGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCAGCTCAGACCACCAAGCACAAGTGGGAGGCGGCCCATGTGGCGGAGCAGTTGAGAGCCTACCTGGAGGGCACGTGCGTGGAGTGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACGG
+Recipient-PS1|Exon3           GTTCTCACACCGTCCAGAGGATGTATGGCTGCGACGTGGGGTCGGACTGGCGCTTCCTCCGCGGGTACCACCAGTACGCCTACGACGGCAAGGATTACATCGCCCTGAAAGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCAGCTCAGACCACCAAGCACAAGTGGGAGGCGGCCCATGTGGCGGAGCAGTTGAGAGCCTACCTGGAGGGCACGTGCGTGGAGTGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACGG
+Donor-PS1|Exon3               GTTCTCACACCATCCAGATGATGTATGGCTGCGACGTGGGGTCGGACGGGCGCTTCCTCCGCGGGTACCAGCAGGACGCCTACGACGGCAAGGATTACATCGCCTTGAACGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCGGCTCAGATCACCCAGCGCAAGTGGGAGGCGGCCCGTGTGGCGGAGCAGTTGAGAGCCTACCTGGAGGGCACGTGCGTGGAGTGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACGG
+Align                         ...........X......X............................X......................X...X.............................X....X...................................X.......X....X...X.................X...............................................................................................
+Sequence Completeness: Exon Region only comparison
+Note: No genomic Reference sequence available. Checking ARS...
+============
+Position 11:
+RefSeq|A*02:01:14Q|Exon3:      G
+Recipient-PS1|Exon3:           G
+Donor-PS1|Exon3:               A
+============
+============
+Position 18:
+RefSeq|A*02:01:14Q|Exon3:      G
+Recipient-PS1|Exon3:           G
+Donor-PS1|Exon3:               T
+============
+============
+Position 47:
+RefSeq|A*02:01:14Q|Exon3:      T
+Recipient-PS1|Exon3:           T
+Donor-PS1|Exon3:               G
+============
+============
+Position 70:
+RefSeq|A*02:01:14Q|Exon3:      C
+Recipient-PS1|Exon3:           C
+Donor-PS1|Exon3:               G
+============
+============
+Position 74:
+RefSeq|A*02:01:14Q|Exon3:      T
+Recipient-PS1|Exon3:           T
+Donor-PS1|Exon3:               G
+============
+============
+Position 104:
+RefSeq|A*02:01:14Q|Exon3:      C
+Recipient-PS1|Exon3:           C
+Donor-PS1|Exon3:               T
+============
+============
+Position 109:
+RefSeq|A*02:01:14Q|Exon3:      A
+Recipient-PS1|Exon3:           A
+Donor-PS1|Exon3:               C
+============
+============
+Position 145:
+RefSeq|A*02:01:14Q|Exon3:      A
+Recipient-PS1|Exon3:           A
+Donor-PS1|Exon3:               G
+============
+============
+Position 153:
+RefSeq|A*02:01:14Q|Exon3:      C
+Recipient-PS1|Exon3:           C
+Donor-PS1|Exon3:               T
+============
+============
+Position 158:
+RefSeq|A*02:01:14Q|Exon3:      A
+Recipient-PS1|Exon3:           A
+Donor-PS1|Exon3:               C
+============
+============
+Position 162:
+RefSeq|A*02:01:14Q|Exon3:      A
+Recipient-PS1|Exon3:           A
+Donor-PS1|Exon3:               G
+============
+============
+Position 180:
+RefSeq|A*02:01:14Q|Exon3:      A
+Recipient-PS1|Exon3:           A
+Donor-PS1|Exon3:               G
+============
+RefSeq|A*02:01:14Q|Exon4      ACGCCCCCAAAACGCATATGACTCACCACGCTGTCTCTGACCATGAAGCCACCCTGAGGTGCTGGGCCCTGAGCTTCTACCCTGCAGAGATCACACTGACCTGGCAGCGGGATGGGGAGGACCAGACCCAGGACACGGAGCTCGTGGAGACCAGGCCTGCAGGGGATGGAACCTTCCAGAAGTGGGCGGCTGTGGTGGTGCCTTCTGGACAGGAGCAGAGATACACCTGCCATGTGCAGCATGAGGGTTTGCCCAAGCCCCTCACCCTGAGATGGG
+Recipient-PS1|Exon4           ACGCCCCCAAAACGCATATGACTCACCACGCTGTCTCTGACCATGAAGCCACCCTGAGGTGCTGGGCCCTGAGCTTCTACCCTGCAGAGATCACACTGACCTGGCAGCGGGATGGGGAGGACCAGACCCAGGACACGGAGCTCGTGGAGACCAGGCCTGCAGGGGATGGAACCTTCCAGAAGTGGGCGGCTGTGGTGGTGCCTTCTGGACAGGAGCAGAGATACACCTGCCATGTGCAGCATGAGGGTTTGCCCAAGCCCCTCACCCTGAGATGGG
+Donor-PS1|Exon4               ACCCCCCCAAGACGCATATGACTCACCACGCTGTCTCTGACCATGAGGCCACCCTGAGGTGCTGGGCCCTGAGCTTCTACCCTGCGGAGATCACACTGACCTGGCAGCGGGATGGGGAGGACCAGACCCAGGACACGGAGCTCGTGGAGACCAGGCCTGCAGGGGATGGAACCTTCCAGAAGTGGGCGTCTGTGGTGGTGCCTTCTGGACAGGAGCAGAGATACACCTGCCATGTGCAGCATGAGGGTCTCCCCAAGCCCCTCACCCTGAGATGGG
+Align                         ..X.......X...................................X......................................X......................................................................................................X...........................................................X.X.........................
+Sequence Completeness: Exon Region only comparison
+Note: No genomic Reference sequence available. Checking ARS...
+============
+Position 2:
+RefSeq|A*02:01:14Q|Exon4:      G
+Recipient-PS1|Exon4:           G
+Donor-PS1|Exon4:               C
+============
+============
+Position 10:
+RefSeq|A*02:01:14Q|Exon4:      A
+Recipient-PS1|Exon4:           A
+Donor-PS1|Exon4:               G
+============
+============
+Position 46:
+RefSeq|A*02:01:14Q|Exon4:      A
+Recipient-PS1|Exon4:           A
+Donor-PS1|Exon4:               G
+============
+============
+Position 85:
+RefSeq|A*02:01:14Q|Exon4:      A
+Recipient-PS1|Exon4:           A
+Donor-PS1|Exon4:               G
+============
+============
+Position 188:
+RefSeq|A*02:01:14Q|Exon4:      G
+Recipient-PS1|Exon4:           G
+Donor-PS1|Exon4:               T
+============
+============
+Position 248:
+RefSeq|A*02:01:14Q|Exon4:      T
+Recipient-PS1|Exon4:           T
+Donor-PS1|Exon4:               C
+============
+============
+Position 250:
+RefSeq|A*02:01:14Q|Exon4:      G
+Recipient-PS1|Exon4:           G
+Donor-PS1|Exon4:               C
+============
+RefSeq|A*24:02:02|Exon2      GCTCCCACTCCATGAGGTATTTCTCCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCCGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACGAGGAGACAGGGAAAGTGAAGGCCCACTCACAGACTGACCGAGAGAACCTGCGGATCGCGCTCCGCTACTACAACCAGAGCGAGGCCG
+Recipient-PS1|Exon2          GCTCCCACTCCATGAGGTATTTCTCCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCCGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACGAGGAGACAGGGAAAGTGAAGGCCCACTCACAGACTGACCGAGAGAACCTGCGGATCGCGCTCCGCTACTACAACCAGAGCGAGGCCG
+Donor-PS1|Exon2              GCTCCCACTCCATGAGGTATTTCTCCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCCGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACGAGGAGACAGGGAAAGTGAAGGCCCACTCACAGACTGACCGAGAGAACCTGCGGATCGCGCTCCGCTACTACAACCAGAGCGAGGCCG
+Align                        ..............................................................................................................................................................................................................................................................................
+Sequence Completeness: Exon Region only comparison
+Note: No genomic Reference sequence available. Checking ARS...
+RefSeq|A*24:02:02|Exon3      GTTCTCACACCCTCCAGATGATGTTTGGCTGCGACGTGGGGTCGGACGGGCGCTTCCTCCGCGGGTACCACCAGTACGCCTACGACGGCAAGGATTACATCGCCCTGAAAGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCAGCTCAGATCACCAAGCGCAAGTGGGAGGCGGCCCATGTGGCGGAGCAGCAGAGAGCCTACCTGGAGGGCACGTGCGTGGACGGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACGG
+Recipient-PS1|Exon3          GTTCTCACACCCTCCAGATGATGTTTGGCTGCGACGTGGGGTCGGACGGGCGCTTCCTCCGCGGGTACCACCAGTACGCCTACGACGGCAAGGATTACATCGCCCTGAAAGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCAGCTCAGATCACCAAGCGCAAGTGGGAGGCGGCCCATGTGGCGGAGCAGCAGAGAGCCTACCTGGAGGGCACGTGCGTGGACGGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACGG
+Donor-PS1|Exon3              GTTCTCACACCCTCCAGATGATGTTTGGCTGCGACGTGGGGTCGGACGGGCGCTTCCTCCGCGGGTACCACCAGTACGCCTACGACGGCAAGGATTACATCGCCCTGAAAGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCGGCTCAGATCACCAAGCGCAAGTGGGAGGCGGCCCATGTGGCGGAGCAGCAGAGAGCCTACCTGGAGGGCACGTGCGTGGACGGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACGG
+Align                        .................................................................................................................................................X..................................................................................................................................
+Sequence Completeness: Exon Region only comparison
+Note: No genomic Reference sequence available. Checking ARS...
+============
+Position 145:
+RefSeq|A*24:02:02|Exon3:      A
+Recipient-PS1|Exon3:          A
+Donor-PS1|Exon3:              G
+============
+RefSeq|A*24:79|Exon2         GCTCCCACTCCATGAGGTATTTCTCCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCCGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACGAGGAGACAGGGAAAGTGAAGGCCCACTCACAGACTGACCGAGAGAACCTGCGGATCGCGCTCCGCTACTACAACCAGAGCGAGGCCG
+Recipient-PS2|Exon2          GCTCCCACTCCATGAGGTATTTCTCCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCCGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACGAGGAGACAGGGAAAGTGAAGGCCCACTCACAGACTGACCGAGAGAACCTGCGGATCGCGCTCCGCTACTACAACCAGAGCGAGGCCG
+Donor-PS2|Exon2              GCTCCCACTCCATGAGGTATTTCTCCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCCGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACGAGGAGACAGGGAAAGTGAAGGCCCACTCACAGACTGACCGAGAGAACCTGCGGATCGCGCTCCGCTACTACAACCAGAGCGAGGCCG
+RefSeq|A*24:03:02|Exon2      GCTCCCACTCCATGAGGTATTTCTCCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCCGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACGAGGAGACAGGGAAAGTGAAGGCCCACTCACAGACTGACCGAGAGAACCTGCGGATCGCGCTCCGCTACTACAACCAGAGCGAGGCCG
+Align                        ..............................................................................................................................................................................................................................................................................
+Sequence Completeness: Exon Region only comparison
+Note: No genomic Reference sequence available. Checking ARS...
+RefSeq|A*24:79|Exon3         GTTCTCACACCCTCCAGATGATGTTTGGCTGCGACGTGGGGTCGGACGGGCGCTTCCTCCGCGGGTACCACCAGTACGCCTACGACGGCAAGGATTACATCGCCCTGAAAGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCGGCTCAGATCACCAAGCGCAAGTGGGAGGCGGCCCATGTGGCGGAGCAGCAGAGAGCCTACCTGGAGGGCACGTGCGTGGACGGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACGG
+Recipient-PS2|Exon3          GTTCTCACACCCTCCAGATGATGTTTGGCTGCGACGTGGGGTCGGACGGGCGCTTCCTCCGCGGGTACCACCAGTACGCCTACGACGGCAAGGATTACATCGCCCTGAAAGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCGGCTCAGATCACCAAGCGCAAGTGGGAGGCGGCCCATGTGGCGGAGCAGCAGAGAGCCTACCTGGAGGGCACGTGCGTGGACGGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACGG
+Donor-PS2|Exon3              GTTCTCACACCCTCCAGATGATGTTTGGCTGCGACGTGGGGTCGGACGGGCGCTTCCTCCGCGGGTACCACCAGTACGCCTACGACGGCAAGGATTACATCGCCCTGAAAGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCGGCTCAGATCACCAAGCGCAAGTGGGAGGCGGCCCATGTGGCGGAGCAGCAGAGAGCCTACCTGGAGGGCACGTGCGTGGAGTGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACTG
+RefSeq|A*24:03:02|Exon3      GTTCTCACACCCTCCAGATGATGTTTGGCTGCGACGTGGGGTCGGACGGGCGCTTCCTCCGCGGGTACCACCAGTACGCCTACGACGGCAAGGATTACATCGCCCTGAAAGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCGGCTCAGATCACCAAGCGCAAGTGGGAGGCGGCCCATGTGGCGGAGCAGCAGAGAGCCTACCTGGAGGGCACGTGCGTGGAGTGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACTG
+Align                        ..................................................................................................................................................................................................................................XX..............................................X.
+Sequence Completeness: Exon Region only comparison
+Note: No genomic Reference sequence available. Checking ARS...
+============
+Position 226:
+RefSeq|A*24:79|Exon3:         C
+Recipient-PS2|Exon3:          C
+Donor-PS2|Exon3:              G
+RefSeq|A*24:03:02|Exon3:      G
+============
+============
+Position 227:
+RefSeq|A*24:79|Exon3:         G
+Recipient-PS2|Exon3:          G
+Donor-PS2|Exon3:              T
+RefSeq|A*24:03:02|Exon3:      T
+============
+============
+Position 274:
+RefSeq|A*24:79|Exon3:         G
+Recipient-PS2|Exon3:          G
+Donor-PS2|Exon3:              T
+RefSeq|A*24:03:02|Exon3:      T
+============
+RefSeq|A*24:79|Exon4         ACCCCCCCAAGACACATATGACCCACCACCCCATCTCTGACCATGAGGCCACTCTGAGATGCTGGGCCCTGGGCTTCTACCCTGCGGAGATCACACTGACCTGGCAGCGGGATGGGGAGGACCAGACCCAGGACACGGAGCTTGTGGAGACCAGGCCTGCAGGGGATGGAACCTTCCAGAAGTGGGCAGCTGTGGTGGTACCTTCTGGAGAGGAGCAGAGATACACCTGCCATGTGCAGCATGAGGATCTGCCCAAGCCCCTCACCCTGAGATGGG
+Recipient-PS2|Exon4          ACCCCCCCAAGACACATATGACCCACCACCCCATCTCTGACCATGAGGCCACTCTGAGATGCTGGGCCCTGGGCTTCTACCCTGCGGAGATCACACTGACCTGGCAGCGGGATGGGGAGGACCAGACCCAGGACACGGAGCTTGTGGAGACCAGGCCTGCAGGGGATGGAACCTTCCAGAAGTGGGCAGCTGTGGTGGTACCTTCTGGAGAGGAGCAGAGATACACCTGCCATGTGCAGCATGAGGATCTGCCCAAGCCCCTCACCCTGAGATGGG
+Donor-PS2|Exon4              ACCCCCCCAAGACACATATGACCCACCACCCCATCTCTGACCATGAGGCCACTCTGAGATGCTGGGCCCTGGGCTTCTACCCTGCGGAGATCACACTGACCTGGCAGCGGGATGGGGAGGACCAGACCCAGGACACGGAGCTTGTGGAGACCAGGCCTGCAGGGGATGGAACCTTCCAGAAGTGGGCAGCTGTGGTGGTACCTTCTGGAGAGGAGCAGAGATACACCTGCCATGTGCAGCATGAGGGTCTGCCCAAGCCCCTCACCCTGAGATGGG
+RefSeq|A*24:03:02|Exon4      ACCCCCCCAAGACACATATGACCCACCACCCCATCTCTGACCATGAGGCCACTCTGAGATGCTGGGCCCTGGGCTTCTACCCTGCGGAGATCACACTGACCTGGCAGCGGGATGGGGAGGACCAGACCCAGGACACGGAGCTTGTGGAGACCAGGCCTGCAGGGGATGGAACCTTCCAGAAGTGGGCAGCTGTGGTGGTACCTTCTGGAGAGGAGCAGAGATACACCTGCCATGTGCAGCATGAGGGTCTGCCCAAGCCCCTCACCCTGAGATGGG
+Align                        ......................................................................................................................................................................................................................................................X.............................
+Sequence Completeness: Exon Region only comparison
+Note: No genomic Reference sequence available. Checking ARS...
+============
+Position 246:
+RefSeq|A*24:79|Exon4:         A
+Recipient-PS2|Exon4:          A
+Donor-PS2|Exon4:              G
+RefSeq|A*24:03:02|Exon4:      G
+============
+RefSeq|A*02:01:14Q|Exon2      GCTCTCACTCCATGAGGTATTTCTTCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGTCCGGAGTATTGGGACGGGGAGACACGGAAAGTGAAGGCCCACTCACAGACTCACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+Recipient-PS1|Exon2           GCTCTCACTCCATGAGGTATTTCTTCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGTCCGGAGTATTGGGACGGGGAGACACGGAAAGTGAAGGCCCACTCACAGACTCACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+Donor-PS2|Exon2               GCTCCCACTCCATGAGGTATTTCACCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCCGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAGGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCGGAACACACGGAATGTGAAGGCCCACTCACAGATTGACCGAGTGGACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGCCG
+Align                         ....X..................XX.............................................X...............................................................................................X...............X..X.X........X...................X.X...................................................
+Sequence Completeness: Exon Region only comparison
+Note: No genomic Reference sequence available. Checking ARS...
+============
+Position 4:
+RefSeq|A*02:01:14Q|Exon2:      T
+Recipient-PS1|Exon2:           T
+Donor-PS2|Exon2:               C
+============
+============
+Position 23:
+RefSeq|A*02:01:14Q|Exon2:      T
+Recipient-PS1|Exon2:           T
+Donor-PS2|Exon2:               A
+============
+============
+Position 24:
+RefSeq|A*02:01:14Q|Exon2:      T
+Recipient-PS1|Exon2:           T
+Donor-PS2|Exon2:               C
+============
+============
+Position 70:
+RefSeq|A*02:01:14Q|Exon2:      A
+Recipient-PS1|Exon2:           A
+Donor-PS2|Exon2:               C
+============
+============
+Position 166:
+RefSeq|A*02:01:14Q|Exon2:      T
+Recipient-PS1|Exon2:           T
+Donor-PS2|Exon2:               G
+============
+============
+Position 182:
+RefSeq|A*02:01:14Q|Exon2:      G
+Recipient-PS1|Exon2:           G
+Donor-PS2|Exon2:               C
+============
+============
+Position 185:
+RefSeq|A*02:01:14Q|Exon2:      G
+Recipient-PS1|Exon2:           G
+Donor-PS2|Exon2:               A
+============
+============
+Position 187:
+RefSeq|A*02:01:14Q|Exon2:      G
+Recipient-PS1|Exon2:           G
+Donor-PS2|Exon2:               C
+============
+============
+Position 196:
+RefSeq|A*02:01:14Q|Exon2:      A
+Recipient-PS1|Exon2:           A
+Donor-PS2|Exon2:               T
+============
+============
+Position 216:
+RefSeq|A*02:01:14Q|Exon2:      C
+Recipient-PS1|Exon2:           C
+Donor-PS2|Exon2:               T
+============
+============
+Position 218:
+RefSeq|A*02:01:14Q|Exon2:      C
+Recipient-PS1|Exon2:           C
+Donor-PS2|Exon2:               G
+============
+RefSeq|A*02:01:14Q|Exon3      GTTCTCACACCGTCCAGAGGATGTATGGCTGCGACGTGGGGTCGGACTGGCGCTTCCTCCGCGGGTACCACCAGTACGCCTACGACGGCAAGGATTACATCGCCCTGAAAGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCAGCTCAGACCACCAAGCACAAGTGGGAGGCGGCCCATGTGGCGGAGCAGTTGAGAGCCTACCTGGAGGGCACGTGCGTGGAGTGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACGG
+Recipient-PS1|Exon3           GTTCTCACACCGTCCAGAGGATGTATGGCTGCGACGTGGGGTCGGACTGGCGCTTCCTCCGCGGGTACCACCAGTACGCCTACGACGGCAAGGATTACATCGCCCTGAAAGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCAGCTCAGACCACCAAGCACAAGTGGGAGGCGGCCCATGTGGCGGAGCAGTTGAGAGCCTACCTGGAGGGCACGTGCGTGGAGTGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACGG
+Donor-PS2|Exon3               GTTCTCACACCATCCAGATGATGTATGGCTGCGACGTGGGGTCGGACGGGCGCTTCCTCCGCGGGTACCAGCAGGACGCCTACGACGGCAAGGATTACATCGCCTTGAACGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCGGCTCAGATCACCCAGCGCAAGTGGGAGGCGGCCCGTGTGGCGGAGCAGTTGAGAGCCTACCTGGAGGGCACGTGCGTGGAGTGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACGG
+Align                         ...........X......X............................X......................X...X.............................X....X...................................X.......X....X...X.................X...............................................................................................
+Sequence Completeness: Exon Region only comparison
+Note: No genomic Reference sequence available. Checking ARS...
+============
+Position 11:
+RefSeq|A*02:01:14Q|Exon3:      G
+Recipient-PS1|Exon3:           G
+Donor-PS2|Exon3:               A
+============
+============
+Position 18:
+RefSeq|A*02:01:14Q|Exon3:      G
+Recipient-PS1|Exon3:           G
+Donor-PS2|Exon3:               T
+============
+============
+Position 47:
+RefSeq|A*02:01:14Q|Exon3:      T
+Recipient-PS1|Exon3:           T
+Donor-PS2|Exon3:               G
+============
+============
+Position 70:
+RefSeq|A*02:01:14Q|Exon3:      C
+Recipient-PS1|Exon3:           C
+Donor-PS2|Exon3:               G
+============
+============
+Position 74:
+RefSeq|A*02:01:14Q|Exon3:      T
+Recipient-PS1|Exon3:           T
+Donor-PS2|Exon3:               G
+============
+============
+Position 104:
+RefSeq|A*02:01:14Q|Exon3:      C
+Recipient-PS1|Exon3:           C
+Donor-PS2|Exon3:               T
+============
+============
+Position 109:
+RefSeq|A*02:01:14Q|Exon3:      A
+Recipient-PS1|Exon3:           A
+Donor-PS2|Exon3:               C
+============
+============
+Position 145:
+RefSeq|A*02:01:14Q|Exon3:      A
+Recipient-PS1|Exon3:           A
+Donor-PS2|Exon3:               G
+============
+============
+Position 153:
+RefSeq|A*02:01:14Q|Exon3:      C
+Recipient-PS1|Exon3:           C
+Donor-PS2|Exon3:               T
+============
+============
+Position 158:
+RefSeq|A*02:01:14Q|Exon3:      A
+Recipient-PS1|Exon3:           A
+Donor-PS2|Exon3:               C
+============
+============
+Position 162:
+RefSeq|A*02:01:14Q|Exon3:      A
+Recipient-PS1|Exon3:           A
+Donor-PS2|Exon3:               G
+============
+============
+Position 180:
+RefSeq|A*02:01:14Q|Exon3:      A
+Recipient-PS1|Exon3:           A
+Donor-PS2|Exon3:               G
+============
+RefSeq|A*02:01:14Q|Exon4      ACGCCCCCAAAACGCATATGACTCACCACGCTGTCTCTGACCATGAAGCCACCCTGAGGTGCTGGGCCCTGAGCTTCTACCCTGCAGAGATCACACTGACCTGGCAGCGGGATGGGGAGGACCAGACCCAGGACACGGAGCTCGTGGAGACCAGGCCTGCAGGGGATGGAACCTTCCAGAAGTGGGCGGCTGTGGTGGTGCCTTCTGGACAGGAGCAGAGATACACCTGCCATGTGCAGCATGAGGGTTTGCCCAAGCCCCTCACCCTGAGATGGG
+Recipient-PS1|Exon4           ACGCCCCCAAAACGCATATGACTCACCACGCTGTCTCTGACCATGAAGCCACCCTGAGGTGCTGGGCCCTGAGCTTCTACCCTGCAGAGATCACACTGACCTGGCAGCGGGATGGGGAGGACCAGACCCAGGACACGGAGCTCGTGGAGACCAGGCCTGCAGGGGATGGAACCTTCCAGAAGTGGGCGGCTGTGGTGGTGCCTTCTGGACAGGAGCAGAGATACACCTGCCATGTGCAGCATGAGGGTTTGCCCAAGCCCCTCACCCTGAGATGGG
+Donor-PS2|Exon4               ACCCCCCCAAGACGCATATGACTCACCACGCTGTCTCTGACCATGAGGCCACCCTGAGGTGCTGGGCCCTGAGCTTCTACCCTGCGGAGATCACACTGACCTGGCAGCGGGATGGGGAGGACCAGACCCAGGACACGGAGCTCGTGGAGACCAGGCCTGCAGGGGATGGAACCTTCCAGAAGTGGGCGTCTGTGGTGGTGCCTTCTGGACAGGAGCAGAGATACACCTGCCATGTGCAGCATGAGGGTCTCCCCAAGCCCCTCACCCTGAGATGGG
+Align                         ..X.......X...................................X......................................X......................................................................................................X...........................................................X.X.........................
+Sequence Completeness: Exon Region only comparison
+Note: No genomic Reference sequence available. Checking ARS...
+============
+Position 2:
+RefSeq|A*02:01:14Q|Exon4:      G
+Recipient-PS1|Exon4:           G
+Donor-PS2|Exon4:               C
+============
+============
+Position 10:
+RefSeq|A*02:01:14Q|Exon4:      A
+Recipient-PS1|Exon4:           A
+Donor-PS2|Exon4:               G
+============
+============
+Position 46:
+RefSeq|A*02:01:14Q|Exon4:      A
+Recipient-PS1|Exon4:           A
+Donor-PS2|Exon4:               G
+============
+============
+Position 85:
+RefSeq|A*02:01:14Q|Exon4:      A
+Recipient-PS1|Exon4:           A
+Donor-PS2|Exon4:               G
+============
+============
+Position 188:
+RefSeq|A*02:01:14Q|Exon4:      G
+Recipient-PS1|Exon4:           G
+Donor-PS2|Exon4:               T
+============
+============
+Position 248:
+RefSeq|A*02:01:14Q|Exon4:      T
+Recipient-PS1|Exon4:           T
+Donor-PS2|Exon4:               C
+============
+============
+Position 250:
+RefSeq|A*02:01:14Q|Exon4:      G
+Recipient-PS1|Exon4:           G
+Donor-PS2|Exon4:               C
+============

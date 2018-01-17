@@ -828,7 +828,7 @@ def saveAsSQLdb(seq_obj, output):
                 
                         ExonIntronSeqs_ps["PS" + str(ps + 1)] = findExonIntron(HLATypings = individual_seq[locus]['GLstring'][ps], 
                                                                               Sequence = [individual_seq[locus]['Sequence'][x] for x in index_ph], 
-                                                                              Blocks = individual_seq[locus]['block'][x] for x in index_ph)
+                                                                              Blocks = [individual_seq[locus]['block'][x] for x in index_ph])
                     
                 for PhaseID in range(2):  
                 

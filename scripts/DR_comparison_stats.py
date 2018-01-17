@@ -414,7 +414,8 @@ ClassII_stats = {'CaseStats': CaseStats, 'LocusStats': LocusStats}
 IMGTdbIO.save_dict2pickle(ClassII_stats, '../Output/Stats/ClassII_Stats_1003_'+groupType)
 
 
-
+#ClassI_stats = IMGTdbIO.load_pickle2dict('../Output/Stats/ClassI_Stats_1003_fiveLoci_paired.pkl')
+#ClassII_stats = IMGTdbIO.load_pickle2dict('../Output/Stats/ClassII_Stats_1003_fiveLoci_paired.pkl')
 
 
 
