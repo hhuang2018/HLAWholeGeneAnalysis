@@ -33,7 +33,7 @@ __version__ = "0.1-dev"
 __maintainer__ = "Hu Huang"
 __email__ = "hwangtiger@gmail.com"
 
-def compare_DQB1_Targeted_Region(Sequences, params):
+def compare_DQB1_Targeted_Region(Sequences, params, version = "3310"):
     '''
     Targeted region alignment and comparison for DQB1.
     DQB1*02 have two segments --  Exon2 and Exon3 
@@ -110,7 +110,7 @@ def compare_DQB1_Targeted_Region(Sequences, params):
             for typing in HLAtyping:
                 
                 RefKey = 'RefSeq|'+ typing
-                tempRefseq = IMGTdbIO.readIMGTsql(typing, field = Exons)
+                tempRefseq = IMGTdbIO.readIMGTsql(typing, field = Exons, version = version)
                 
                 if tempRefseq[0] != '': # the original Field sequences exist
                     ## Exon 2
@@ -190,7 +190,7 @@ def compare_DQB1_Targeted_Region(Sequences, params):
             for typing in HLAtyping:
                 #print(typing)
                 RefKey = 'RefSeq|'+ typing
-                tempRefseq = IMGTdbIO.readIMGTsql(typing, field = DBfields)
+                tempRefseq = IMGTdbIO.readIMGTsql(typing, field = DBfields, version = version)
                 if tempRefseq[0] != '': # the original Field sequences exist
                     ReferenceSeq[RefKey] = [re.sub('\|', '', tempRefseq[0]), tempRefseq[1]]
                     potentialKeys.append(RefKey)
@@ -279,7 +279,7 @@ def compare_DQB1_Targeted_Region(Sequences, params):
                 for typing in HLAtyping:
                     #print(typing)
                     RefKey = 'RefSeq|'+ typing
-                    tempRefseq = IMGTdbIO.readIMGTsql(typing, field = DBfields)
+                    tempRefseq = IMGTdbIO.readIMGTsql(typing, field = DBfields, version = version)
 
                     if tempRefseq[0] != '': # the original Field sequences exist
                         ## Exon 2
@@ -375,7 +375,7 @@ def compare_DQB1_Targeted_Region(Sequences, params):
                 
     return(Alignment, Annotation)
 
-def compare_Targeted_Region(Sequences, params):
+def compare_Targeted_Region(Sequences, params, version = "3310"):
     '''
     targeted alignment and comparison. Especially for Class II; comparing specific Exons 
     when there is no genomic reference sequence available.
@@ -449,7 +449,7 @@ def compare_Targeted_Region(Sequences, params):
         for typing in HLAtyping:
             
             RefKey = 'RefSeq|'+ typing
-            tempRefseq = IMGTdbIO.readIMGTsql(typing, field = Exons)
+            tempRefseq = IMGTdbIO.readIMGTsql(typing, field = Exons, version = version)
             
             if tempRefseq[0] != '': # the original Field sequences exist
                 ## Exon 2
@@ -557,7 +557,7 @@ def correct_align_symbols(alignment, ExonID):
     
     return(corrected_alignment, PosAnnotation)
 
-def compare_seqs(Sequence, params):#algn_file, saveFile = False, HLAtyping = None, DB_field ='*'):
+def compare_seqs(Sequence, params, version = "3310"):#algn_file, saveFile = False, HLAtyping = None, DB_field ='*'):
    # muscle_cline = MuscleCommandline(clwstrict=True)
     '''
     DB_field: for Class I - 'UnalignedGenomSeq, SeqAnnotation' 
@@ -656,7 +656,7 @@ def compare_seqs(Sequence, params):#algn_file, saveFile = False, HLAtyping = Non
                 for typing in HLAtyping:
                     #print(typing)
                     RefKey = 'RefSeq|'+ typing
-                    tempRefseq = IMGTdbIO.readIMGTsql(typing, field = DB_field)
+                    tempRefseq = IMGTdbIO.readIMGTsql(typing, field = DB_field, version = version)
                     if tempRefseq[0] != '': # the original Field sequences exist
                         ReferenceSeq[RefKey] = [re.sub('\|', '', tempRefseq[0]), tempRefseq[1]]
                         potentialKeys.append(RefKey)
@@ -725,7 +725,7 @@ def compare_seqs(Sequence, params):#algn_file, saveFile = False, HLAtyping = Non
                     for exonID in range(len(Exons)):
                         for typing in HLAtyping:
                             RefKey = 'RefSeq|'+ typing
-                            tempRefseq = IMGTdbIO.readIMGTsql(typing, field = DB_BackUpfield)
+                            tempRefseq = IMGTdbIO.readIMGTsql(typing, field = DB_BackUpfield, version = version)
                             if tempRefseq[exonID] != '': # the original Field sequences exist
                                 if '*' not in tempRefseq[exonID]:
                                     if Exons[exonID] in ExonSeqs.keys():
@@ -844,7 +844,7 @@ def compare_seqs(Sequence, params):#algn_file, saveFile = False, HLAtyping = Non
             potentialKeys = HLAtyping
             for typing in HLAtyping:
                 RefKey = 'RefSeq|'+ typing
-                tempRefseq = IMGTdbIO.readIMGTsql(typing, field = DB_field)
+                tempRefseq = IMGTdbIO.readIMGTsql(typing, field = DB_field, version = version)
                 if tempRefseq[0] != '':
                     ReferenceSeq[RefKey] = [re.sub('\|', '', tempRefseq[0]), tempRefseq[1]]
                 else:
@@ -876,7 +876,7 @@ def compare_seqs(Sequence, params):#algn_file, saveFile = False, HLAtyping = Non
             
     return(alignment, pos, annotation)
 
-def SeqAnnotation(query, locus, Ref = None):
+def SeqAnnotation(query, locus, Ref = None, version = "3310"):
     '''
     An unknown sequence with no known genomic reference sequence, aligned to a universe reference sequence, 
     and infer the Exon Intron regions.
@@ -910,7 +910,7 @@ def SeqAnnotation(query, locus, Ref = None):
         RefKey = 'DQB1*05:01:01:01'
     
 
-    RefSeq = IMGTdbIO.readIMGTsql(RefKey, field = DB_field)
+    RefSeq = IMGTdbIO.readIMGTsql(RefKey, field = DB_field, version = version)
     
     RefKey = 'RefSeq|' + RefKey
         
@@ -1496,11 +1496,15 @@ def swapPS_comparison(Seq1, params1, Seq2, params2, caseID):
 
     return(swapped_alignment)
 
-def RegionCount(MMAnnotation, locus):
+def RegionCount(MMAnnotation, locus, addAnn = False):
     '''
     Count the numbers of mismatches in ARS, non-ARS exon and Intron region
     '''
-    RegionMMCount = {'ARS': 0, 'Non_ARS_exon': 0, 'Intron': 0}
+    if addAnn:
+        RegionMMCount = {'ARS': 0, 'Non_ARS_exon': 0, 'Intron': 0, 'MMannotation': MMAnnotation}
+    else:
+        RegionMMCount = {'ARS': 0, 'Non_ARS_exon': 0, 'Intron': 0}
+        
     if locus in ['A', 'B', 'C']:
         ARS = ['Exon2', 'Exon3']
     elif locus in ['DRB1', 'DQB1', 'DPB1']:
@@ -1518,4 +1522,56 @@ def RegionCount(MMAnnotation, locus):
      
     return(RegionMMCount)          
                 
-                
+def isARSmm(mmRegion, ARSregion):
+    '''
+    Check if the mismatched region is in ARS region; If so, compare the PS-swapped 
+    PS sequences. 
+    '''
+
+    for value in mmRegion:
+        for region in ARSregion: 
+            if region in value:
+                return(True)
+    return(False)
+
+def rmRefAln(aln_stats):
+    ''' 
+    Remove reference mismatch from the alignment and annotaion
+    '''
+    new_aln_stats = aln_stats
+    
+    #if 'MMpos' in aln_stats.keys():
+    #    MMpos = aln_stats['MMpos']
+    #else:
+    if 'MMpos' not in aln_stats.keys():
+        MMpos = []
+        for key1 in aln_stats['MMannotation'].keys():
+            if key1.isdigit():
+                MMpos.append(int(key1))
+        
+        new_aln_stats['MMpos'] = MMpos
+            
+            
+    if len(new_aln_stats['MMpos']) > 0:
+        for key in aln_stats['alignment'].keys():
+            if "Donor" in key: 
+                DonorName = key
+            elif "Recipient" in key:
+                RecipientName = key
+        rmIDs = []
+        for pos in new_aln_stats['MMpos']:
+            if aln_stats['alignment'][RecipientName][pos] == aln_stats['alignment'][DonorName][pos]:
+                rmIDs.append(pos)
+        
+        if len(rmIDs) > 0: 
+            for posKey in rmIDs:
+                try:
+                    new_aln_stats['MMpos'].remove(posKey)
+                except ValueError:
+                    pass
+                try:
+                    del new_aln_stats['MMannotation'][str(posKey)]
+                except KeyError:
+                    pass
+            
+    return(new_aln_stats)

@@ -183,11 +183,13 @@ def IMGTdb_2_dict(HLA_locus = "A", version = "3250", input_fp = "../IMGTHLA/"):
     """
     
     alleleList = readIMGT_alleleList(version, input_fp)
-    
-    if HLA_locus in ["A", "B", "C"]: # class I
+    if version == "3250":
+        if HLA_locus in ["A", "B", "C"]: # class I
+            locus = HLA_locus
+        elif HLA_locus in ["DRB1", "DQB1", "DPB1"]: # class II
+            locus = re.sub("1", "", HLA_locus)
+    else:
         locus = HLA_locus
-    elif HLA_locus in ["DRB1", "DQB1", "DPB1"]: # class II
-        locus = re.sub("1", "", HLA_locus)
     # genomic alignment file    
     filename = input_fp + "/alignments/" + locus + "_gen.txt" 
     if path.exists(filename):
@@ -230,7 +232,7 @@ def IMGTdb_2_dict(HLA_locus = "A", version = "3250", input_fp = "../IMGTHLA/"):
     return(combined_dict, alleleList)
 
 ## buil IMGT sqlite3 database 
-def buildIMGTsql(Locus, version = "3250", output_fp = "Database/"):
+def buildIMGTsql(Locus, version = "3250", output_fp = "../Database/"):
     """
     Build a Sqllite3 database for each locus: A, B, C, DRB1, DQB1, DPB1
     Include - HLA-ID
@@ -334,7 +336,7 @@ def buildIMGTsql(Locus, version = "3250", output_fp = "Database/"):
     # Just be sure any changes have been committed or they will be lost.
     conn.close()
     
-def readIMGTsql(HLAtyping, db_fp = "Database/", field = '*', version = "3250",unaligned = False):
+def readIMGTsql(HLAtyping, db_fp = "Database/", field = '*', version = "3310",unaligned = False):
     """
     Load a Sqllite3 database [Loci: A, B, C, DRB1, DQB1, DPB1]
     Include - HLA gl-string, 

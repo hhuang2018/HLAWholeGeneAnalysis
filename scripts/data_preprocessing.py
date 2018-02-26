@@ -31,7 +31,7 @@ for fp_file in all_files:
     
 ## extract only cases with BMT IDs
     
-all_DB_files = glob.glob("../Output/originalDB/*.db")
+all_DB_files = glob.glob("../Output/SG39/2018/originalDB/*.db")
 
 for db_file in all_DB_files:
     conn = sql.connect(db_file) # automatically creates a file if doesn't exist
@@ -49,7 +49,7 @@ for db_file in all_DB_files:
     print("Number of Available individuals at locus " + locus + " is " + str(len(available_records)))
     print("Number of Available cases at locus "+locus+" is "+ str(len(available_records)/4))
     
-    new_db_fp = "../Output/SG39/SG39_HLA_"+ locus +"_avail.db"
+    new_db_fp = "../Output/SG39/2018//SG39/SG39_HLA_"+ locus +"_avail.db"
     conn = sql.connect(new_db_fp)
     cursor = conn.cursor()
     cursor.execute('''CREATE TABLE IF NOT EXISTS OriginalSeqs
@@ -61,7 +61,7 @@ for db_file in all_DB_files:
     conn.close()
 
 ### Check IDs with extra sequences
-all_DB_files = glob.glob("../Output/SG39//*.db")
+all_DB_files = glob.glob("../Output/SG39/2018/SG39//*.db")
 db_file = all_DB_files[3]
 conn = sql.connect(db_file) # automatically creates a file if doesn't exist
 cursor = conn.cursor()

@@ -112,7 +112,7 @@ def isTableExist(cursor, tableName):
     return(exists)
 
 
-def load_seq_file(fp, BMTcaseInfo_fp, log_file, file_format = "xls"):
+def load_seq_file(fp, BMTcaseInfo_fp, log_file, file_format = "xls", version = "3310"):
     """
     Read txt format sequence data from HML, and covert into Dictionary structure
     Plus alignment
@@ -232,7 +232,7 @@ def load_seq_file(fp, BMTcaseInfo_fp, log_file, file_format = "xls"):
 
             #print(locus)
             if individual_seq[locus]['GLstring'][0] != "":
-                corrected_typing = phase_block_check.check_seq_typing(individual_seq[locus]['GLstring'], individual_seq[locus]['Sequence'], individual_ID)
+                corrected_typing = phase_block_check.check_seq_typing(individual_seq[locus]['GLstring'], individual_seq[locus]['Sequence'], individual_ID, version = version)
  
                 if individual_ID in list(corrected_seq_table.keys()): # if existing ID, then append
                     corrected_seq_table[individual_ID][locus] = corrected_typing# "GLstring"], 'Sequence', 'phase', 'block'
@@ -274,23 +274,21 @@ def saveAsSQLdb(seq_obj, output, prefix= "SG39", fp = None):
         loci.remove("Audit")
         loci.remove("Active")
         loci.remove("Comment")
+        if "DPB1" in loci:
+            loci.remove("DPB1")
+            
         for locus in loci:
             filename = output + prefix +"_HLA_" + locus + "_originalTB.db"
             
             # original sequence table
             conn = sqlite3.connect(filename) # automatically creates a file if doesn't exist
             cursor = conn.cursor()
-            if(fp is None):
-                cursor.execute('''CREATE TABLE IF NOT EXISTS OriginalSeqs
-                               (BMT_caseID text, NMDP_ID text, DRtype text, 
-                               Audit text, Active text, Comment text,
-                               HLATyping text, PS text, Block1 text, Block2 text)''')
-            else:
-                cursor.execute('''CREATE TABLE IF NOT EXISTS OriginalSeqs
-                               (BMT_caseID text, NMDP_ID text, DRtype text, 
-                               Audit text, Active text, Comment text,
-                               HLATyping text, PS text, Block1 text, Block2 text,
-                               File_Path text)''')
+            
+            cursor.execute('''CREATE TABLE IF NOT EXISTS OriginalSeqs
+                           (BMT_caseID text, NMDP_ID text, DRtype text, 
+                            Audit text, Active text, Comment text,
+                            HLATyping text, PS text, Block1 text, Block2 text,
+                            File_Path text)''')
                 
             BMT_caseID = str(individual_seq["BMTcase"])
             NMDP_ID = str(individual_ID)
@@ -300,6 +298,8 @@ def saveAsSQLdb(seq_obj, output, prefix= "SG39", fp = None):
             Comment = str(individual_seq["Comment"])
             if(fp is not None):
                 File_Path = fp
+            else:
+                File_Path = ''
             
             cursor.execute('SELECT count(*) FROM OriginalSeqs WHERE NMDP_ID=?', (NMDP_ID, ))
             record_temp = cursor.fetchone() 
@@ -341,20 +341,17 @@ def saveAsSQLdb(seq_obj, output, prefix= "SG39", fp = None):
                         #cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?)', record)
                         #conn.commit()
                         
-                    if(fp is None):
-                        record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2,)
-                        cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?)', record)
-                        conn.commit()
-                    else:
-                        record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2, File_Path, )
-                        cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?,?)', record)
-                        conn.commit()
+                    
+                    
+                    record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2, File_Path, )
+                    cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?,?)', record)
+                    conn.commit()
                         
             conn.close()
  
+
     
-    
-def load_seq_file_newFormat(fp, BMTcaseInfo_fp, log_file, file_format = "xls"):
+def load_seq_file_newFormat(fp, BMTcaseInfo_fp, log_file, file_format = "xls", version = "3310"):
     """
     Read txt format sequence data from HML, and covert into Dictionary structure
     Plus alignment
@@ -468,7 +465,63 @@ def load_seq_file_newFormat(fp, BMTcaseInfo_fp, log_file, file_format = "xls"):
     
     sys.stdout = open(log_file,'wt')
     
+    rmIDs = []
     for individual_ID, individual_seq in new_seq_dict.items():
+        
+        loci = list(individual_seq.keys())
+        loci.remove("BMTcase")
+        loci.remove("DRtype")
+        loci.remove("Audit")
+        loci.remove("Active")
+        loci.remove("Comment") 
+        if "DPB1" in loci:
+            loci.remove("DPB1")
+            
+        rmRecord = False
+        for locus in loci:
+
+            #print(locus)
+            if individual_seq[locus]['GLstring'][0] != "" and individual_seq[locus]['GLstring'][0].find("0000") == -1:
+                corrected_typing = phase_block_check.check_seq_typing(individual_seq[locus]['GLstring'], individual_seq[locus]['Sequence'], individual_ID, version = version)
+ 
+                if individual_ID in list(corrected_seq_table.keys()): # if existing ID, then append
+                    corrected_seq_table[individual_ID][locus] = corrected_typing# "GLstring"], 'Sequence', 'phase', 'block'
+                else: # if it's a new ID, then add a new record
+                    corrected_seq_table[individual_ID] = {locus: corrected_typing}
+                   
+            else: # missing GLstrings
+                if individual_seq[locus]['GLstring'][0].find("0000") != -1:
+                    rmRecord = True
+                print("<><><><><><><><>\n"+"NMDP_ID: " + individual_ID + " at locus " +locus + " is missing proper GL-strings.\n<><><><><><><><>\n")
+        corrected_seq_table[individual_ID]["BMTcase"] = individual_seq["BMTcase"]
+        corrected_seq_table[individual_ID]["DRtype"] = individual_seq["DRtype"]
+        corrected_seq_table[individual_ID]["Audit"] = individual_seq["Audit"]
+        corrected_seq_table[individual_ID]["Active"] = individual_seq["Active"]
+        corrected_seq_table[individual_ID]["Comment"] = individual_seq["Comment"]
+        
+        if rmRecord:
+            rmIDs.append(individual_ID)
+    
+    for key in rmIDs:
+        del corrected_seq_table[key]
+        
+    print("Corrected Table has " + str(len(corrected_seq_table)) + " ID records.\n Removed " +
+          str(len(rmIDs)) + " cases with no sequences.")
+    
+    return(corrected_seq_table) 
+
+
+def saveAsSQLdb_newFormat(seq_obj, output, prefix= "SG41_52", fp = None):
+    """
+    Save record in a SQL database; each locus have one db file; 
+    seq_obj: corrected sequence table
+    In each db file, table1 - originalSequences; table2 - Exon/Intron; table3 - translated Protein sequence
+    """
+    # output = "../Output/"
+    # BMTcaseInfo_fp = "../../rawData/SG39_caseID.csv"
+    # keys: BMTcase, NMDP_DID, NMDP_RID, D_Audit, D_Active, D_comment, R_Audit, R_Active, R_comment
+    #       file_path
+    for individual_ID, individual_seq in seq_obj.items():
         loci = list(individual_seq.keys())
         loci.remove("BMTcase")
         loci.remove("DRtype")
@@ -476,26 +529,76 @@ def load_seq_file_newFormat(fp, BMTcaseInfo_fp, log_file, file_format = "xls"):
         loci.remove("Active")
         loci.remove("Comment")
         for locus in loci:
-
-            #print(locus)
-            if individual_seq[locus]['GLstring'][0] != "":
-                corrected_typing = phase_block_check.check_seq_typing(individual_seq[locus]['GLstring'], individual_seq[locus]['Sequence'], individual_ID)
- 
-                if individual_ID in list(corrected_seq_table.keys()): # if existing ID, then append
-                    corrected_seq_table[individual_ID][locus] = corrected_typing# "GLstring"], 'Sequence', 'phase', 'block'
-                else: # if it's a new ID, then add a new record
-                    corrected_seq_table[individual_ID] = {locus: corrected_typing}
-            else: # missing GLstrings
-                print("<><><><><><><><>\n"+"NMDP_ID: " + individual_ID + " at locus " +locus + " is missing proper GL-strings.\n<><><><><><><><>\n")
-        corrected_seq_table[individual_ID]["BMTcase"] = individual_seq["BMTcase"]
-        corrected_seq_table[individual_ID]["DRtype"] = individual_seq["DRtype"]
-        corrected_seq_table[individual_ID]["Audit"] = individual_seq["Audit"]
-        corrected_seq_table[individual_ID]["Active"] = individual_seq["Active"]
-        corrected_seq_table[individual_ID]["Comment"] = individual_seq["Comment"]
-    print("Corrected Table has " + str(len(corrected_seq_table)) + " ID records.\n")
-    
-    return(corrected_seq_table) 
-    
+            filename = output + prefix +"_HLA_" + locus + "_originalTB.db"
+            
+            # original sequence table
+            conn = sqlite3.connect(filename) # automatically creates a file if doesn't exist
+            cursor = conn.cursor()
+            
+            cursor.execute('''CREATE TABLE IF NOT EXISTS OriginalSeqs
+                           (BMT_caseID text, NMDP_ID text, DRtype text, 
+                            Audit text, Active text, Comment text,
+                            HLATyping text, PS text, Block1 text, Block2 text,
+                            File_Path text)''')
+                
+            BMT_caseID = str(individual_seq["BMTcase"])
+            NMDP_ID = str(individual_ID)
+            DRtype = str(individual_seq["DRtype"]) # isDonor(NMDP_ID)
+            Audit = str(individual_seq["Audit"])
+            Active = str(individual_seq["Active"])
+            Comment = str(individual_seq["Comment"])
+            if(fp is not None):
+                File_Path = fp
+            else:
+                File_Path = ''
+            
+            cursor.execute('SELECT count(*) FROM OriginalSeqs WHERE NMDP_ID=?', (NMDP_ID, ))
+            record_temp = cursor.fetchone() 
+            if(record_temp[0] == 0): # if there is no record of this ID, then insert the record
+                for PhaseID in individual_seq[locus].keys():
+                    if len(individual_seq[locus][PhaseID]['blockIDs']) == 1:
+                        HLATyping = str(individual_seq[locus][PhaseID]['GLstring'])
+                        Block1 = str(individual_seq[locus][PhaseID]['Sequence'][0])
+                        PS = str(PhaseID)
+                        Block2 = ""
+                        
+                        #record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2,)
+                        #cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?)', record)
+                        #conn.commit()
+                        
+                        
+                    elif len(individual_seq[locus][PhaseID]['blockIDs']) == 2:
+                        for ind in range(2):
+                            PS = str(PhaseID)
+                            HLATyping = str(individual_seq[locus][PhaseID]['GLstring'])
+                            if individual_seq[locus][PhaseID]['blockIDs'][ind] == 1:
+                                Block1 = str(individual_seq[locus][PhaseID]['Sequence'][ind])
+                            else:
+                                Block2 = str(individual_seq[locus][PhaseID]['Sequence'][ind])
+                        #record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2,)
+                        #cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?)', record)
+                        #conn.commit()
+                    else:
+                        Block1 = ''
+                        Block2 = ''
+                        for ind in range(2):
+                            PS = str(PhaseID)
+                            HLATyping = str(individual_seq[locus][PhaseID]['GLstring'])
+                            if individual_seq[locus][PhaseID]['blockIDs'][ind] == 1:
+                                Block1 = Block1 + '*****' + str(individual_seq[locus][PhaseID]['Sequence'][ind])
+                            else:
+                                Block2 = Block2 + '*****' +str(individual_seq[locus][PhaseID]['Sequence'][ind])
+                        #record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2,)
+                        #cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?)', record)
+                        #conn.commit()
+                        
+                    
+                    
+                    record = (BMT_caseID, NMDP_ID, DRtype, Audit, Active, Comment, HLATyping, PS, Block1, Block2, File_Path, )
+                    cursor.execute('INSERT INTO OriginalSeqs VALUES (?,?,?,?,?,?,?,?,?,?,?)', record)
+                    conn.commit()
+                        
+            conn.close()
     
 def saveExonIntronInfo():
     

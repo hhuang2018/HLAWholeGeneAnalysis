@@ -9,7 +9,7 @@ Created on Sun Sep 10 12:36:48 2017
 from utils import preprocessing as pp
 import glob
 import re
-import sqlite3 as sql
+#import sqlite3 as sql
 
 __author__ = "Hu Huang"
 __copyright__ = "Copyright 2018, Hu Huang"
@@ -28,4 +28,5 @@ for groupID in range(41,53):
     for fp_file in all_files:
         logfile_name = logfile_fp + re.sub(".xls", "_log.txt", fp_file.split("/")[-1])
         seq_obj = pp.load_seq_file_newFormat(fp_file, BMTcaseInfo_fp, logfile_name)
-        pp.saveAsSQLdb(seq_obj, "../Output/SG41_52//originalDB_12072017/", "SG41_52")
+        pp.saveAsSQLdb(seq_obj, "../Output/All_Cases_check/", "All", fp_file)
+        

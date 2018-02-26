@@ -9,7 +9,7 @@ Created on Fri Oct  6 10:38:30 2017
 import glob
 import csv
 
-from utils import IMGTdbIO#, CompareSeq
+from utils import IMGTdbIO, CompareSeq
 
 
 groupType = 'fiveLoci_paired' # groupType = 'ClassI_paired' # groupType = 'All_paired' ; 'fiveLoci_paired'
@@ -19,33 +19,41 @@ Five_loci = ['A', 'B', 'C', 'DRB1', 'DQB1']
 ClassI_loci = ['A', 'B', 'C']
 ClassII_loci = ['DRB1', 'DQB1', 'DPB1']
 
-Group_fname = '../Output/SG41_52/SG41_52_DRpair_Stats/ClassI_Stats_1220_' + groupType + '.pkl'
+Group_fname = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/fiveLoci_paired_Stats_0125_' + groupType + '.pkl'
 Stats_Dict = IMGTdbIO.load_pickle2dict(Group_fname)
 
 CaseStats = Stats_Dict['CaseStats']
 LocusStats = Stats_Dict['LocusStats']
 
+#key = '83687'
+#CaseStats[key] 
+#key in group_caseIDs
 ## : paired cases HLA typing stats
-fname = '../Output/SG41_52/SG41_52_DRpair_Stats/SG41_52_pairedCases_Stats.pkl'
+fname = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/SG41_52_pairedCases_Stats.pkl'
 Matching_cases_stats = IMGTdbIO.load_pickle2dict(fname)
+
+group_caseIDs = Matching_cases_stats[groupType]
 
 CaseMatchTable = {}
 for locus in Five_loci:
     
-    singleMismatch_fp = '../Output/SG41_52/SG41_52_singleMisMatched_'+locus+'_1220_TargetedAlignment/'
-    bothMisMatch_fp = '../Output/SG41_52/SG41_52_bothMisMatched_locus_'+locus+'_1218_TargetedAlignment/'
+    singleMismatch_fp = '../Output/SG41_52/2018/IMGTv3310/SG41_52_singleMisMatched_'+locus+'_0125_TargetedAlignment/'
+    bothMisMatch_fp = '../Output/SG41_52/2018/IMGTv3310/SG41_52_bothMisMatched_locus_'+locus+'_0125_TargetedAlignment/'
     
     if locus in ClassI_loci:
         ARS_exon = ['Exon2', 'Exon3']
     elif locus in ClassII_loci:
         ARS_exon = ['Exon2']
     #CaseMatchTable[locus] = {}
-    DRpaired_file = '../Output/SG41_52/SG41_52_DRpairs/SG41_52_HLA_'+locus+'_wComparison.pkl'
+    DRpaired_file = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpairs/SG41_52_HLA_'+locus+'_wComparison.pkl'
     
     DRpaired_table = IMGTdbIO.load_pickle2dict(DRpaired_file)
+
     num_total = len(DRpaired_table)
     
-    for key, item in DRpaired_table.items():
+    #for key, item in DRpaired_table.items():
+    for key in group_caseIDs:
+        item = DRpaired_table[key]
         
         if key in Matching_cases_stats[locus+'_both_SeqMatch']: # both sequences are matched
             if item['Audit'] == 'Y' and item['Active'] == 'Y':
@@ -79,12 +87,40 @@ for locus in Five_loci:
                         CaseMatchTable[key][locus][ps] = {'HLAtyping': typinglist, 'TwoField': twoField, 'SameSeq': True,
                                       'ARS': [], 'non_ARS_exon': [], 'Intron': [], 'UTR': []}
                     else:
+                        '''if locus in ClassI_loci:
+                            IntronKeys = []
+                            ARSExonKeys =[]
+                            NonARSExonKeys = []
+                            UTRKeys =[]
+                            for annKey, annItem in CaseStats[key][locus][ps]['MMannotation'].items():
+                                if annKey.isdigit(): 
+                                    #annReads = IMGTdbIO.annotationFormat(annKey, annItem, seqAlgn_stats['alignment']) #annItem+'[D:'+seqAlgn_stats['alignment']['Donor-'+ps]
+                                    annReads = annItem + '>'+ 'single_mm_Case-' +key+'-'+locus 
+                                    if 'Intron' in annItem.split('.')[0]:
+                                        IntronKeys.append(annReads)
+                                    elif 'UTR' in annItem.split('.')[0]:
+                                        UTRKeys.append(annReads)
+                                    elif 'Exon' in annItem.split('.')[0]:
+                                        if annItem.split('.')[0] in ARS_exon:
+                                            ARSExonKeys.append(annReads)
+                                        else:
+                                            NonARSExonKeys.append(annReads) 
+                            CaseMatchTable[key][locus][ps] = {'HLAtyping': typinglist, 'TwoField': twoField, 'SameSeq': False,
+                                          'ARS': ARSExonKeys, 
+                                          'non_ARS_exon': NonARSExonKeys, 
+                                          'Intron': IntronKeys, 
+                                          'UTR': UTRKeys}
+                        else:'''
                         CaseMatchTable[key][locus][ps] = {'HLAtyping': typinglist, 'TwoField': twoField, 'SameSeq': False,
                                       'ARS': [], 'non_ARS_exon': [], 'Intron': [], 'UTR': []}
+                       
                         
-                        AlgnFiles = glob.glob(singleMismatch_fp+'CaseID_'+key+'_Locus_'+locus+'_annotation*.pkl')
+                        AlgnFiles = glob.glob(singleMismatch_fp+'CaseID_'+key+'_Locus_'+locus+'*.pkl')
+                        
                         for algnFile in AlgnFiles:
                             seqAlgn_stats = IMGTdbIO.load_pickle2dict(algnFile)
+                            seqAlgn_stats = CompareSeq.rmRefAln(seqAlgn_stats)
+                            
                             for annKey, annItem in seqAlgn_stats['MMannotation'].items():
                                 if annKey.isdigit(): 
                                     print(annKey)
@@ -118,43 +154,75 @@ for locus in Five_loci:
                         CaseMatchTable[key][locus][ps] = {'HLAtyping': typinglist, 'TwoField': twoField, 'SameSeq': True,
                                       'ARS': [], 'non_ARS_exon': [], 'Intron': [], 'UTR': []}
                     else:
-                        CaseMatchTable[key][locus][ps] = {'HLAtyping': typinglist, 'TwoField': twoField, 'SameSeq': False,
-                                      'ARS': [], 'non_ARS_exon': [], 'Intron': [], 'UTR': []}
-                        
-                        # for swapped case:
-                        #AlgnFiles = glob.glob(bothMisMatch_fp+'CaseID_'+key+'_Locus_'+locus+'*'+ps+'*.pkl')
-                        #swapped_tpyinglist = seqAlgn_stats['params']['HLAtyping']
-                        #swapped_twoField = IMGTdbIO.Full2TwoField(swapped_tpyinglist)
-                        #CaseMatchTable[key][locus][ps]['HLAtyping'] = swapped_tpyinglist
-                        #CaseMatchTable[key][locus][ps]['TwoField'] = swapped_twoField
-                        
-                        AlgnFiles = glob.glob(bothMisMatch_fp+'CaseID_'+key+'_Locus_'+locus+'_annotation_'+ps+'*.pkl')
-                        for algnFile in AlgnFiles:
-                            seqAlgn_stats = IMGTdbIO.load_pickle2dict(algnFile)
-                            for annKey, annItem in seqAlgn_stats['MMannotation'].items():
+                        if locus in ClassI_loci: 
+                            IntronKeys = []
+                            ARSExonKeys =[]
+                            NonARSExonKeys = []
+                            UTRKeys =[]
+                            for annKey, annItem in CaseStats[key][locus][ps]['MMannotation'].items():
                                 if annKey.isdigit(): 
-                                    annReads = IMGTdbIO.annotationFormat(annKey, annItem, seqAlgn_stats['alignment']) #annItem+'[D:'+seqAlgn_stats['alignment']['Donor-'+ps]
+                                    #annReads = IMGTdbIO.annotationFormat(annKey, annItem, seqAlgn_stats['alignment']) #annItem+'[D:'+seqAlgn_stats['alignment']['Donor-'+ps]
+                                    annReads = annItem + '>'+ 'swapped_Case-' +key+'-'+locus 
                                     if 'Intron' in annItem.split('.')[0]:
-                                        CaseMatchTable[key][locus][ps]['Intron'].append(annReads)
+                                        IntronKeys.append(annReads)
                                     elif 'UTR' in annItem.split('.')[0]:
-                                        CaseMatchTable[key][locus][ps]['UTR'].append(annReads)
+                                        UTRKeys.append(annReads)
                                     elif 'Exon' in annItem.split('.')[0]:
                                         if annItem.split('.')[0] in ARS_exon:
-                                            CaseMatchTable[key][locus][ps]['ARS'].append(annReads)
+                                            ARSExonKeys.append(annReads)
                                         else:
-                                            CaseMatchTable[key][locus][ps]['non_ARS_exon'].append(annReads) 
-    
-    IMGTdbIO.save_dict2pickle(CaseMatchTable, '../Output/SG41_52/SG41_52_DRpair_Stats/'+groupType+'_case_MatchRecord_Locus_'+locus)
+                                            NonARSExonKeys.append(annReads) 
+                            CaseMatchTable[key][locus][ps] = {'HLAtyping': typinglist, 'TwoField': twoField, 'SameSeq': False,
+                                          'ARS': ARSExonKeys, 
+                                          'non_ARS_exon': NonARSExonKeys, 
+                                          'Intron': IntronKeys, 
+                                          'UTR': UTRKeys}
+                        else:
+                            
+                        
+                            # for swapped case:
+                            #AlgnFiles = glob.glob(bothMisMatch_fp+'CaseID_'+key+'_Locus_'+locus+'*'+ps+'*.pkl')
+                            #swapped_tpyinglist = seqAlgn_stats['params']['HLAtyping']
+                            #swapped_twoField = IMGTdbIO.Full2TwoField(swapped_tpyinglist)
+                            #CaseMatchTable[key][locus][ps]['HLAtyping'] = swapped_tpyinglist
+                            #CaseMatchTable[key][locus][ps]['TwoField'] = swapped_twoField
+                            CaseMatchTable[key][locus][ps] = {'HLAtyping': typinglist, 'TwoField': twoField, 'SameSeq': False,
+                                      'ARS': [], 'non_ARS_exon': [], 'Intron': [], 'UTR': []}
+                            
+                            AlgnFiles = glob.glob(bothMisMatch_fp+'CaseID_'+key+'_Locus_'+locus+'_annotation_'+ps+'*.pkl')
+                            for algnFile in AlgnFiles:
+                                seqAlgn_stats = IMGTdbIO.load_pickle2dict(algnFile)
+                                seqAlgn_stats = CompareSeq.rmRefAln(seqAlgn_stats)
+                                
+                                #CaseStats[key][locus]
+                                for annKey, annItem in seqAlgn_stats['MMannotation'].items():
+                                    if annKey.isdigit(): 
+                                        annReads = IMGTdbIO.annotationFormat(annKey, annItem, seqAlgn_stats['alignment']) #annItem+'[D:'+seqAlgn_stats['alignment']['Donor-'+ps]
+                                        if 'Intron' in annItem.split('.')[0]:
+                                            CaseMatchTable[key][locus][ps]['Intron'].append(annReads)
+                                        elif 'UTR' in annItem.split('.')[0]:
+                                            CaseMatchTable[key][locus][ps]['UTR'].append(annReads)
+                                        elif 'Exon' in annItem.split('.')[0]:
+                                            if annItem.split('.')[0] in ARS_exon:
+                                                CaseMatchTable[key][locus][ps]['ARS'].append(annReads)
+                                            else:
+                                                CaseMatchTable[key][locus][ps]['non_ARS_exon'].append(annReads) 
+                           
+    IMGTdbIO.save_dict2pickle(CaseMatchTable, '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/'+groupType+'_case_MatchRecord_Locus_'+locus)
         
-IMGTdbIO.save_dict2pickle(CaseMatchTable, '../Output/SG41_52/SG41_52_DRpair_Stats/'+groupType+'_case_MatchRecord')
+IMGTdbIO.save_dict2pickle(CaseMatchTable, '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/'+groupType+'_case_MatchRecord')
 
 
 ################
 # Count the cases
 ################
-CaseMatchTable = IMGTdbIO.load_pickle2dict('../Output/SG41_52/SG41_52_DRpair_Stats/'+groupType+'_case_MatchRecord.pkl')
+CaseMatchTable = IMGTdbIO.load_pickle2dict('../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/'+groupType+'_case_MatchRecord.pkl')
+
+caseID = '44107'
+CaseMatchTable[caseID]
+
 ## : paired cases HLA typing stats
-fname = '../Output/SG41_52/SG41_52_DRpair_Stats/SG41_52_pairedCases_Stats.pkl'
+fname = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/SG41_52_pairedCases_Stats.pkl'
 Matching_cases_stats = IMGTdbIO.load_pickle2dict(fname)
 ## Matching_cases_stats['fiveLoci_paired']
 
@@ -303,15 +371,15 @@ for caseID, Records in CaseMatchTable.items():
                                 AllField_allele_stats[locus][FullField]['Intron'].append(caseID)
                                 TwoField_allele_stats[locus][TwoField]['Intron'].append(caseID)
 
-out_fp = '../Output/SG41_52/SG41_52_DRpair_Stats/fiveLoci_paired_cases/' # /fiveLoci_paired_cases/ ; allLoci_paired_cases
+out_fp = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/fiveLoci_paired_cases/' # /fiveLoci_paired_cases/ ; allLoci_paired_cases
 Loci_num = 'fiveLoci_'
 for locus in Five_loci:
-    with open(out_fp +'AllField/MisMatchCases/HLA_'+locus+'_'+Loci_num+'PairedCases_wNonSyn_01052018.csv', 'w+') as csv_file:
+    with open(out_fp +'AllField/MisMatchCases/HLA_'+locus+'_'+Loci_num+'PairedCases_wNonSyn_0125.csv', 'w+') as csv_file:
         writer = csv.writer(csv_file)
         for key, value in AllField_allele_stats[locus].items():
            writer.writerow([key, value['ARS'], value['ARS_nonSynonymous'], value['non_ARS_exon'], value['non_ARS_exon_nonSyn'], value['Intron']])
     
-    with open(out_fp + 'TwoField/MisMatchCases/HLA_'+locus+'_'+Loci_num+'PairedCases_wNonSyn_01052018.csv', 'w+') as csv_file:
+    with open(out_fp + 'TwoField/MisMatchCases/HLA_'+locus+'_'+Loci_num+'PairedCases_wNonSyn_0125.csv', 'w+') as csv_file:
         writer = csv.writer(csv_file)
         for key, value in TwoField_allele_stats[locus].items():
            writer.writerow([key, value['ARS'], value['ARS_nonSynonymous'], value['non_ARS_exon'], value['non_ARS_exon_nonSyn'], value['Intron']])
@@ -352,7 +420,7 @@ for locus in Five_loci:
     print('Locus '+locus+ ' Two-Field allele count: '+str(len(HLA_twoField_allele_count[locus])))
     
 ### Write to csv
-out_fp = '../Output/SG41_52/SG41_52_DRpair_Stats/fiveLoci_paired_cases/'
+out_fp = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/fiveLoci_paired_cases/'
 for locus in Five_loci:
     with open(out_fp + 'AllField/AlleleCount/HLA_'+locus+'_'+Loci_num+'Cases_Corrected.csv', 'w+') as csv_file:
         writer = csv.writer(csv_file)
@@ -398,7 +466,7 @@ for locus in Five_loci:
     print('Locus '+locus+ ' Mismatched Two-Field allele count: '+str(len(HLA_TF_allele_MisMatch_name_count[locus])))
 
 ## save
-out_fp = out_fp = '../Output/SG41_52/SG41_52_DRpair_Stats/fiveLoci_paired_cases/' # /fiveLoci_paired_cases/ ; allLoci_paired_cases
+out_fp = out_fp = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/fiveLoci_paired_cases/' # /fiveLoci_paired_cases/ ; allLoci_paired_cases
 for locus in Five_loci:
     with open(out_fp + 'AllField/MisMatchCount/HLA_AllField_'+locus+'_MismatchedCounts_'+Loci_num+'Cases_Corrected_wNonSyn.csv', 'w+') as csv_file:
         writer = csv.writer(csv_file)

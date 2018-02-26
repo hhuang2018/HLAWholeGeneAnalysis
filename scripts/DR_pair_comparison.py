@@ -16,14 +16,15 @@ import re
 
 locus = 'DQB1'
 
-pkl_fp = '../Output/SG39_DRpairs/SG39_HLA_'+ locus +'_paired.pkl'
+#pkl_fp = '../Output/SG39_DRpairs/SG39_HLA_'+ locus +'_paired.pkl'
+pkl_fp = '../Output/SG39/2018/SG39_DRpairs/SG39_HLA_'+ locus +'_paired.pkl'
 
 DRpair_seqInfo = IMGTdbIO.load_pickle2dict(pkl_fp)
 
 case_count = len(DRpair_seqInfo)
 print('Locus '+locus+ ' has '+ str(case_count) + ' paired cases.')
 
-DB_fp = "../Output/SG39_DRpairs/SG39_HLA_"+ locus +"_paired.db"
+DB_fp = "../Output/SG39/2018/SG39_DRpairs/SG39_HLA_"+ locus +"_paired.db"
 conn = sql.connect(DB_fp)
 cursor = conn.cursor()
 cursor.execute('''CREATE TABLE IF NOT EXISTS DR_pair_comparison 
@@ -78,16 +79,16 @@ for caseID, SeqInfo in DRpair_seqInfo.items():
 conn.commit()   
 conn.close()
 
-fname = '../Output/SG39_DRpairs/SG39_HLA_' + locus + '_wComparison'
+fname = '../Output/SG39/2018/SG39_DRpairs/SG39_HLA_' + locus + '_wComparison'
 IMGTdbIO.save_dict2pickle(DRpair_seqInfo, fname)
 
 ########### check GL-string match, sequence matching
 DRpair_seqInfo = {}
-Loci = ['A','B', 'C', 'DRB1', 'DQB1', 'DPB1']
+Loci = ['A','B', 'C', 'DRB1', 'DQB1']#, 'DPB1']
 
 All_caseIDs = []
 for locus  in Loci:
-    fname = '../Output/SG39_DRpairs/SG39_HLA_' + locus + '_wComparison.pkl'
+    fname = '../Output/SG39/2018/SG39_DRpairs/SG39_HLA_' + locus + '_wComparison.pkl'
     DRpair_seqInfo[locus] = IMGTdbIO.load_pickle2dict(fname)
     All_caseIDs += list(DRpair_seqInfo[locus].keys())
 All_caseIDs = list(set(All_caseIDs)) # 3412 total
@@ -135,7 +136,7 @@ for caseID in All_caseIDs:
     if fiveLoci_flag:
         Matching_cases_stats["fiveLoci_paired"].append(caseID)
     
-fname = '../Output/SG39_DRpairs/SG39_pairedCases_Stats'
+fname = '../Output/SG39/2018/SG39_DRpairs/SG39_pairedCases_Stats'
 IMGTdbIO.save_dict2pickle(Matching_cases_stats, fname)
 
 print("Paired at all 6 loci cases: " + str(len(Matching_cases_stats['All_paired'])))
@@ -160,19 +161,19 @@ for locus in Loci:
 # Check unmatched cases
 ############################
 
-fname = '../Output/SG39_DRpairs/SG39_pairedCases_Stats.pkl'
+fname = '../Output/SG39/2018/SG39_DRpairs/SG39_pairedCases_Stats.pkl'
 Matching_cases_stats = IMGTdbIO.load_pickle2dict(fname)
 
 locus = 'DQB1'
 # both mismatched sequences
 MM_caseID = Matching_cases_stats[locus+'_both_Seqmm']
 
-DB_fp = '../Output/SG39_DRpairs/SG39_HLA_'+ locus +'_paired.db'
+DB_fp = '../Output/SG39/2018/SG39_DRpairs/SG39_HLA_'+ locus +'_paired.db'
 con = sql.connect(DB_fp)
 con.row_factory = sql.Row
 cur = con.cursor()
 
-bothMM_output = "../Output/SG39_bothMisMatched_locus_" + locus + "_0925_TargetedAlignment/"
+bothMM_output = "../Output/SG39/2018/SG39_bothMisMatched_locus_" + locus + "_0125_TargetedAlignment/"
 if not os.path.exists(bothMM_output):
     os.makedirs(bothMM_output) 
 
@@ -347,18 +348,18 @@ con.close()
 # Check unmatched sequences
 ############################
 # single mismatched sequences
-fname = '../Output/SG39_DRpairs/SG39_pairedCases_Stats.pkl'
+fname = '../Output/SG39/2018/SG39_DRpairs/SG39_pairedCases_Stats.pkl'
 Matching_cases_stats = IMGTdbIO.load_pickle2dict(fname)
 
-locus = 'C'
+locus = 'DRB1'
 singleMM_caseID = Matching_cases_stats[locus+'_one_Seqmm']
 
-DB_fp = '../Output/SG39_DRpairs/SG39_HLA_'+ locus +'_paired.db'
+DB_fp = '../Output/SG39/2018/SG39_DRpairs/SG39_HLA_'+ locus +'_paired.db'
 con = sql.connect(DB_fp)
 con.row_factory = sql.Row
 cur = con.cursor()
 
-singleMM_output = "../Output/SG39_singleMisMatched_" + locus + "_0925_TargetedAlignment/"
+singleMM_output = "../Output/SG39/2018/SG39_singleMisMatched_" + locus + "_0125_TargetedAlignment/"
 if not os.path.exists(singleMM_output):
     os.makedirs(singleMM_output) 
 

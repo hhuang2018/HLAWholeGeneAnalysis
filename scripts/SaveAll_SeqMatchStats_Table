@@ -1,0 +1,90 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jan 28 21:27:59 2018
+
+@author: hhuang2
+"""
+
+#import glob
+import sqlite3 as sql
+from utils import IMGTdbIO
+
+
+groupType = 'fiveLoci_paired' # groupType = 'ClassI_paired' # groupType = 'All_paired' ; 'fiveLoci_paired'
+
+CaseMatchTableSG41_52 = IMGTdbIO.load_pickle2dict('../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/'+groupType+'_case_MatchRecord.pkl')
+fname = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/SG41_52_pairedCases_Stats.pkl'
+Matching_cases_stats_SG41_52 = IMGTdbIO.load_pickle2dict(fname)
+group_caseIDs_SG41_52 = Matching_cases_stats_SG41_52[groupType]
+
+
+CaseMatchTableSG39 = IMGTdbIO.load_pickle2dict('../Output/SG39/2018/SG39_Stats/FiveLoci_paired_case_MatchRecord.pkl')
+fname = '../Output/SG39/2018/SG39_DRpairs/SG39_pairedCases_Stats.pkl'
+Matching_cases_stats_SG39 = IMGTdbIO.load_pickle2dict(fname)
+group_caseIDs_SG39 = Matching_cases_stats_SG39[groupType]
+
+#caseID = '79105'
+#CaseMatchTableSG41_52[caseID]['C']
+#CaseMatchTableSG39[caseID]['C']
+
+####
+
+Five_loci = ['A', 'B', 'C', 'DRB1', 'DQB1']
+
+db_file = "../Output/All_Case_IDs/IMGTv3310/"+ groupType +"Seq_Matching_stats_0128.db"
+
+conn = sql.connect(db_file)
+cursor = conn.cursor()
+cursor.execute('''CREATE TABLE IF NOT EXISTS MatchStats
+               (BMT_caseID text, BatchGroup text, 
+               A_PS1_SameSeq BOOLEAN, A_PS2_SameSeq BOOLEAN,
+               B_PS1_SameSeq BOOLEAN, B_PS2_SameSeq BOOLEAN,
+               C_PS1_SameSeq BOOLEAN, C_PS2_SameSeq BOOLEAN,
+               DRB1_PS1_SameSeq BOOLEAN, DRB1_PS2_SameSeq BOOLEAN,
+               DQB1_PS1_SameSeq BOOLEAN, DQB1_PS2_SameSeq BOOLEAN,
+               A_PS1_HLAtyping text, A_PS1_TwoField text, A_PS1_ARS text, A_PS1_non_ARS_exon text, A_PS1_Intron text, A_PS1_UTR text, 
+               A_PS2_HLAtyping text, A_PS2_TwoField text, A_PS2_ARS text, A_PS2_non_ARS_exon text, A_PS2_Intron text, A_PS2_UTR text, 
+               B_PS1_HLAtyping text, B_PS1_TwoField text, B_PS1_ARS text, B_PS1_non_ARS_exon text, B_PS1_Intron text, B_PS1_UTR text, 
+               B_PS2_HLAtyping text, B_PS2_TwoField text, B_PS2_ARS text, B_PS2_non_ARS_exon text, B_PS2_Intron text, B_PS2_UTR text, 
+               C_PS1_HLAtyping text, C_PS1_TwoField text, C_PS1_ARS text, C_PS1_non_ARS_exon text, C_PS1_Intron text, C_PS1_UTR text, 
+               C_PS2_HLAtyping text, C_PS2_TwoField text, C_PS2_ARS text, C_PS2_non_ARS_exon text, C_PS2_Intron text, C_PS2_UTR text, 
+               DRB1_PS1_HLAtyping text, DRB1_PS1_TwoField text, DRB1_PS1_ARS text, DRB1_PS1_non_ARS_exon text, DRB1_PS1_Intron text, DRB1_PS1_UTR text, 
+               DRB1_PS2_HLAtyping text, DRB1_PS2_TwoField text, DRB1_PS2_ARS text, DRB1_PS2_non_ARS_exon text, DRB1_PS2_Intron text, DRB1_PS2_UTR text, 
+               DQB1_PS1_HLAtyping text, DQB1_PS1_TwoField text, DQB1_PS1_ARS text, DQB1_PS1_non_ARS_exon text, DQB1_PS1_Intron text, DQB1_PS1_UTR text, 
+               DQB1_PS2_HLAtyping text, DQB1_PS2_TwoField text, DQB1_PS2_ARS text, DQB1_PS2_non_ARS_exon text, DQB1_PS2_Intron text, DQB1_PS2_UTR text 
+               )''')
+
+BatchGroup = 'SG39'
+for caseID, Record in CaseMatchTableSG39.items():
+    if caseID in group_caseIDs_SG39:
+        matchStat_records = ()
+        matchStat_records += (caseID, BatchGroup, )
+        for locus in Five_loci:
+            for ps in ['PS1', 'PS2']:
+                matchStat_records += (bool(Record[locus][ps]['SameSeq']), ) ## Tuple append
+        for locus in Five_loci:
+            for ps in ['PS1', 'PS2']:
+                matchStat_records += (','.join(Record[locus][ps]['HLAtyping']), ','.join(Record[locus][ps]['TwoField']), 
+                                      ','.join(Record[locus][ps]['ARS']), ','.join(Record[locus][ps]['non_ARS_exon']),
+                                      ','.join(Record[locus][ps]['Intron']), ','.join(Record[locus][ps]['UTR']), ) 
+        cursor.execute('INSERT INTO MatchStats VALUES ('+'?,'*(len(matchStat_records)-1)+'?)', matchStat_records)
+
+BatchGroup = 'SG41_52'
+for caseID, Record in CaseMatchTableSG41_52.items():
+    if caseID in group_caseIDs_SG41_52:
+        matchStat_records = ()
+        matchStat_records += (caseID, BatchGroup, )
+        for locus in Five_loci:
+            for ps in ['PS1', 'PS2']:
+                matchStat_records += (bool(Record[locus][ps]['SameSeq']), ) ## Tuple append
+        for locus in Five_loci:
+            for ps in ['PS1', 'PS2']:
+                matchStat_records += (','.join(Record[locus][ps]['HLAtyping']), ','.join(Record[locus][ps]['TwoField']), 
+                                      ','.join(Record[locus][ps]['ARS']), ','.join(Record[locus][ps]['non_ARS_exon']),
+                                      ','.join(Record[locus][ps]['Intron']), ','.join(Record[locus][ps]['UTR']), ) 
+        cursor.execute('INSERT INTO MatchStats VALUES ('+'?,'*(len(matchStat_records)-1)+'?)', matchStat_records)
+conn.commit()
+conn.close()
+
+

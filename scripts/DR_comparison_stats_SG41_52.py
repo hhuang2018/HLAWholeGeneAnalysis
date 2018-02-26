@@ -14,13 +14,13 @@ import os
 import re
 
 
-fname = '../Output/SG41_52/SG41_52_DRpair_Stats/SG41_52_pairedCases_Stats.pkl'
+fname = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/SG41_52_pairedCases_Stats.pkl'
 Matching_cases_stats = IMGTdbIO.load_pickle2dict(fname)
 
 ## 'All_paired'
 groupType = 'fiveLoci_paired' # groupType = 'ClassI_paired' # groupType = 'All_paired'
 group_caseIDs = Matching_cases_stats[groupType]
-All_loci = ['A', 'B', 'C', 'DRB1', 'DQB1', 'DPB1']
+All_loci = ['A', 'B', 'C', 'DRB1', 'DQB1']#, 'DPB1']
 ClassI_loci = ['A', 'B', 'C']
 ClassII_loci = ['DRB1', 'DQB1']
 
@@ -30,9 +30,10 @@ LocusStats = {}
 for caseID in group_caseIDs:
     # 
     for locus in ClassI_loci:
-        bothMM_output = "../Output/SG41_52/SG41_52_bothMisMatched_locus_" + locus + "_1218_TargetedAlignment/"
+        ARSregion = ['Exon2', 'Exon3']
+        bothMM_output = "../Output/SG41_52/2018/IMGTv3310/SG41_52_bothMisMatched_locus_" + locus + "_0125_TargetedAlignment/" # "_1218_TargetedAlignment/"
         
-        singleMM_output = "../Output/SG41_52/SG41_52_singleMisMatched_" + locus + "_1220_TargetedAlignment/"
+        singleMM_output = "../Output/SG41_52/2018/IMGTv3310/SG41_52_singleMisMatched_" + locus + "_0125_TargetedAlignment/"
             
         ### Cases where both sequences don't match
         if caseID in Matching_cases_stats[locus+'_both_Seqmm']:
@@ -40,9 +41,12 @@ for caseID in group_caseIDs:
             mm_file_PS2 = bothMM_output+ 'CaseID_'+ caseID + '_Locus_' + locus + '_annotation_PS2.pkl'
             
             mm_locus_stats_PS1 = IMGTdbIO.load_pickle2dict(mm_file_PS1)
+            mm_locus_stats_PS1 = CompareSeq.rmRefAln(mm_locus_stats_PS1)
             mm_locus_stats_PS2 = IMGTdbIO.load_pickle2dict(mm_file_PS2)
+            mm_locus_stats_PS2 = CompareSeq.rmRefAln(mm_locus_stats_PS2)
             
-            if len(mm_locus_stats_PS1['MMpos']) > 20 or len(mm_locus_stats_PS2['MMpos']) > 20:
+            #if len(mm_locus_stats_PS1['MMpos']) > 20 or len(mm_locus_stats_PS2['MMpos']) > 20:
+            if CompareSeq.isARSmm(mm_locus_stats_PS1['MMannotation'].values(), ARSregion) and CompareSeq.isARSmm(mm_locus_stats_PS2['MMannotation'].values(), ARSregion):
                 # probably phase set swap.
                 seq_ps1 = mm_locus_stats_PS1['seq']
                 seq_ps2 = mm_locus_stats_PS2['seq']
@@ -53,7 +57,9 @@ for caseID in group_caseIDs:
                 #params_ps2['HLAtyping'] = tp
                 swapped_alignment = CompareSeq.swapPS_comparison(seq_ps1, params_ps1, seq_ps2, params_ps2, caseID)
                 
-                if max([len(swapped_alignment['PS1']['MMpos']), len(swapped_alignment['PS2']['MMpos'])]) < max([len(mm_locus_stats_PS1['MMpos']), len(mm_locus_stats_PS2['MMpos'])]):
+                #if max([len(swapped_alignment['PS1']['MMpos']), len(swapped_alignment['PS2']['MMpos'])]) < max([len(mm_locus_stats_PS1['MMpos']), len(mm_locus_stats_PS2['MMpos'])]):
+                if not CompareSeq.isARSmm(swapped_alignment['PS1']['MMannotation'].values(), ARSregion) or not CompareSeq.isARSmm(swapped_alignment['PS2']['MMannotation'].values(), ARSregion):
+                    
                     # if swapped case is better, then use the swapped case
                     mm_locus_stats_PS1 = swapped_alignment['PS1']
                     mm_locus_stats_PS2 = swapped_alignment['PS2']
@@ -62,11 +68,11 @@ for caseID in group_caseIDs:
             params_ps2 = mm_locus_stats_PS2['params']
             # caseStats
             if caseID in CaseStats.keys():
-                CaseStats[caseID][locus] = {'PS1': CompareSeq.RegionCount(mm_locus_stats_PS1['MMannotation'], locus), 'PS2': CompareSeq.RegionCount(mm_locus_stats_PS2['MMannotation'], locus)}
+                CaseStats[caseID][locus] = {'PS1': CompareSeq.RegionCount(mm_locus_stats_PS1['MMannotation'], locus, True), 'PS2': CompareSeq.RegionCount(mm_locus_stats_PS2['MMannotation'], locus, True)}
                 CaseStats[caseID][locus]['HLAtyping'] = params_ps1['HLAtyping'] + params_ps2['HLAtyping']
 
             else:
-                CaseStats[caseID] = {locus:{'PS1': CompareSeq.RegionCount(mm_locus_stats_PS1['MMannotation'], locus), 'PS2': CompareSeq.RegionCount(mm_locus_stats_PS2['MMannotation'], locus), 
+                CaseStats[caseID] = {locus:{'PS1': CompareSeq.RegionCount(mm_locus_stats_PS1['MMannotation'], locus, True), 'PS2': CompareSeq.RegionCount(mm_locus_stats_PS2['MMannotation'], locus, True), 
                          'HLAtyping':params_ps1['HLAtyping'] + params_ps2['HLAtyping']}}
             
             if len(mm_locus_stats_PS1['params']['HLAtyping']) == 1: 
@@ -148,15 +154,16 @@ for caseID in group_caseIDs:
             mm_file = singleMM_output+ 'CaseID_'+ caseID + '_Locus_' + locus + '_annotation.pkl'
             
             mm_locus_stats = IMGTdbIO.load_pickle2dict(mm_file)
+            mm_locus_stats = CompareSeq.rmRefAln(mm_locus_stats)
             
             params_singmm = mm_locus_stats['params']
             # caseStats
             if caseID in CaseStats.keys():
-                CaseStats[caseID][locus] = {'PS1': CompareSeq.RegionCount(mm_locus_stats['MMannotation'], locus)}
+                CaseStats[caseID][locus] = {'PS1': CompareSeq.RegionCount(mm_locus_stats['MMannotation'], locus, True)}
                 CaseStats[caseID][locus]['HLAtyping'] = params_singmm['HLAtyping'] 
                 
             else:
-                CaseStats[caseID] = {locus:{'PS1': CompareSeq.RegionCount(mm_locus_stats['MMannotation'], locus), 
+                CaseStats[caseID] = {locus:{'PS1': CompareSeq.RegionCount(mm_locus_stats['MMannotation'], locus, True), 
                          'HLAtyping':params_singmm['HLAtyping']}}
             
             if len(params_singmm['HLAtyping']) == 1: 
@@ -195,15 +202,20 @@ for caseID in group_caseIDs:
                             LocusStats[typing] = {item: [caseID]}
 
 ClassI_stats = {'CaseStats': CaseStats, 'LocusStats': LocusStats}
-IMGTdbIO.save_dict2pickle(ClassI_stats, '../Output/SG41_52/SG41_52_DRpair_Stats/ClassI_Stats_1220_'+groupType)
+IMGTdbIO.save_dict2pickle(ClassI_stats, '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/ClassI_Stats_0125_'+groupType) #1220_'+groupType)
 
 # Class II
+#Group_fname = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/ClassI_Stats_0125_' + groupType + '.pkl'
+#Stats_Dict = IMGTdbIO.load_pickle2dict(Group_fname)
+
+#CaseStats = Stats_Dict['CaseStats']
+#LocusStats = Stats_Dict['LocusStats']
 for caseID in group_caseIDs:
     # 
     for locus in ClassII_loci:
-        bothMM_output = "../Output/SG41_52/SG41_52_bothMisMatched_locus_" + locus + "_1218_TargetedAlignment/"
+        bothMM_output = "../Output/SG41_52/2018/IMGTv3310/SG41_52_bothMisMatched_locus_" + locus + "_0125_TargetedAlignment/"
         
-        singleMM_output = "../Output/SG41_52/SG41_52_singleMisMatched_" + locus + "_1220_TargetedAlignment/"
+        singleMM_output = "../Output/SG41_52/2018/IMGTv3310/SG41_52_singleMisMatched_" + locus + "_0125_TargetedAlignment/"
             
         ### Cases where both sequences don't match
         if caseID in Matching_cases_stats[locus+'_both_Seqmm']:
@@ -211,6 +223,7 @@ for caseID in group_caseIDs:
 
             for file_id in mm_file_PS1:
                 mm_locus_stats_PS1 = IMGTdbIO.load_pickle2dict(file_id)
+                mm_locus_stats_PS1 = CompareSeq.rmRefAln(mm_locus_stats_PS1)
                 #if mm_locus_stats_PS1['SameSeqs']: # if the exons are the same
                 if 'Exon' in file_id:
                     for key, item in mm_locus_stats_PS1['MMannotation'].items():
@@ -278,7 +291,7 @@ for caseID in group_caseIDs:
 
             for file_id in mm_file_PS2:
                 mm_locus_stats_PS2 = IMGTdbIO.load_pickle2dict(file_id)
-                
+                mm_locus_stats_PS2 = CompareSeq.rmRefAln(mm_locus_stats_PS2)
                 if 'Exon' in file_id:
                     for key, item in mm_locus_stats_PS2['MMannotation'].items():
                         if key.isdigit():
@@ -347,7 +360,7 @@ for caseID in group_caseIDs:
 
             for file_id in mm_file_PS:
                 mm_locus_stats_PS = IMGTdbIO.load_pickle2dict(file_id)
-                
+                mm_locus_stats_PS = CompareSeq.rmRefAln(mm_locus_stats_PS)
                 if 'Exon' in file_id:
                     for key, item in mm_locus_stats_PS['MMannotation'].items():
                         if key.isdigit():
@@ -411,12 +424,14 @@ for caseID in group_caseIDs:
                                 LocusStats[typing] = {item: [caseID]}    
         
 ClassII_stats = {'CaseStats': CaseStats, 'LocusStats': LocusStats}
-IMGTdbIO.save_dict2pickle(ClassII_stats, '../Output/SG41_52/SG41_52_DRpair_Stats/ClassII_Stats_1220_'+groupType)
+IMGTdbIO.save_dict2pickle(ClassII_stats, '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/ClassII_Stats_0125_'+groupType)
 
 
-#ClassI_stats = IMGTdbIO.load_pickle2dict('../Output/Stats/ClassI_Stats_1003_fiveLoci_paired.pkl')
-#ClassII_stats = IMGTdbIO.load_pickle2dict('../Output/Stats/ClassII_Stats_1003_fiveLoci_paired.pkl')
+#ClassI_stats = IMGTdbIO.load_pickle2dict('../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/ClassI_Stats_0125_fiveLoci_paired.pkl')
+#ClassII_stats = IMGTdbIO.load_pickle2dict('../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/ClassII_Stats_0125_fiveLoci_paired.pkl')
 
+fiveLociPaired_stats = {'CaseStats': CaseStats, 'LocusStats': LocusStats}
+IMGTdbIO.save_dict2pickle(fiveLociPaired_stats, '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/fiveLoci_paired_Stats_0125_'+groupType)
 
 
 

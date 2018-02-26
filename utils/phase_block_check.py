@@ -132,7 +132,7 @@ def rollupHLAtyping(HLAtyping, rmPrefix = True):
 
     return(rollupTypings)
     
-def check_oneBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, ID):
+def check_oneBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, ID, version = "3310"):
     '''
     For one block one phase sequence
     '''
@@ -140,8 +140,8 @@ def check_oneBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, I
         ID = str(int(ID))
     Locus =  tplist[0].split("*")[0] 
     
-    ARS0seq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon2, Exon3')
-    ARS1seq = IMGTdbIO.readIMGTsql(tplist[1], field='Exon2, Exon3')
+    ARS0seq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon2, Exon3', version = version)
+    ARS1seq = IMGTdbIO.readIMGTsql(tplist[1], field='Exon2, Exon3', version = version)
         
     if seq_count > 2:
         print("Please check the ID: " + ID + " Locus " + Locus + "! More sequences than expected.")
@@ -172,8 +172,8 @@ def check_oneBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, I
                 print(ID + ": The sequence at Locus " + Locus + " doesn't match to either of the Typings")
         
         else: #  if the two types have the same ARS regions
-            ARS0seq1456 = IMGTdbIO.readIMGTsql(tplist[0], field='Exon1, Exon4, Exon5, Exon6')
-            ARS1seq1456 = IMGTdbIO.readIMGTsql(tplist[1], field='Exon1, Exon4, Exon5, Exon6')
+            ARS0seq1456 = IMGTdbIO.readIMGTsql(tplist[0], field='Exon1, Exon4, Exon5, Exon6', version = version)
+            ARS1seq1456 = IMGTdbIO.readIMGTsql(tplist[1], field='Exon1, Exon4, Exon5, Exon6', version = version)
             if ARS0seq1456 != ARS1seq1456:
                 if ARS0seq1456[0] in seq_item  and ARS0seq1456[1] in seq_item and ARS0seq1456[2] in seq_item and ARS0seq1456[3] in seq_item: # the first type
                     if "PS1" not in QueryTyping.keys():
@@ -196,8 +196,8 @@ def check_oneBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, I
                         QueryTyping["PS3"]['blockIDs'].append(2)
                     print(ID + ": The sequence at Locus " + Locus + " doesn't match to either of the Typings")
             else:
-                ARS0seq7 = IMGTdbIO.readIMGTsql(tplist[0], field='Exon7')
-                ARS1seq7 = IMGTdbIO.readIMGTsql(tplist[1], field='Exon7')
+                ARS0seq7 = IMGTdbIO.readIMGTsql(tplist[0], field='Exon7', version = version)
+                ARS1seq7 = IMGTdbIO.readIMGTsql(tplist[1], field='Exon7', version = version)
                 if ARS0seq7 != ARS1seq7:
                     if ARS0seq7[0] in seq_item: # the first type
                         if "PS1" not in QueryTyping.keys():
@@ -230,15 +230,15 @@ def check_oneBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, I
             
     return(QueryTyping)
 
-def check_twoBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, ID):
+def check_twoBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, ID, version = "3310"):
     '''
     Two blocks one phase sequences
     '''
     if type(ID) == float:
         ID = str(int(ID))
     Locus =  tplist[0].split("*")[0] 
-    ARS0seq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon2, Exon3')
-    ARS1seq = IMGTdbIO.readIMGTsql(tplist[1], field='Exon2, Exon3')
+    ARS0seq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon2, Exon3', version = version)
+    ARS1seq = IMGTdbIO.readIMGTsql(tplist[1], field='Exon2, Exon3', version = version)
         
     if seq_count > 4:
         print("Please check the ID: " + ID + " Locus " + Locus + "! More sequences than expected.")
@@ -277,15 +277,15 @@ def check_twoBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, I
     
     return(QueryTyping)
     
-def check_DQB102_Block_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, ID):
+def check_DQB102_Block_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, ID, version = "3310"):
     '''
     Two blocks one phase sequences
     '''
     if type(ID) == float:
         ID = str(int(ID))
     Locus =  tplist[0].split("*")[0] 
-    ARS0seq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon2, Exon3')
-    ARS1seq = IMGTdbIO.readIMGTsql(tplist[1], field='Exon2, Exon3')
+    ARS0seq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon2, Exon3', version = version)
+    ARS1seq = IMGTdbIO.readIMGTsql(tplist[1], field='Exon2, Exon3', version = version)
         
     serotype = [tp.split(":")[0] for tp in tplist]
     
@@ -359,7 +359,7 @@ def check_DQB102_Block_seq(seq_count, tplist, unique_Query, unique_HLATyping_lis
     
     return(QueryTyping)
 
-def check_seq_typing(HLAtypings, Query, ID):
+def check_seq_typing(HLAtypings, Query, ID, version = "3310"):
     '''
     Check sequence typing one by one. 
     A,B,C - one long sequence;
@@ -431,7 +431,7 @@ def check_seq_typing(HLAtypings, Query, ID):
             unique_HLATyping_list.append(unique_HLATyping_list[0])
             seq_count = len(unique_Query)
         
-        QueryTyping = check_oneBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, ID)
+        QueryTyping = check_oneBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, ID, version = version)
         
     elif Locus in ["DRB1", "DPB1"]:
         ''' ARS0seq = IMGTdbIO.readIMGTsql(tplist[0], field='Exon2, Exon3')
@@ -477,7 +477,7 @@ def check_seq_typing(HLAtypings, Query, ID):
             unique_HLATyping_list.append(unique_HLATyping_list[0])
             seq_count = len(unique_Query)
             
-        QueryTyping = check_twoBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, ID)
+        QueryTyping = check_twoBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, ID, version = version)
        
     elif Locus == "DQB1":
         
@@ -489,9 +489,9 @@ def check_seq_typing(HLAtypings, Query, ID):
                unique_HLATyping_list.append(unique_HLATyping_list[0])
                seq_count = len(unique_Query)
                
-           QueryTyping = check_oneBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, ID)
+           QueryTyping = check_oneBlock_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, ID, version = version)
        else: 
-           QueryTyping = check_DQB102_Block_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, ID)
+           QueryTyping = check_DQB102_Block_seq(seq_count, tplist, unique_Query, unique_HLATyping_list, ID, version = version)
        
     return(QueryTyping)
        

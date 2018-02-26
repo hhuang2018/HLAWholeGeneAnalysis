@@ -9,7 +9,7 @@ Created on Fri Oct  6 10:38:30 2017
 import glob
 import csv
 
-from utils import IMGTdbIO#, CompareSeq
+from utils import IMGTdbIO, CompareSeq
 
 
 groupType = 'fiveLoci_paired' # groupType = 'ClassI_paired' # groupType = 'All_paired' ; 'fiveLoci_paired'
@@ -19,28 +19,32 @@ Five_loci = ['A', 'B', 'C', 'DRB1', 'DQB1']
 ClassI_loci = ['A', 'B', 'C']
 ClassII_loci = ['DRB1', 'DQB1', 'DPB1']
 
-Group_fname = '../Output/SG39/Stats/ClassI_Stats_1003_' + groupType + '.pkl'
+Group_fname = '../Output/SG39/2018/SG39_Stats/fiveLoci_paired_Stats_0125_' + groupType + '.pkl'
 Stats_Dict = IMGTdbIO.load_pickle2dict(Group_fname)
 
 CaseStats = Stats_Dict['CaseStats']
 LocusStats = Stats_Dict['LocusStats']
 
+#key = '84571'
+#CaseStats[key] 
+#key in group_caseIDs
+
 ## : paired cases HLA typing stats
-fname = '../Output/SG39/SG39_DRpairs/SG39_pairedCases_Stats.pkl'
+fname = '../Output/SG39/2018/SG39_DRpairs/SG39_pairedCases_Stats.pkl'
 Matching_cases_stats = IMGTdbIO.load_pickle2dict(fname)
 
 CaseMatchTable = {}
 for locus in All_loci:
     
-    singleMismatch_fp = '../Output/SG39/SG39_singleMisMatched_'+locus+'_0925_TargetedAlignment/'
-    bothMisMatch_fp = '../Output/SG39/SG39_bothMisMatched_locus_'+locus+'_0925_TargetedAlignment/'
+    singleMismatch_fp = '../Output/SG39/2018/SG39_singleMisMatched_'+locus+'_0125_TargetedAlignment/'
+    bothMisMatch_fp = '../Output/SG39/2018/SG39_bothMisMatched_locus_'+locus+'_0125_TargetedAlignment/'
     
     if locus in ClassI_loci:
         ARS_exon = ['Exon2', 'Exon3']
     elif locus in ClassII_loci:
         ARS_exon = ['Exon2']
     #CaseMatchTable[locus] = {}
-    DRpaired_file = '../Output/SG39_DRpairs/SG39_HLA_'+locus+'_wComparison.pkl'
+    DRpaired_file = '../Output/SG39/2018/SG39_DRpairs/SG39_HLA_'+locus+'_wComparison.pkl'
     
     DRpaired_table = IMGTdbIO.load_pickle2dict(DRpaired_file)
     num_total = len(DRpaired_table)
@@ -82,9 +86,12 @@ for locus in All_loci:
                         CaseMatchTable[key][locus][ps] = {'HLAtyping': typinglist, 'TwoField': twoField, 'SameSeq': False,
                                       'ARS': [], 'non_ARS_exon': [], 'Intron': [], 'UTR': []}
                         
-                        AlgnFiles = glob.glob(singleMismatch_fp+'CaseID_'+key+'_Locus_'+locus+'_annotation*.pkl')
+                        #AlgnFiles = glob.glob(singleMismatch_fp+'CaseID_'+key+'_Locus_'+locus+'_annotation*.pkl')
+                        AlgnFiles = glob.glob(singleMismatch_fp+'CaseID_'+key+'_Locus_'+locus+'*.pkl')
                         for algnFile in AlgnFiles:
                             seqAlgn_stats = IMGTdbIO.load_pickle2dict(algnFile)
+                            seqAlgn_stats = CompareSeq.rmRefAln(seqAlgn_stats)
+                            
                             for annKey, annItem in seqAlgn_stats['MMannotation'].items():
                                 if annKey.isdigit(): 
                                     print(annKey)
@@ -131,6 +138,8 @@ for locus in All_loci:
                         AlgnFiles = glob.glob(bothMisMatch_fp+'CaseID_'+key+'_Locus_'+locus+'_annotation_'+ps+'*.pkl')
                         for algnFile in AlgnFiles:
                             seqAlgn_stats = IMGTdbIO.load_pickle2dict(algnFile)
+                            seqAlgn_stats = CompareSeq.rmRefAln(seqAlgn_stats)
+                            
                             for annKey, annItem in seqAlgn_stats['MMannotation'].items():
                                 if annKey.isdigit(): 
                                     annReads = IMGTdbIO.annotationFormat(annKey, annItem, seqAlgn_stats['alignment']) #annItem+'[D:'+seqAlgn_stats['alignment']['Donor-'+ps]
@@ -144,16 +153,16 @@ for locus in All_loci:
                                         else:
                                             CaseMatchTable[key][locus][ps]['non_ARS_exon'].append(annReads) 
     
-    IMGTdbIO.save_dict2pickle(CaseMatchTable, '../Output/Stats/All_paired_case_MatchRecord_Locus_'+locus)
+    IMGTdbIO.save_dict2pickle(CaseMatchTable, '../Output/SG39/2018/SG39_Stats/FiveLoci_paired_case_MatchRecord_Locus_'+locus)
         
-IMGTdbIO.save_dict2pickle(CaseMatchTable, '../Output/Stats/All_paired_case_MatchRecord_ADQB1_Corrected')
+IMGTdbIO.save_dict2pickle(CaseMatchTable, '../Output/SG39/2018/SG39_Stats/FiveLoci_paired_case_MatchRecord')
 
 ################
 # Count the cases
 ################
-CaseMatchTable = IMGTdbIO.load_pickle2dict('../Output/SG39/Stats/All_paired_case_MatchRecord_ADQB1_Corrected.pkl')
+CaseMatchTable = IMGTdbIO.load_pickle2dict('../Output/SG39/2018/SG39_Stats/FiveLoci_paired_case_MatchRecord.pkl')
 ## : paired cases HLA typing stats
-fname = '../Output/SG39/SG39_DRpairs/SG39_pairedCases_Stats.pkl'
+fname = '../Output/SG39/2018/SG39_DRpairs/SG39_pairedCases_Stats.pkl'
 Matching_cases_stats = IMGTdbIO.load_pickle2dict(fname)
 ## Matching_cases_stats['fiveLoci_paired']
 
@@ -274,15 +283,15 @@ for caseID, Records in CaseMatchTable.items():
                                 AllField_allele_stats[locus][FullField]['Intron'].append(caseID)
                                 TwoField_allele_stats[locus][TwoField]['Intron'].append(caseID)
 
-out_fp = '../Output/SG39/Stats/fiveLoci_paired_cases/' # /fiveLoci_paired_cases/ ; allLoci_paired_cases
+out_fp = '../Output/SG39/2018/SG39_Stats/fiveLoci_paired_cases/' # /fiveLoci_paired_cases/ ; allLoci_paired_cases
 Loci_num = 'fiveLoci_'
-for locus in All_loci:
-    with open(out_fp +'AllField/MisMatchCases/HLA_'+locus+'_'+Loci_num+'PairedCases_corrected_wNonSyn_01052018.csv', 'w+') as csv_file:
+for locus in Five_loci:
+    with open(out_fp +'AllField/MisMatchCases/HLA_'+locus+'_'+Loci_num+'PairedCases_corrected_wNonSyn_0125.csv', 'w+') as csv_file:
         writer = csv.writer(csv_file)
         for key, value in AllField_allele_stats[locus].items():
            writer.writerow([key, value['ARS'], value['ARS_nonSynonymous'], value['non_ARS_exon'], value['non_ARS_exon_nonSyn'], value['Intron']])
     
-    with open(out_fp + 'TwoField/MisMatchCases/HLA_'+locus+'_'+Loci_num+'PairedCases_corrected_wNonSyn_01052018.csv', 'w+') as csv_file:
+    with open(out_fp + 'TwoField/MisMatchCases/HLA_'+locus+'_'+Loci_num+'PairedCases_corrected_wNonSyn_0125.csv', 'w+') as csv_file:
         writer = csv.writer(csv_file)
         for key, value in TwoField_allele_stats[locus].items():
            writer.writerow([key, value['ARS'], value['ARS_nonSynonymous'], value['non_ARS_exon'], value['non_ARS_exon_nonSyn'], value['Intron']])
@@ -294,7 +303,7 @@ HLA_AF_allele_name_count = {}
 HLA_TF_allele_name = {}  
 HLA_TF_allele_count = {}  
 HLA_TF_allele_name_count = {}       
-for locus in All_loci:
+for locus in Five_loci:
     if locus not in HLA_AF_allele_name.keys():
         HLA_AF_allele_name[locus] = ()
     if locus not in HLA_AF_allele_count.keys():
@@ -323,8 +332,8 @@ for locus in All_loci:
     print('Locus '+locus+ ' Two-Field allele count: '+str(len(HLA_twoField_allele_count[locus])))
     
 ### Write to csv
-out_fp = '../Output/Stats/allLoci_paired_cases/' 
-for locus in All_loci:
+out_fp = '../Output/SG39/2018/SG39_Stats/fiveLoci_paired_cases/' 
+for locus in Five_loci:
     with open(out_fp + 'AllField/AlleleCount/HLA_'+locus+'_'+Loci_num+'Cases_Corrected.csv', 'w+') as csv_file:
         writer = csv.writer(csv_file)
         for key, value in HLA_AF_allele_name_count[locus].items():
@@ -340,7 +349,7 @@ for locus in All_loci:
 HLA_AF_allele_MisMatch_name_count = {}
 
 HLA_TF_allele_MisMatch_name_count = {}       
-for locus in All_loci:
+for locus in Five_loci:
     
     if locus not in HLA_AF_allele_MisMatch_name_count.keys():
         HLA_AF_allele_MisMatch_name_count[locus] = {}
@@ -369,8 +378,8 @@ for locus in All_loci:
     print('Locus '+locus+ ' Mismatched Two-Field allele count: '+str(len(HLA_TF_allele_MisMatch_name_count[locus])))
 
 ## save
-out_fp = '../Output/Stats/fiveLoci_paired_cases/' # /fiveLoci_paired_cases/ ; allLoci_paired_cases
-for locus in All_loci:
+out_fp = '../Output/SG39/2018/SG39_Stats/fiveLoci_paired_cases/' # /fiveLoci_paired_cases/ ; allLoci_paired_cases
+for locus in Five_loci:
     with open(out_fp + 'AllField/MisMatchCount/HLA_AllField_'+locus+'_MismatchedCounts_'+Loci_num+'Cases_Corrected_wNonSyn.csv', 'w+') as csv_file:
         writer = csv.writer(csv_file)
         for key, value in HLA_AF_allele_MisMatch_name_count[locus].items():

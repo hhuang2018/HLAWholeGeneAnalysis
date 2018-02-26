@@ -14,16 +14,16 @@ import os
 import re
 
 
-locus = 'A'
+locus = 'DQB1'
 
-pkl_fp = '../Output/SG41_52/SG41_52_DRpairs/SG41_52_HLA_'+ locus +'_paired.pkl'
+pkl_fp = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpairs/SG41_52_HLA_'+ locus +'_paired.pkl'
 
 DRpair_seqInfo = IMGTdbIO.load_pickle2dict(pkl_fp)
 
 case_count = len(DRpair_seqInfo)
 print('Locus '+locus+ ' has '+ str(case_count) + ' paired cases.')
 
-DB_fp = "../Output/SG41_52/SG41_52_DRpairs/SG41_52_HLA_"+ locus +"_paired.db"
+DB_fp = "../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpairs/SG41_52_HLA_"+ locus +"_paired.db"
 conn = sql.connect(DB_fp)
 cursor = conn.cursor()
 cursor.execute('''CREATE TABLE IF NOT EXISTS DR_pair_comparison 
@@ -78,16 +78,16 @@ for caseID, SeqInfo in DRpair_seqInfo.items():
 conn.commit()   
 conn.close()
 
-fname = '../Output/SG41_52/SG41_52_DRpairs/SG41_52_HLA_' + locus + '_wComparison'
+fname = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpairs/SG41_52_HLA_' + locus + '_wComparison'
 IMGTdbIO.save_dict2pickle(DRpair_seqInfo, fname)
 
 ########### check GL-string match, sequence matching
 DRpair_seqInfo = {}
-Loci = ['A','B', 'C', 'DRB1', 'DQB1', 'DPB1']
+Loci = ['A','B', 'C', 'DRB1', 'DQB1']#, 'DPB1']
 
 All_caseIDs = []
 for locus  in Loci:
-    fname = '../Output/SG41_52/SG41_52_DRpairs/SG41_52_HLA_' + locus + '_wComparison.pkl'
+    fname = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpairs/SG41_52_HLA_' + locus + '_wComparison.pkl'
     DRpair_seqInfo[locus] = IMGTdbIO.load_pickle2dict(fname)
     All_caseIDs += list(DRpair_seqInfo[locus].keys())
 All_caseIDs = list(set(All_caseIDs)) # 3412 total
@@ -97,7 +97,7 @@ Matching_cases_stats = {"ClassI_paired":[], "fiveLoci_paired":[], "All_paired":[
                         "B_both_SeqMatch":[], "B_both_Seqmm":[], "B_one_Seqmm":[], 'B_GLmm_SeqM':[], 'B_GlM_Seqmm':[],
                         "C_both_SeqMatch":[], "C_both_Seqmm":[], "C_one_Seqmm":[], 'C_GLmm_SeqM':[], 'C_GlM_Seqmm':[],
                         "DRB1_both_SeqMatch":[], "DRB1_both_Seqmm":[], "DRB1_one_Seqmm":[], 'DRB1_GLmm_SeqM':[], 'DRB1_GlM_Seqmm':[],
-                        "DPB1_both_SeqMatch":[], "DPB1_both_Seqmm":[], "DPB1_one_Seqmm":[], 'DPB1_GLmm_SeqM':[], 'DPB1_GlM_Seqmm':[],
+                        #"DPB1_both_SeqMatch":[], "DPB1_both_Seqmm":[], "DPB1_one_Seqmm":[], 'DPB1_GLmm_SeqM':[], 'DPB1_GlM_Seqmm':[],
                         "DQB1_both_SeqMatch":[], "DQB1_both_Seqmm":[], "DQB1_one_Seqmm":[], 'DQB1_GLmm_SeqM':[], 'DQB1_GlM_Seqmm':[]}
 for caseID in All_caseIDs:
     
@@ -135,7 +135,7 @@ for caseID in All_caseIDs:
     if fiveLoci_flag:
         Matching_cases_stats["fiveLoci_paired"].append(caseID)
     
-fname = '../Output/SG41_52/SG41_52_DRpair_Stats/SG41_52_pairedCases_Stats'
+fname = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/SG41_52_pairedCases_Stats'
 IMGTdbIO.save_dict2pickle(Matching_cases_stats, fname)
 
 print("Paired at all 6 loci cases: " + str(len(Matching_cases_stats['All_paired'])))
@@ -160,19 +160,19 @@ for locus in Loci:
 # Check unmatched cases
 ############################
 
-fname = '../Output/SG41_52/SG41_52_DRpair_Stats/SG41_52_pairedCases_Stats.pkl'
+fname = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/SG41_52_pairedCases_Stats.pkl'
 Matching_cases_stats = IMGTdbIO.load_pickle2dict(fname)
 
-locus = 'A'
+locus = 'DRB1'
 # both mismatched sequences
 MM_caseID = Matching_cases_stats[locus+'_both_Seqmm']
 
-DB_fp = '../Output/SG41_52/SG41_52_DRpairs/SG41_52_HLA_'+ locus +'_paired.db'
+DB_fp = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpairs/SG41_52_HLA_'+ locus +'_paired.db'
 con = sql.connect(DB_fp)
 con.row_factory = sql.Row
 cur = con.cursor()
 
-bothMM_output = "../Output/SG41_52/SG41_52_bothMisMatched_locus_" + locus + "_1218_TargetedAlignment/"
+bothMM_output = "../Output/SG41_52/2018/IMGTv3310/SG41_52_bothMisMatched_locus_" + locus + "_0125_TargetedAlignment/"
 if not os.path.exists(bothMM_output):
     os.makedirs(bothMM_output) 
 
@@ -226,7 +226,7 @@ for caseID in MM_caseID:
 con.close()
 
 ## Class II
-locus = 'DPB1'
+locus = 'DRB1'
 for caseID in MM_caseID:
     algn_file = bothMM_output + 'CaseID_'+ caseID + '_' + locus + '_aligned.aln'
     
@@ -278,6 +278,29 @@ con.close()
 
 #### DQB1
 locus = 'DQB1'
+MM_caseID = Matching_cases_stats[locus+'_both_Seqmm']
+
+DB_fp = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpairs/SG41_52_HLA_'+ locus +'_paired.db'
+con = sql.connect(DB_fp)
+con.row_factory = sql.Row
+cur = con.cursor()
+
+bothMM_output = "../Output/SG41_52/2018/IMGTv3310/SG41_52_bothMisMatched_locus_" + locus + "_0125_TargetedAlignment/"
+if not os.path.exists(bothMM_output):
+    os.makedirs(bothMM_output) 
+
+### 
+DB_field = 'UnalignedGenomSeq, SeqAnnotation'
+
+if locus in ['A', 'C']:
+    DB_BackUpfield = 'Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7, Exon8'
+elif locus == 'B':
+    DB_BackUpfield = 'Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7'
+elif locus in ['DRB1', 'DPB1']:
+    DB_BackUpfield = 'Exon2, Exon3'
+elif locus == 'DQB1':
+    DB_BackUpfield = 'Exon2, Exon3, Exon4'
+    
 for caseID in MM_caseID:
     algn_file = bothMM_output + 'CaseID_'+ caseID + '_' + locus + '_aligned.aln'
     
@@ -353,88 +376,100 @@ con.close()
 # Check unmatched sequences
 ############################
 # single mismatched sequences
-fname = '../Output/SG41_52/SG41_52_DRpair_Stats/SG41_52_pairedCases_Stats.pkl'
+fname = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpair_Stats/SG41_52_pairedCases_Stats.pkl'
 Matching_cases_stats = IMGTdbIO.load_pickle2dict(fname)
 
-locus = 'DQB1'
+Lloci = ['A', 'B', 'C']
+#locus = 'A'
+for locus in Lloci:
+    singleMM_caseID = Matching_cases_stats[locus+'_one_Seqmm']
+    
+    DB_fp = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpairs/SG41_52_HLA_'+ locus +'_paired.db'
+    con = sql.connect(DB_fp)
+    con.row_factory = sql.Row
+    cur = con.cursor()
+    
+    singleMM_output = "../Output/SG41_52/2018/IMGTv3310/SG41_52_singleMisMatched_" + locus + "_0125_TargetedAlignment/"
+    if not os.path.exists(singleMM_output):
+        os.makedirs(singleMM_output) 
+    
+    ## Class I
+    DB_field = 'UnalignedGenomSeq, SeqAnnotation'
+    ### 
+    if locus in ['A', 'C']:
+        DB_BackUpfield = 'Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7, Exon8'
+    elif locus == 'B':
+        DB_BackUpfield = 'Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7'
+    elif locus in ['DRB1', 'DPB1']:
+        DB_BackUpfield = 'Exon2, Exon3'
+    elif locus == 'DQB1':
+        DB_BackUpfield = 'Exon2, Exon3, Exon4'
+        
+    for caseID in singleMM_caseID:
+        algn_file = singleMM_output + caseID + '_' + locus + '_aligned.aln'
+        
+        if not os.path.exists(algn_file):
+            t = (caseID,)
+            cur.execute('SELECT * FROM OriginalSeqs WHERE BMT_caseID = ?', t)
+            case_records = cur.fetchall()
+    
+            #if case_records[0]['QC'].split("; ")[0] == 'PASS':
+            #    ind = 1
+            #else:
+            #    ind = 0
+            
+            cur.execute('SELECT * FROM DR_pair_comparison WHERE BMT_caseID = ?', t)
+            case_comparison_records = cur.fetchall()
+            if case_comparison_records[0]['PS1_SeqM'] == 'N':
+                ind = 0
+            elif case_comparison_records[0]['PS2_SeqM'] == 'N':
+                ind = 1
+            else: 
+                ind = -1
+            
+            seq1_ID = 'Recipient-PS'+str(ind+1)
+            seq2_ID = 'Donor-PS'+str(ind+1)
+            seq1 = case_records[ind][seq1_ID.split('-')[0]]
+            seq2 = case_records[ind][seq2_ID.split('-')[0]]
+            HLAtyping_list = case_records[ind]['HLATyping']
+            tplist = HLAtyping_list.split("+")
+            HLAtyping = []
+            for tp in tplist:
+                if tp.find('/') != -1:
+                    ambTPlist = tp.split('/')
+                    HLAtyping.extend(ambTPlist)
+                elif tp.find(',') != -1:
+                    ambTPlist = re.sub('[\[\'\]]', '',tp)
+                    ambTPlist = ambTPlist.split(', ')
+                    HLAtyping.extend(ambTPlist)
+                else:
+                    HLAtyping.append(tp)
+                    
+            Sequence= {seq1_ID: seq1, seq2_ID:seq2}
+            #params = {'algn_file': algn_file, 'saveFile': True, 'HLAtyping': HLAtyping, 'DB_field': DB_field}
+            params = {'algn_file': algn_file, 'saveFile': True, 'HLAtyping': HLAtyping, 'DB_field': DB_field, "DB_BackUpfield": DB_BackUpfield}
+            print('CaseID: '+ caseID + ' ; Locus: ' + locus)
+            alignment, pos, annotation = CompareSeq.compare_seqs(Sequence, params)
+    
+            ## save results
+            saveOBJ = {'seq': Sequence, 'params': params, 'alignment':alignment, 'MMannotation': annotation, 'MMpos': pos}
+            
+            Output_fname = singleMM_output + 'CaseID_'+ caseID + '_Locus_' + locus + '_annotation'
+            IMGTdbIO.save_dict2pickle(saveOBJ, Output_fname)
+    con.close()
+
+## Class II: DRB1 and DPB1
+locus = 'DRB1'
 singleMM_caseID = Matching_cases_stats[locus+'_one_Seqmm']
 
-DB_fp = '../Output/SG41_52/SG41_52_DRpairs/SG41_52_HLA_'+ locus +'_paired.db'
+singleMM_output = "../Output/SG41_52/2018/IMGTv3310/SG41_52_singleMisMatched_" + locus + "_0125_TargetedAlignment/"
+if not os.path.exists(singleMM_output):
+    os.makedirs(singleMM_output) 
+DB_fp = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpairs/SG41_52_HLA_'+ locus +'_paired.db'
 con = sql.connect(DB_fp)
 con.row_factory = sql.Row
 cur = con.cursor()
 
-singleMM_output = "../Output/SG41_52/SG41_52_singleMisMatched_" + locus + "_1220_TargetedAlignment/"
-if not os.path.exists(singleMM_output):
-    os.makedirs(singleMM_output) 
-
-## Class I
-DB_field = 'UnalignedGenomSeq, SeqAnnotation'
-### 
-if locus in ['A', 'C']:
-    DB_BackUpfield = 'Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7, Exon8'
-elif locus == 'B':
-    DB_BackUpfield = 'Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7'
-elif locus in ['DRB1', 'DPB1']:
-    DB_BackUpfield = 'Exon2, Exon3'
-elif locus == 'DQB1':
-    DB_BackUpfield = 'Exon2, Exon3, Exon4'
-    
-for caseID in singleMM_caseID:
-    algn_file = singleMM_output + caseID + '_' + locus + '_aligned.aln'
-    
-    if not os.path.exists(algn_file):
-        t = (caseID,)
-        cur.execute('SELECT * FROM OriginalSeqs WHERE BMT_caseID = ?', t)
-        case_records = cur.fetchall()
-
-        #if case_records[0]['QC'].split("; ")[0] == 'PASS':
-        #    ind = 1
-        #else:
-        #    ind = 0
-        
-        cur.execute('SELECT * FROM DR_pair_comparison WHERE BMT_caseID = ?', t)
-        case_comparison_records = cur.fetchall()
-        if case_comparison_records[0]['PS1_SeqM'] == 'N':
-            ind = 0
-        elif case_comparison_records[0]['PS2_SeqM'] == 'N':
-            ind = 1
-        else: 
-            ind = -1
-        
-        seq1_ID = 'Recipient-PS'+str(ind+1)
-        seq2_ID = 'Donor-PS'+str(ind+1)
-        seq1 = case_records[ind][seq1_ID.split('-')[0]]
-        seq2 = case_records[ind][seq2_ID.split('-')[0]]
-        HLAtyping_list = case_records[ind]['HLATyping']
-        tplist = HLAtyping_list.split("+")
-        HLAtyping = []
-        for tp in tplist:
-            if tp.find('/') != -1:
-                ambTPlist = tp.split('/')
-                HLAtyping.extend(ambTPlist)
-            elif tp.find(',') != -1:
-                ambTPlist = re.sub('[\[\'\]]', '',tp)
-                ambTPlist = ambTPlist.split(', ')
-                HLAtyping.extend(ambTPlist)
-            else:
-                HLAtyping.append(tp)
-                
-        Sequence= {seq1_ID: seq1, seq2_ID:seq2}
-        #params = {'algn_file': algn_file, 'saveFile': True, 'HLAtyping': HLAtyping, 'DB_field': DB_field}
-        params = {'algn_file': algn_file, 'saveFile': True, 'HLAtyping': HLAtyping, 'DB_field': DB_field, "DB_BackUpfield": DB_BackUpfield}
-        print('CaseID: '+ caseID + ' ; Locus: ' + locus)
-        alignment, pos, annotation = CompareSeq.compare_seqs(Sequence, params)
-
-        ## save results
-        saveOBJ = {'seq': Sequence, 'params': params, 'alignment':alignment, 'MMannotation': annotation, 'MMpos': pos}
-        
-        Output_fname = singleMM_output + 'CaseID_'+ caseID + '_Locus_' + locus + '_annotation'
-        IMGTdbIO.save_dict2pickle(saveOBJ, Output_fname)
-con.close()
-
-## Class II: DRB1 and DPB1
-locus = 'DPB1'
 for caseID in singleMM_caseID:
     algn_file = singleMM_output + 'CaseID_'+ caseID + '_' + locus + '_aligned.aln'
     
@@ -492,6 +527,15 @@ con.close()
 
 #### DQB1
 locus = 'DQB1'
+singleMM_caseID = Matching_cases_stats[locus+'_one_Seqmm']
+singleMM_output = "../Output/SG41_52/2018/IMGTv3310/SG41_52_singleMisMatched_" + locus + "_0125_TargetedAlignment/"
+if not os.path.exists(singleMM_output):
+    os.makedirs(singleMM_output) 
+DB_fp = '../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpairs/SG41_52_HLA_'+ locus +'_paired.db'
+con = sql.connect(DB_fp)
+con.row_factory = sql.Row
+cur = con.cursor()
+
 for caseID in singleMM_caseID:
     algn_file = singleMM_output + 'CaseID_'+ caseID + '_' + locus + '_aligned.aln'
     

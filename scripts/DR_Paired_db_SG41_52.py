@@ -21,8 +21,8 @@ __email__ = "hwangtiger@gmail.com"
 # Class I
 ###############
 #locus = "A"
-all_DB_files = glob.glob("../Output/SG41_52/AvailDB/*.db")
-db_file = all_DB_files[3] ## 1:A, 3:C, 4:B
+all_DB_files = glob.glob("../Output/SG41_52/2018/IMGTv3310/AvailDB/*.db")
+db_file = all_DB_files[2] ## 1:A, 3:C, 4:B
 
 locus = db_file.split('_')[4]
 
@@ -42,7 +42,7 @@ print(db_file+" has " + str(len(All_caseIDs)) + " cases.")
 BMTcaseInfo_fp = "../../rawData/SG41-52_caseID.csv"
 BMT_IDtable = ps.readBMTinfo(BMTcaseInfo_fp)
 
-logf = open("../Output/SG41_52/logfiles_preprocessing/HLA_"+ locus +"_preprocess.txt", "w")
+logf = open("../Output/SG41_52/2018/IMGTv3310/logfiles_preprocessing/HLA_"+ locus +"_preprocess.txt", "w")
 logf.write(db_file+" has " + str(len(All_caseIDs)) + " cases.\n\n")
 available_records = {}
 counter = 0
@@ -198,7 +198,7 @@ logf.close()
 
 conn.close()
 
-output = "../Output/SG41_52/SG41_52_DRpairs/"
+output = "../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpairs/"
 for BMTcase, case_SeqInfo in available_records.items():
     filename = output + "SG41_52_HLA_" + locus + "_paired.db"
     # original sequence table
@@ -234,8 +234,8 @@ IMGTdbIO.save_dict2pickle(available_records, fname)
 ################# 
 # Class II
 #################
-all_DB_files = glob.glob("../Output/SG41_52/AvailDB/*.db")
-db_file = all_DB_files[5] ## 0: DPB1 2:DRB1 5:DQB1
+all_DB_files = glob.glob("../Output/SG41_52/2018/IMGTv3310/AvailDB/*.db")
+db_file = all_DB_files[4] ## 0: DPB1 2:DRB1 5:DQB1
 
 locus = db_file.split('_')[4]
 
@@ -256,7 +256,7 @@ BMTcaseInfo_fp = "../../rawData/SG41-52_caseID.csv"
 BMT_IDtable = ps.readBMTinfo(BMTcaseInfo_fp)
 
 available_records = {}
-logf = open("../Output/SG39/HLA_"+ locus +"_preprocess.txt", "w")
+logf = open("../Output/SG41_52/2018/IMGTv3310/logfiles_preprocessing/HLA_"+ locus +"_preprocess.txt", "w")
 logf.write(db_file+" has " + str(len(All_caseIDs)) + " cases.\n\n")
 
 counter = 0
@@ -487,7 +487,7 @@ logf.close()
 
 conn.close()
 
-output = "../Output/SG41_52/SG41_52_DRpairs/"
+output = "../Output/SG41_52/2018/IMGTv3310/SG41_52_DRpairs/"
 for BMTcase, case_SeqInfo in available_records.items():
     filename = output + "SG41_52_HLA_" + locus + "_paired.db"
     # original sequence table
