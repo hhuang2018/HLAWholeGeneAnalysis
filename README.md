@@ -6,7 +6,7 @@ The pipeline has passed the Alpha test and analyzed 6,000 pairs of donor-recipie
 
 Code improvement and Beta test in under way. The final version is set to release in June 2018. 
 
-# Authors
+# Author(s)
 *  **Hu Huang** 
 
 # License
