@@ -7,7 +7,7 @@ The pipeline has passed the Alpha test and analyzed 6,000 pairs of donor-recipie
 Code improvement and Beta test in under way. The final version is set to release in June 2018. 
 
 # Authors
-*  **Hu Huang** (hhuang@iscb.org)
+*  **Hu Huang** 
 
 # License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/hhuang2018/HLAWholeGeneAnalysis/blob/master/LICENSE.md) file for details
