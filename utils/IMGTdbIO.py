@@ -467,7 +467,7 @@ def checkSubList(List1, List2):
     return(Result)
     
 ##################
-def checkSynonymMutation(Allele, Exons):
+def checkSynonymMutation(Allele, Exons, db_fp = 'Database/'):
     '''
     Check if the nucleotide change is synonymous or not; IGMT/HLA alleles
     '''
@@ -483,12 +483,18 @@ def checkSynonymMutation(Allele, Exons):
             for item in possTPlist:
                 #HLAtyping.extend(possTPlist)
                 HLAtyping.append(item.replace(" ", ""))
-
+    
     ExonSeq = {}
     TransSeq = {}
     
+    if 'Exon1' not in Exons:
+        ExonIDs = [int(s) for s in re.findall(r'\d+', Exons)]
+        ExonIDs.sort(reverse = True)
+        maxID = ExonIDs[0]
+        Exons = ','.join(['Exon'+str(s+1) for s in range(maxID)])
+    
     for tp in HLAtyping:
-        Refseq = readIMGTsql(tp, field = Exons)
+        Refseq = readIMGTsql(tp, db_fp, field = Exons)
         DNAseq = ''
         for seq in Refseq:
             DNAseq += seq

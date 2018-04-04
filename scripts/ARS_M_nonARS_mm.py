@@ -25,6 +25,7 @@ Stats_Dict = IMGTdbIO.load_pickle2dict(Group_fname)
 CaseStats = Stats_Dict['CaseStats']
 LocusStats = Stats_Dict['LocusStats']
 
+db_fp= '../Database/'
 #key = '84571'
 #CaseStats[key] 
 #key in group_caseIDs
@@ -258,7 +259,7 @@ for caseID, Records in CaseMatchTable.items():
                                 #    else:
                                 #        Exons += ', ' + ExonList[i]
                                         
-                                if not IMGTdbIO.checkSynonymMutation(FullField, 'Exon1, Exon2, Exon3'): # non-synonymous
+                                if not IMGTdbIO.checkSynonymMutation(FullField, 'Exon1, Exon2, Exon3', db_fp): # non-synonymous
                                     AllField_allele_stats[locus][FullField]['ARS_nonSynonymous'].append(caseID)
                                     TwoField_allele_stats[locus][TwoField]['ARS_nonSynonymous'].append(caseID)
                                     
@@ -275,7 +276,7 @@ for caseID, Records in CaseMatchTable.items():
                                     else:
                                         Exons += ', ' + ExonList[i]
                                         
-                                if not IMGTdbIO.checkSynonymMutation(FullField, Exons): # non-synonymous
+                                if not IMGTdbIO.checkSynonymMutation(FullField, Exons, db_fp): # non-synonymous
                                     AllField_allele_stats[locus][FullField]['non_ARS_exon_nonSyn'].append(caseID)
                                     TwoField_allele_stats[locus][TwoField]['non_ARS_exon_nonSyn'].append(caseID)
 
@@ -283,15 +284,15 @@ for caseID, Records in CaseMatchTable.items():
                                 AllField_allele_stats[locus][FullField]['Intron'].append(caseID)
                                 TwoField_allele_stats[locus][TwoField]['Intron'].append(caseID)
 
-out_fp = '../Output/SG39/2018/SG39_Stats/fiveLoci_paired_cases/' # /fiveLoci_paired_cases/ ; allLoci_paired_cases
+out_fp = '../Output/SG39/2018/SG39_Stats/fiveLoci_paired_cases_0328/' # /fiveLoci_paired_cases/ ; allLoci_paired_cases
 Loci_num = 'fiveLoci_'
 for locus in Five_loci:
-    with open(out_fp +'AllField/MisMatchCases/HLA_'+locus+'_'+Loci_num+'PairedCases_corrected_wNonSyn_0125.csv', 'w+') as csv_file:
+    with open(out_fp +'AllField/MisMatchCases/HLA_'+locus+'_'+Loci_num+'PairedCases_corrected_wNonSyn_0328.csv', 'w+') as csv_file:
         writer = csv.writer(csv_file)
         for key, value in AllField_allele_stats[locus].items():
            writer.writerow([key, value['ARS'], value['ARS_nonSynonymous'], value['non_ARS_exon'], value['non_ARS_exon_nonSyn'], value['Intron']])
     
-    with open(out_fp + 'TwoField/MisMatchCases/HLA_'+locus+'_'+Loci_num+'PairedCases_corrected_wNonSyn_0125.csv', 'w+') as csv_file:
+    with open(out_fp + 'TwoField/MisMatchCases/HLA_'+locus+'_'+Loci_num+'PairedCases_corrected_wNonSyn_0328.csv', 'w+') as csv_file:
         writer = csv.writer(csv_file)
         for key, value in TwoField_allele_stats[locus].items():
            writer.writerow([key, value['ARS'], value['ARS_nonSynonymous'], value['non_ARS_exon'], value['non_ARS_exon_nonSyn'], value['Intron']])
@@ -332,14 +333,14 @@ for locus in Five_loci:
     print('Locus '+locus+ ' Two-Field allele count: '+str(len(HLA_twoField_allele_count[locus])))
     
 ### Write to csv
-out_fp = '../Output/SG39/2018/SG39_Stats/fiveLoci_paired_cases/' 
+out_fp = '../Output/SG39/2018/SG39_Stats/fiveLoci_paired_cases_0328/' 
 for locus in Five_loci:
-    with open(out_fp + 'AllField/AlleleCount/HLA_'+locus+'_'+Loci_num+'Cases_Corrected.csv', 'w+') as csv_file:
+    with open(out_fp + 'AllField/AlleleCount/HLA_'+locus+'_'+Loci_num+'Cases_Corrected_0328.csv', 'w+') as csv_file:
         writer = csv.writer(csv_file)
         for key, value in HLA_AF_allele_name_count[locus].items():
            writer.writerow([key, value])
     
-    with open(out_fp + 'TwoField/AlleleCount/HLA_'+locus+'_'+Loci_num+'Cases_Corrected.csv', 'w+') as csv_file:
+    with open(out_fp + 'TwoField/AlleleCount/HLA_'+locus+'_'+Loci_num+'Cases_Corrected_0328.csv', 'w+') as csv_file:
         writer = csv.writer(csv_file)
         for key, value in HLA_TF_allele_name_count[locus].items():
            writer.writerow([key, value])
@@ -378,7 +379,7 @@ for locus in Five_loci:
     print('Locus '+locus+ ' Mismatched Two-Field allele count: '+str(len(HLA_TF_allele_MisMatch_name_count[locus])))
 
 ## save
-out_fp = '../Output/SG39/2018/SG39_Stats/fiveLoci_paired_cases/' # /fiveLoci_paired_cases/ ; allLoci_paired_cases
+out_fp = '../Output/SG39/2018/SG39_Stats/fiveLoci_paired_cases_0328/' # /fiveLoci_paired_cases/ ; allLoci_paired_cases
 for locus in Five_loci:
     with open(out_fp + 'AllField/MisMatchCount/HLA_AllField_'+locus+'_MismatchedCounts_'+Loci_num+'Cases_Corrected_wNonSyn.csv', 'w+') as csv_file:
         writer = csv.writer(csv_file)

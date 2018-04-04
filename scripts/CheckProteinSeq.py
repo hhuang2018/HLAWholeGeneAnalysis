@@ -9,14 +9,28 @@ from utils import IMGTdbIO
 from Bio.Seq import Seq
 from Bio.Alphabet import generic_dna
 
-typing1 = 'A*02:01:01:01'
-Refseq1 = IMGTdbIO.readIMGTsql(typing1, field = 'Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7, Exon8')
+typing1 = 'A*23:17'
+Refseq1 = IMGTdbIO.readIMGTsql(typing1, db_fp= '../Database/', field = 'Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7, Exon8')
 
-typing2 = 'A*02:05:01'
-Refseq2 = IMGTdbIO.readIMGTsql(typing2, field = 'Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7, Exon8')
+typing2 = 'A*23:01:01'
+Refseq2 = IMGTdbIO.readIMGTsql(typing2, db_fp= '../Database/', field = 'Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7, Exon8')
 
-coding_dna = Seq(Refseq1[1], generic_dna)
+coding_dna = Seq(Refseq1, generic_dna)
 coding_dna.translate()
+
+str(coding_dna.translate())
+
+seq = ''
+for i in range(len(Refseq1)):
+    seq += Refseq1[i]
+    
+    
+typing1 = 'A*23:17'
+typing2 = 'A*23:01:01'
+HLAtyping = typing1+'_'+typing2
+Exons = 'Exon1, Exon2, Exon3, Exon4, Exon5, Exon6, Exon7, Exon8'
+IMGTdbIO.checkSynonymMutation(HLAtyping, Exons, db_fp = '../Database/')
+
 
 ################## 
 ## Check Synonymous
